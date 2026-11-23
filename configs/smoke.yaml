@@ -1,0 +1,15 @@
+model_id: thinkingmachines/TML-d24-varloop-research
+model_revision: TO_BE_PINNED_BEFORE_GPU
+backend: transformers
+loop_num_passes: 1
+reasoning_effort: medium
+temperature: 0.0
+top_p: 1.0
+repetition_penalty: 1.0
+max_new_tokens: 512
+stop: []
+image_size: [768, 768]
+color_mode: RGB
+render_version: matplotlib-3.8.4
+concurrency: 1
+seed: 20261123
