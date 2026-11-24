@@ -2,12 +2,20 @@ import re
 
 _NUMBER_RE = re.compile(r"(?<![A-Za-z_])[-+]?\d+(?:,\d{3})*(?:\.\d+)?")
 _FINAL_PATTERNS = (
-    re.compile(r"\\boxed\{\s*([-+]?\d+(?:,\d{3})*(?:\.\d+)?)\s*\}"),
+    re.compile(r"\\boxed\{\s*([-+]?\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:\\circ|°)?\s*\}"),
     re.compile(
-        r"(?:final\s+answer|computed\s+answer|answer)\s*(?:is|:|=)\s*([-+]?\d+(?:,\d{3})*(?:\.\d+)?)",
+        r"(?:final\s+answer|computed\s+answer|answer)\s*(?:is|:|=)\s*\*{0,2}\s*([-+]?\d+(?:,\d{3})*(?:\.\d+)?)",
         re.IGNORECASE,
     ),
 )
+_TRAILING_NOTE_RE = re.compile(r"(?:\n+\s*(?:note|aside|remark)\s*:.*)+$", re.IGNORECASE | re.S)
+_TRAILING_PAREN_RE = re.compile(r"(?:\s*\([^()]*\)\s*)+$")
+
+
+def _strip_trailing_asides(text: str) -> str:
+    cleaned = _TRAILING_NOTE_RE.sub("", text.strip())
+    cleaned = _TRAILING_PAREN_RE.sub("", cleaned).strip()
+    return cleaned or text
 
 
 def extract_number(text) -> float | None:
@@ -17,7 +25,10 @@ def extract_number(text) -> float | None:
         found = pat.findall(text)
         if found:
             return float(found[-1].replace(",", ""))
-    matches = _NUMBER_RE.findall(text)
+    primary = _strip_trailing_asides(text)
+    matches = _NUMBER_RE.findall(primary)
+    if not matches:
+        matches = _NUMBER_RE.findall(text)
     if not matches:
         return None
     return float(matches[-1].replace(",", ""))

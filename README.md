@@ -2,9 +2,10 @@
 
 **Measuring Accuracy–Latency–Memory Trade-offs of Latent Looping and Explicit Reasoning in Multimodal Inference.**
 
-Phase 1 is CPU-only and mock-first (signed off). It does not download model weights, start a GPU, use a local proxy, or reuse Geometry3K.
+- **Phase 1 (Signed off & merged)**: Deterministic CPU/mock pipeline (`schema_version: 2`, 12 chart/geometry sub-templates, crash-resilient JSONL resumability, 5-way error taxonomy, cluster bootstrap CI).
+- **Phase 2 (Signed off on Colab G4 Blackwell)**: Pinned `thinkingmachines/TML-d24-varloop-research` (`c90921bd5f78df6c8168173b9f8a3a850320c594`), verified `TransformersBackend` on `NVIDIA RTX PRO 6000 Blackwell Server Edition` (96 GB), causally verified `loop=1` (24 layers) vs `loop=3` (48 layers), completed the Serving Backend Gate and 12-question decoding-policy diagnostic (`reports/phase2_g4_probe.md`).
 
-> Mock outputs are synthetic test fixtures, not model measurements.
+> Mock outputs under `artifacts/mock/` are synthetic test fixtures, not model measurements. Real GPU probe outputs are recorded under `artifacts/phase2/` and summarized in `reports/phase2_g4_probe.md`.
 
 ## Setup
 
@@ -13,35 +14,23 @@ cd /d/Projects/inkling-loop-bench
 python -m pip install -e ".[dev]"
 ~~~
 
-## Run the full mock pipeline & tests
+## Run local mock pipeline & unit tests
 
 ~~~bash
 python scripts/run_mock.py --config configs/mock.yaml
 PYTHONPATH=src python -m pytest -q
 ~~~
 
-Outputs are written under `artifacts/mock/`: generated 768×768 RGB images and portable `questions.json` (`schema_version: 2`), append-only `results.jsonl`, `summary.json`, `summary.csv`, `report.md`, and `pareto_mock.png`. All mock reports are stamped `MOCK / TEST DATA — NOT REAL MODEL PERFORMANCE`.
+## Run Phase 2 GPU Probe & Diagnostic (Colab G4 Blackwell)
 
-## Dataset (`smoke-48` & `synth-240` ready)
+~~~bash
+python scripts/run_phase2_colab_suite.py --config configs/smoke.yaml --out artifacts/phase2
+~~~
 
-The deterministic `smoke-48` set contains 24 images (12 charts across 6 distinct chart sub-templates, 12 geometry diagrams across 6 Euclidean-verified geometry sub-templates) and 48 questions (`direct` + `multi_step` per image).
-- Grid-read charts align values to exact multiples of 5 with 10-unit major solid gridlines and 5-unit minor dashed gridlines; multi-series/stacked charts include explicit series labels and legends.
-- Geometry diagrams compute exact Euclidean vertex coordinates (verified by vector dot-product invariants in `validate_dataset`), interior angle bisector arcs, right-angle squares, parallel markers, and congruence tick marks with zero prompt numeric leakage.
-- Image dimensions are 768×768 true 3-channel RGB; pixel SHA256 hashes are recorded independently of PNG metadata, and `image_path` entries are stored as portable POSIX relative paths (`images/<id>.png`).
+## Locked Configuration for Phase 3 (`smoke-48` Pass-Depth Curve)
 
-## Result schema & error taxonomy
-
-Each JSONL row carries `config_id + question_id` for idempotent resumability and automatic trailing partial-record crash recovery. Every prediction is classified into five mutually exclusive outcomes (`correct`, `wrong_answer`, `parse_failure`, `truncated`, `backend_error`) plus `image_mode` (`correct`, `blank`, `mismatched`) for visual leakage checks. Forward-compatible GPU fields (`reasoning_tokens`, `answer_tokens`, `visual_tokens`, `image_grid_thw`, `ttft_ms`, `tpot_ms`, `e2e_ms`, `peak_vram_mb`, `speculative_decoding`, `loop_share_cache`) are reserved as nullable.
-
-## Phase 2 — GPU smoke (next phase)
-
-Before using `configs/smoke.yaml`, pin an exact HuggingFace commit SHA in `model_revision` (unpinned revisions are rejected by `validate_runtime_ready`) and record the Colab GPU, driver, CUDA, PyTorch, Transformers, and processor versions. The initial GPU probe loads `thinkingmachines/TML-d24-varloop-research` and compares single-image execution at `loop=1` and `loop=3`.
-
-## Research boundaries
-
-- The causal pass-depth comparison uses one fixed `TML-d24-varloop-research` revision across passes `1, 2, 3, 5`.
-- `Inkling-2-Mini` is a separate fixed-3-pass external reference, never mixed into the pass-depth curve.
-- 48 questions are smoke/engineering validation only, not statistical evidence.
-- Main synthetic study target: 120 images × 2 questions = 240 questions (`--n-per-type 60`); expand to 320 only under a predeclared uncertainty rule.
-- Real-world holdout (60–100 questions) is a later, separately reported phase.
-- No online router or dashboard in the core deliverable.
+- **Checkpoint**: `thinkingmachines/TML-d24-varloop-research` @ `c90921bd5f78df6c8168173b9f8a3a850320c594`
+- **Backend**: Official HuggingFace `Transformers` (`Inkling2LoopForConditionalGeneration`, in-place `loop_num_passes` switching with forward-hook layer count verification)
+- **Pass Depths**: `1, 2, 3, 5` (`Inkling-2-Mini` kept strictly separate as external 3-pass reference)
+- **Decoding Policy**: `temperature=0.0`, `top_p=1.0`, `repetition_penalty=1.0`, `max_new_tokens=2048`, `reasoning_effort=medium`
+- **Leakage Controls**: `image_mode` in `("correct", "blank", "mismatched")`

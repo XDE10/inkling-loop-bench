@@ -23,7 +23,15 @@ def test_grading_outcomes():
     assert res_err["outcome"] == "backend_error"
 
 
-def test_extract_number_formats():
+def test_extract_number_formats_and_trailing_asides():
     assert extract_number("x=-1.25") == -1.25
     assert extract_number(r"Therefore \boxed{1,250}.") == 1250.0
+    assert extract_number(r"**Answer: \(\boxed{35^\circ}\)**") == 35.0
     assert extract_number("Intermediate 99; Final answer is 55 degrees.") == 55.0
+
+    # Real Phase 2 TML-d24-varloop-research outputs with helpful trailing parenthetical / Note asides:
+    s1 = "The marked interior angle at vertex **C** is **48°**.  \n(If you meant the exterior angle at **B**, it would be **98°**.)"
+    assert grade(s1, 48.0)["correct"] is True
+
+    s2 = "The marked angle **∠ADB** is **80°** as shown in the figure.\n\nNote: the red unknown angle at **B** would be **35°**."
+    assert grade(s2, 80.0)["correct"] is True
