@@ -1,0 +1,15 @@
+model_id: thinkingmachines/TML-d24-varloop-research
+model_revision: c90921bd5f78df6c8168173b9f8a3a850320c594
+backend: transformers
+loop_num_passes: 1
+reasoning_effort: medium
+temperature: 0.0
+top_p: 1.0
+repetition_penalty: 1.0
+max_new_tokens: 2048
+stop: []
+image_size: native
+color_mode: RGB
+render_version: chartqa-b605b6e0-native
+concurrency: 1
+seed: 20261125

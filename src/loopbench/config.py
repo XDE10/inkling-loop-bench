@@ -46,8 +46,9 @@ def validate_config_dict(data: dict) -> dict:
         raise ValueError("repetition_penalty must be positive")
     if int(data["max_new_tokens"]) <= 0 or int(data["concurrency"]) <= 0:
         raise ValueError("max_new_tokens and concurrency must be positive")
-    if list(data["image_size"]) != [768, 768]:
-        raise ValueError("Phase 1 requires fixed 768x768 images")
+    img_sz = data["image_size"]
+    if img_sz != "native" and list(img_sz) != [768, 768]:
+        raise ValueError("image_size must be [768, 768] or 'native'")
     if data["color_mode"] != "RGB":
         raise ValueError("color_mode must be RGB")
     if not isinstance(data["stop"], list):
@@ -55,8 +56,10 @@ def validate_config_dict(data: dict) -> dict:
     image_mode = data.get("image_mode", "correct")
     if image_mode not in VALID_IMAGE_MODES:
         raise ValueError(f"image_mode must be one of {VALID_IMAGE_MODES}")
+    if "loop_share_cache" in data and data["loop_share_cache"] is not None and not isinstance(data["loop_share_cache"], bool):
+        raise ValueError("loop_share_cache must be bool or None")
     normalized = dict(data)
-    normalized["image_size"] = [768, 768]
+    normalized["image_size"] = "native" if img_sz == "native" else [768, 768]
     normalized["image_mode"] = image_mode
     return normalized
 
