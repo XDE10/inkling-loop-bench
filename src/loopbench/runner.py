@@ -104,6 +104,9 @@ def run(config: dict, dataset_dir, output_path, backend=None, progress_callback=
             effective_img = resolve_image_path(ds_root, q["image_path"])
 
         q_input = {**q, "resolved_image_path": str(effective_img)}
+        difficulty = q.get("metadata", {}).get("difficulty") or (
+            "hard" if "-v2-" in str(q.get("template_id") or "") else "standard"
+        )
         start = time.perf_counter()
         try:
             response = active_backend.generate(q_input, validated)
@@ -121,6 +124,7 @@ def run(config: dict, dataset_dir, output_path, backend=None, progress_callback=
                 "question_id": q["question_id"],
                 "image_id": q["image_id"],
                 "template_id": q.get("template_id"),
+                "difficulty": difficulty,
                 "modality": q["modality"],
                 "task_type": q["task_type"],
                 "image_mode": image_mode,
@@ -138,6 +142,7 @@ def run(config: dict, dataset_dir, output_path, backend=None, progress_callback=
                 "question_id": q["question_id"],
                 "image_id": q["image_id"],
                 "template_id": q.get("template_id"),
+                "difficulty": difficulty,
                 "modality": q["modality"],
                 "task_type": q["task_type"],
                 "image_mode": image_mode,
