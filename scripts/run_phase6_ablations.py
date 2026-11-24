@@ -152,8 +152,16 @@ def build_offline_oracle_suite(
 def _render_oracle_figure(suites: dict[str, dict], any_mock: bool, out_path: Path) -> None:
     names = list(suites.keys())[:4]
     n_panels = len(names)
-    with matplotlib.rc_context({"font.family": "DejaVu Sans", "font.size": 10}):
-        fig, axes = plt.subplots(1, n_panels, figsize=(5.2 * n_panels, 4.6), dpi=140)
+    titles = {
+        "phase4_synth240_pass_oracle": "A. Phase 4 synth-240 Pass Oracle",
+        "phase4_synth320_pass_oracle": "A. Phase 4 synth-320 Pass Oracle",
+        "phase4_synth240_hard_multistep_oracle": "B. Phase 4 Hard Multi-Step Subset",
+        "phase4_synth320_hard_multistep_oracle": "B. Phase 4 Hard Multi-Step Subset",
+        "phase5_joint_effort_pass_oracle": "C. Phase 5 Joint Effort × Pass (12 cells)",
+        "phase5_chartqa80_holdout_oracle": "D. Phase 5 ChartQA-80 Holdout Oracle",
+    }
+    with matplotlib.rc_context({"font.family": "DejaVu Sans", "font.size": 9.5}):
+        fig, axes = plt.subplots(1, n_panels, figsize=(5.5 * n_panels, 4.8), dpi=150)
         if n_panels == 1:
             axes = [axes]
         for ax, name in zip(axes, names):
@@ -162,20 +170,37 @@ def _render_oracle_figure(suites: dict[str, dict], any_mock: bool, out_path: Pat
             xs = [(p["e2e_mean_ms"] or 0.0) / 1000.0 for p in fps]
             ys = [(p["accuracy"] or 0.0) * 100.0 for p in fps]
             ax.scatter(xs, ys, s=55, color="#2E75B6", label="Fixed Policies", zorder=3)
-            for x_v, y_v, p in zip(xs, ys, fps):
-                ax.annotate(p["config_label"], (x_v, y_v), textcoords="offset points", xytext=(4, 4), fontsize=7.5)
+            # Sort by (x, y) so nearby points alternate label vertical offsets cleanly
+            indexed = sorted(enumerate(fps), key=lambda t: (xs[t[0]], ys[t[0]]))
+            for rank, (idx, p) in enumerate(indexed):
+                lbl = p["config_label"]
+                if len(fps) > 6:
+                    # Compact label for 12-cell grid: e.g. low_loop3 -> L-3
+                    parts = lbl.split("_loop")
+                    short = {"none": "N", "low": "L", "medium": "M", "high": "H"}.get(parts[0], parts[0])
+                    lbl = f"{short}-p{parts[1]}" if len(parts) == 2 else lbl
+                    dy = 6 if (rank % 2 == 0) else -11
+                    dx = 4 if (rank % 3 != 2) else -18
+                else:
+                    dy = 5 if (rank % 2 == 0) else -11
+                    dx = 4
+                ax.annotate(lbl, (xs[idx], ys[idx]), textcoords="offset points", xytext=(dx, dy), fontsize=7.8)
             ro = s["router_oracle"]
             co = s["cascade_oracle"]
-            ax.scatter([ro["e2e_mean_ms"] / 1000.0], [ro["accuracy"] * 100.0], marker="*", s=165, color="#C00000", label="Router Oracle", zorder=5)
-            ax.scatter([co["e2e_mean_ms"] / 1000.0], [co["accuracy"] * 100.0], marker="D", s=70, color="#70AD47", label="Cascade Oracle", zorder=4)
+            all_ys = ys + [ro["accuracy"] * 100.0, co["accuracy"] * 100.0]
+            ax.scatter([ro["e2e_mean_ms"] / 1000.0], [ro["accuracy"] * 100.0], marker="*", s=175, color="#C00000", label="Router Oracle", zorder=5)
+            ax.scatter([co["e2e_mean_ms"] / 1000.0], [co["accuracy"] * 100.0], marker="D", s=72, color="#70AD47", label="Cascade Oracle", zorder=4)
             ax.set_xlabel("Mean E2E Latency (s)")
             ax.set_ylabel("Accuracy (%)")
-            ax.set_ylim(-5, 108)
+            y_lo = max(0.0, min(all_ys) - 8.0)
+            y_hi = min(103.5, max(all_ys) + 4.5)
+            ax.set_ylim(y_lo, y_hi)
+            ax.margins(x=0.14)
             ax.grid(True, alpha=0.3)
             ax.legend(loc="lower right", fontsize=8.0)
-            ax.set_title(name.replace("_", " "))
-        fig.suptitle(MOCK_STAMP if any_mock else "LoopBench Phase 6: Fixed Policies vs Offline Adaptive Oracles", fontweight="bold")
-        fig.tight_layout(rect=(0, 0, 1, 0.94))
+            ax.set_title(titles.get(name, name.replace("_", " ")), fontweight="bold", fontsize=10.0)
+        fig.suptitle(MOCK_STAMP if any_mock else "LoopBench Phase 6: Fixed Policies vs Offline Adaptive Oracles", fontweight="bold", fontsize=11.5)
+        fig.tight_layout(rect=(0, 0, 1, 0.93))
         fig.savefig(out_path, metadata={"Software": "LoopBench"})
         plt.close(fig)
 
