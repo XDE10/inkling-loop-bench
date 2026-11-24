@@ -1,5 +1,5 @@
 import pytest
-from loopbench.backends import create_backend
+from loopbench.backends import TransformersBackend, create_backend
 from loopbench.config import load_config, validate_runtime_ready
 
 
@@ -16,14 +16,17 @@ def test_requires_explicit_values(tmp_path):
         load_config(p)
 
 
-def test_smoke_config_blocks_unpinned_gpu_execution():
+def test_smoke_config_pinned_and_unpinned_guard():
     c = load_config("configs/smoke.yaml")
     assert c["backend"] == "transformers"
+    assert len(c["model_revision"]) == 40
+    validate_runtime_ready(c)
+    backend = create_backend(c)
+    assert isinstance(backend, TransformersBackend)
+
+    unpinned = {**c, "model_revision": "TO_BE_PINNED_BEFORE_GPU"}
     with pytest.raises(ValueError, match="model_revision"):
-        validate_runtime_ready(c)
-    c_pinned = {**c, "model_revision": "abcdef1234567890"}
-    with pytest.raises(NotImplementedError, match="Phase 2"):
-        create_backend(c_pinned)
+        validate_runtime_ready(unpinned)
 
 
 def test_invalid_loop_passes_and_image_mode(tmp_path):
