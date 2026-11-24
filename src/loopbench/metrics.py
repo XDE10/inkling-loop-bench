@@ -28,6 +28,12 @@ def _infer_outcome(row: dict) -> str:
     return "correct" if row.get("correct") else "wrong_answer"
 
 
+def infer_difficulty(row: dict) -> str:
+    if row.get("difficulty"):
+        return str(row["difficulty"])
+    return "hard" if "-v2-" in str(row.get("template_id") or "") else "standard"
+
+
 def summarize(rows: list[dict]) -> dict:
     n = len(rows)
     outcomes = {
@@ -73,11 +79,24 @@ def summarize(rows: list[dict]) -> dict:
                 vals[row[key]].append(_infer_outcome(row) == "correct")
         by[key] = {k: sum(v) / len(v) for k, v in sorted(vals.items())}
 
+    diff_vals = defaultdict(list)
+    diff_task_vals = defaultdict(list)
+    mod_diff_vals = defaultdict(list)
     mod_task_vals = defaultdict(list)
     for row in rows:
+        is_ok = _infer_outcome(row) == "correct"
+        diff = infer_difficulty(row)
+        diff_vals[diff].append(is_ok)
+        if row.get("task_type") is not None:
+            diff_task_vals[f"{diff}/{row['task_type']}"].append(is_ok)
+        if row.get("modality") is not None:
+            mod_diff_vals[f"{row['modality']}/{diff}"].append(is_ok)
         if row.get("modality") is not None and row.get("task_type") is not None:
-            cell = f"{row['modality']}/{row['task_type']}"
-            mod_task_vals[cell].append(_infer_outcome(row) == "correct")
+            mod_task_vals[f"{row['modality']}/{row['task_type']}"].append(is_ok)
+
+    by_difficulty = {k: sum(v) / len(v) for k, v in sorted(diff_vals.items())}
+    by_difficulty_task = {k: sum(v) / len(v) for k, v in sorted(diff_task_vals.items())}
+    by_modality_difficulty = {k: sum(v) / len(v) for k, v in sorted(mod_diff_vals.items())}
     by_modality_task = {k: sum(v) / len(v) for k, v in sorted(mod_task_vals.items())}
 
     ci = cluster_bootstrap_accuracy_ci(rows)
@@ -113,6 +132,9 @@ def summarize(rows: list[dict]) -> dict:
         "effective_layers_unique": eff_layers,
         "by_modality": by["modality"],
         "by_task_type": by["task_type"],
+        "by_difficulty": by_difficulty,
+        "by_difficulty_task": by_difficulty_task,
+        "by_modality_difficulty": by_modality_difficulty,
         "by_modality_task": by_modality_task,
         "by_template": by["template_id"],
         "accuracy_cluster_bootstrap_95ci": ci,
@@ -192,4 +214,54 @@ def paired_cluster_bootstrap_diff_ci(
             diffs[int(0.025 * (n_boot - 1))],
             diffs[int(0.975 * (n_boot - 1))],
         ],
+    }
+
+
+def evaluate_synth320_extension_rule(
+    paired_diffs: dict[str, dict],
+    max_ci_half_width: float = 0.05,
+    ambiguous_min_abs_diff: float = 0.025,
+    primary_keys: tuple[str, ...] = ("loop3_minus_loop1", "loop5_minus_loop1", "loop5_minus_loop3"),
+) -> dict:
+    """Predeclared Phase 4 uncertainty rule for deciding whether synth-240 must extend to synth-320.
+
+    Triggers extension to synth-320 if and only if on any primary paired comparison:
+      1. The 95% image_id cluster bootstrap CI half-width exceeds `max_ci_half_width` (5.0 pp), OR
+      2. The 95% CI spans zero (ci_lo <= 0 <= ci_hi) while |point diff| >= `ambiguous_min_abs_diff` (2.5 pp).
+    """
+    reasons: list[str] = []
+    inspected: dict[str, dict] = {}
+
+    for key in primary_keys:
+        entry = paired_diffs.get(key)
+        if not entry:
+            continue
+        diff = entry.get("diff_accuracy")
+        ci = entry.get("diff_cluster_bootstrap_95ci") or [None, None]
+        if diff is None or ci[0] is None or ci[1] is None:
+            continue
+        lo, hi = float(ci[0]), float(ci[1])
+        half_w = 0.5 * (hi - lo)
+        spans_zero = lo <= 0.0 <= hi
+        inspected[key] = {
+            "diff_accuracy": round(float(diff), 6),
+            "ci95": [round(lo, 6), round(hi, 6)],
+            "ci_half_width": round(half_w, 6),
+            "spans_zero": spans_zero,
+        }
+        if half_w > max_ci_half_width + 1e-12:
+            reasons.append(
+                f"{key}: 95% CI half-width {half_w*100:.2f} pp exceeds {max_ci_half_width*100:.1f} pp threshold"
+            )
+        if spans_zero and abs(float(diff)) >= ambiguous_min_abs_diff - 1e-12:
+            reasons.append(
+                f"{key}: zero-spanning 95% CI [{lo*100:.2f}%, {hi*100:.2f}%] with |diff|={abs(float(diff))*100:.2f} pp >= {ambiguous_min_abs_diff*100:.1f} pp"
+            )
+
+    return {
+        "trigger_synth320": bool(reasons),
+        "max_ci_half_width_threshold": max_ci_half_width,
+        "ambiguous_min_abs_diff_threshold": ambiguous_min_abs_diff,
+        "primary_comparisons_checked": inspected,
+        "reasons": reasons,
     }
