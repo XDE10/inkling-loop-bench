@@ -5,6 +5,7 @@ __pycache__/
 venv/
 artifacts/*
 !artifacts/.gitkeep
+*.sqlite3*
 *.egg-info/
 dist/
 build/
