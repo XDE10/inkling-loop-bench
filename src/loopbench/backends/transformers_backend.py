@@ -13,10 +13,17 @@ _THINK_RE = re.compile(r"<\|content_thinking\|>(.*?)(?:<\|end_message\|>|$)", re
 _TEXT_RE = re.compile(r"<\|content_text\|>(.*?)(?:<\|end_message\|>|<\|content_model_end_sampling\|>|$)", re.S)
 
 _MODEL_CACHE: dict[tuple[str, str], tuple[Any, Any, float]] = {}
+_CACHE_STATS: dict[str, int] = {"loads": 0, "hits": 0}
 
 
 def clear_model_cache() -> None:
     _MODEL_CACHE.clear()
+    _CACHE_STATS["loads"] = 0
+    _CACHE_STATS["hits"] = 0
+
+
+def get_model_cache_stats() -> dict[str, int]:
+    return dict(_CACHE_STATS)
 
 
 def parse_inkling_output(gen_ids: list[int], tokenizer: Any, raw_text: str) -> dict[str, Any]:
@@ -94,17 +101,20 @@ class TransformersBackend(Backend):
     def __init__(self, loader=None):
         self._loader = loader
 
-    def _get_model_and_processor(self, config: dict) -> tuple[Any, Any, float]:
+    def _get_model_and_processor(self, config: dict) -> tuple[Any, Any, float, bool]:
         key = (config["model_id"], str(config["model_revision"]))
         if key in _MODEL_CACHE:
-            return _MODEL_CACHE[key]
+            _CACHE_STATS["hits"] += 1
+            model, processor, load_s = _MODEL_CACHE[key]
+            return model, processor, load_s, True
 
         if self._loader is not None:
             t0 = time.perf_counter()
             model, processor = self._loader(config)
             load_s = time.perf_counter() - t0
             _MODEL_CACHE[key] = (model, processor, load_s)
-            return model, processor, load_s
+            _CACHE_STATS["loads"] += 1
+            return model, processor, load_s, False
 
         import torch
         from transformers import AutoModelForMultimodalLM, AutoProcessor
@@ -123,7 +133,8 @@ class TransformersBackend(Backend):
         model.eval()
         load_s = time.perf_counter() - t0
         _MODEL_CACHE[key] = (model, processor, load_s)
-        return model, processor, load_s
+        _CACHE_STATS["loads"] += 1
+        return model, processor, load_s, False
 
     def generate(self, question: dict, config: dict) -> dict:
         import torch
@@ -133,7 +144,7 @@ class TransformersBackend(Backend):
         if not image_path or not Path(image_path).is_file():
             raise FileNotFoundError(f"Missing image file: {image_path}")
 
-        model, processor, load_s = self._get_model_and_processor(config)
+        model, processor, load_s, cache_hit = self._get_model_and_processor(config)
         passes = int(config["loop_num_passes"])
         expected_effective_layers = apply_loop_num_passes(model, passes)
 
@@ -307,7 +318,9 @@ class TransformersBackend(Backend):
             "tpot_ms": tpot_ms,
             "e2e_ms": e2e_ms,
             "peak_vram_mb": peak_vram_mb,
-            "model_load_s": load_s,
+            "model_load_s": 0.0 if cache_hit else load_s,
+            "initial_model_load_s": load_s,
+            "model_cache_hit": cache_hit,
             "speculative_decoding": False,
             "loop_share_cache": False,
             "is_mock": False,
