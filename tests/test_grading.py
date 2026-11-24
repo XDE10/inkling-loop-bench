@@ -35,3 +35,13 @@ def test_extract_number_formats_and_trailing_asides():
 
     s2 = "The marked angle **∠ADB** is **80°** as shown in the figure.\n\nNote: the red unknown angle at **B** would be **35°**."
     assert grade(s2, 80.0)["correct"] is True
+
+    s3 = "The marked angle **ADB** is **80°**.\n\nIf you meant the red unknown angle at **B** (∠DBC), it is **35°**."
+    assert grade(s3, 80.0)["correct"] is True
+
+    s4 = "The marked interior angle at vertex **C** is **48°**.\n\n(Note: the exterior angle at B would be \\(50^\\circ + 48^\\circ = 98^\\circ\\).)"
+    assert grade(s4, 48.0)["correct"] is True
+
+    assert extract_number(r"Result: \boxed{65\text{ units}} (where max was 90).") == 65.0
+    assert extract_number(r"Result: \boxed{35^\circ} in triangle CBD (with C = 45^\circ).") == 35.0
+    assert extract_number(r"**Answer**: \(40^\circ\)") == 40.0

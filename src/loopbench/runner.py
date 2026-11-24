@@ -72,7 +72,7 @@ def compute_config_id(config: dict) -> str:
     return hashlib.sha256(json.dumps(canonical, sort_keys=True).encode("utf-8")).hexdigest()[:12]
 
 
-def run(config: dict, dataset_dir, output_path, backend=None) -> dict:
+def run(config: dict, dataset_dir, output_path, backend=None, progress_callback=None) -> dict:
     validated = validate_config_dict(config)
     ds_root = Path(dataset_dir)
     out_file = Path(output_path)
@@ -90,7 +90,8 @@ def run(config: dict, dataset_dir, output_path, backend=None) -> dict:
     )
 
     count = 0
-    for q in questions:
+    total_q = len(questions)
+    for idx, q in enumerate(questions, 1):
         key = (config_id, q["question_id"])
         if key in done:
             continue
@@ -115,6 +116,8 @@ def run(config: dict, dataset_dir, output_path, backend=None) -> dict:
             row = {
                 **OPTIONAL,
                 "config_id": config_id,
+                "loop_num_passes": int(validated["loop_num_passes"]),
+                "reasoning_effort": validated["reasoning_effort"],
                 "question_id": q["question_id"],
                 "image_id": q["image_id"],
                 "template_id": q.get("template_id"),
@@ -130,6 +133,8 @@ def run(config: dict, dataset_dir, output_path, backend=None) -> dict:
             row = {
                 **OPTIONAL,
                 "config_id": config_id,
+                "loop_num_passes": int(validated["loop_num_passes"]),
+                "reasoning_effort": validated["reasoning_effort"],
                 "question_id": q["question_id"],
                 "image_id": q["image_id"],
                 "template_id": q.get("template_id"),
@@ -150,10 +155,12 @@ def run(config: dict, dataset_dir, output_path, backend=None) -> dict:
         append_jsonl(out_file, row)
         done.add(key)
         count += 1
+        if progress_callback is not None:
+            progress_callback(idx, total_q, row)
 
     return {
         "config_id": config_id,
         "new_rows": count,
-        "total_questions": len(questions),
+        "total_questions": total_q,
         "image_mode": image_mode,
     }

@@ -2,18 +2,32 @@ import re
 
 _NUMBER_RE = re.compile(r"(?<![A-Za-z_])[-+]?\d+(?:,\d{3})*(?:\.\d+)?")
 _FINAL_PATTERNS = (
-    re.compile(r"\\boxed\{\s*([-+]?\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:\\circ|°)?\s*\}"),
     re.compile(
-        r"(?:final\s+answer|computed\s+answer|answer)\s*(?:is|:|=)\s*\*{0,2}\s*([-+]?\d+(?:,\d{3})*(?:\.\d+)?)",
+        r"\\boxed\{\s*(?:\\(?:mathbf|textbf|mathrm)\{\s*)?([-+]?\d+(?:,\d{3})*(?:\.\d+)?)\s*\}?"
+        r"\s*(?:\^?\{?\\circ\}?|°|\\text\{[^}]*\}|\s*[A-Za-z%°]*)?\s*\}"
+    ),
+    re.compile(
+        r"(?:final\s+answer|computed\s+answer|answer)\s*\*{0,2}\s*(?:is|:|=)\s*\*{0,2}"
+        r"\s*(?:\\\(|\\\[|\$)*\s*(?:\\boxed\{\s*)?(?:\\(?:mathbf|textbf|mathrm)\{\s*)?"
+        r"([-+]?\d+(?:,\d{3})*(?:\.\d+)?)",
         re.IGNORECASE,
     ),
 )
-_TRAILING_NOTE_RE = re.compile(r"(?:\n+\s*(?:note|aside|remark)\s*:.*)+$", re.IGNORECASE | re.S)
+_TRAILING_NOTE_RE = re.compile(
+    r"(?:(?:\n+|\s{2,}|\.\s+)(?:note|aside|remark)\s*:.*|"
+    r"(?:\n+|\.\s+)(?:if\s+you\s+(?:meant|mean|are\s+asking)|in\s+case\s+you\s+meant)\b.*)+$",
+    re.IGNORECASE | re.S,
+)
+_TRAILING_NOTE_PAREN_RE = re.compile(
+    r"\s*\(\s*(?:note|aside|remark|if\s+you\s+(?:meant|mean))\b[\s\S]*\)\s*$",
+    re.IGNORECASE,
+)
 _TRAILING_PAREN_RE = re.compile(r"(?:\s*\([^()]*\)\s*)+$")
 
 
 def _strip_trailing_asides(text: str) -> str:
-    cleaned = _TRAILING_NOTE_RE.sub("", text.strip())
+    cleaned = _TRAILING_NOTE_PAREN_RE.sub("", text.strip())
+    cleaned = _TRAILING_NOTE_RE.sub("", cleaned.strip())
     cleaned = _TRAILING_PAREN_RE.sub("", cleaned).strip()
     return cleaned or text
 
