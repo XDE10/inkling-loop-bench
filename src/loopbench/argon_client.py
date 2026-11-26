@@ -64,10 +64,6 @@ def load_opencode_keys(keys_file: str | Path | None = None) -> list[str]:
     env_file = os.environ.get("OPENCODE_GO_KEYS_FILE", "").strip()
     if env_file:
         candidates.append(Path(env_file))
-    candidates.extend([
-        Path(r"D:\Users\Mr.Z\Desktop\openapi.txt"),
-        Path("/mnt/d/Users/Mr.Z/Desktop/openapi.txt"),
-    ])
 
     for path in candidates:
         if path.is_file():
@@ -79,7 +75,7 @@ def load_opencode_keys(keys_file: str | Path | None = None) -> list[str]:
             if keys:
                 return keys
     raise FileNotFoundError(
-        "No OpenCode Go API keys found. Provide `keys_file` or set `OPENCODE_GO_KEYS_FILE`."
+        "No OpenCode Go API keys found. Provide `keys_file`, set `OPENCODE_GO_KEYS`, or set `OPENCODE_GO_KEYS_FILE`."
     )
 
 

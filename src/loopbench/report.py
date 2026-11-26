@@ -1158,6 +1158,21 @@ def _render_effort_matrix_figure(
         ax_pareto, ax_pass, ax_tok, ax_task = axes[0, 0], axes[0, 1], axes[1, 0], axes[1, 1]
 
         # Panel A: Joint Accuracy vs Latency Pareto Space
+        eff_label_offsets = {
+            ("none", 1): (6, -12),
+            ("none", 3): (6, 6),
+            ("none", 5): (6, -12),
+            ("low", 1): (6, -12),
+            ("low", 3): (6, 6),
+            ("low", 5): (6, 6),
+            ("medium", 1): (6, 6),
+            ("medium", 3): (-36, 7),
+            ("medium", 5): (6, 6),
+            ("high", 1): (6, -12),
+            ("high", 3): (6, -12),
+            ("high", 5): (-38, 7),
+        }
+        all_pareto_ys: list[float] = []
         for eff in efforts:
             xs, ys = [], []
             for p in passes:
@@ -1169,11 +1184,13 @@ def _render_effort_matrix_figure(
                 y_a = (s["accuracy"] or 0.0) * 100.0
                 xs.append(x_s)
                 ys.append(y_a)
+                all_pareto_ys.append(y_a)
+                dx, dy = eff_label_offsets.get((eff, p), (5, 5))
                 ax_pareto.annotate(
                     f"{eff[:3]}-L{p}",
                     (x_s, y_a),
                     textcoords="offset points",
-                    xytext=(5, 5),
+                    xytext=(dx, dy),
                     fontsize=7.8,
                 )
             if xs:
@@ -1187,9 +1204,11 @@ def _render_effort_matrix_figure(
                 )
         if oracle_analysis and oracle_analysis.get("router_oracle"):
             ro = oracle_analysis["router_oracle"]
+            ro_y = (ro["accuracy"] or 0.0) * 100.0
+            all_pareto_ys.append(ro_y)
             ax_pareto.scatter(
                 [(ro["e2e_p50_ms"] or 0.0) / 1000.0],
-                [(ro["accuracy"] or 0.0) * 100.0],
+                [ro_y],
                 marker="*",
                 s=170,
                 color="#7030A0",
@@ -1198,15 +1217,19 @@ def _render_effort_matrix_figure(
             )
         ax_pareto.set_xlabel("Single-Stream E2E Latency P50 (s)")
         ax_pareto.set_ylabel("Accuracy (%)")
-        ax_pareto.set_ylim(-5, 108)
+        y_lo_a = max(0.0, min(all_pareto_ys) - 10.0) if (all_pareto_ys and min(all_pareto_ys) > 55.0) else -5.0
+        ax_pareto.set_ylim(y_lo_a, 104.0)
+        ax_pareto.margins(x=0.12)
         ax_pareto.grid(True, alpha=0.3)
         ax_pareto.legend(loc="lower right", fontsize=8.3, frameon=True)
         ax_pareto.set_title(f"A. Joint Effort × Pass Pareto Trade-off ({effort_tag})")
 
         # Panel B: Pass-Depth Accuracy Curves Stratified by Reasoning Effort
+        all_pass_ys: list[float] = []
         for eff in efforts:
             ps_avail = [p for p in passes if f"{eff}_loop{p}" in cell_summaries]
             ys = [(cell_summaries[f"{eff}_loop{p}"]["accuracy"] or 0.0) * 100.0 for p in ps_avail]
+            all_pass_ys.extend(ys)
             ax_pass.plot(
                 ps_avail, ys,
                 marker=markers.get(eff, "o"),
@@ -1217,7 +1240,8 @@ def _render_effort_matrix_figure(
             )
         ax_pass.set_xticks(passes, [f"loop={p}\n({24+12*(p-1)}L)" for p in passes])
         ax_pass.set_ylabel("Overall Accuracy (%)")
-        ax_pass.set_ylim(-5, 108)
+        y_lo_b = max(0.0, min(all_pass_ys) - 10.0) if (all_pass_ys and min(all_pass_ys) > 55.0) else -5.0
+        ax_pass.set_ylim(y_lo_b, 104.0)
         ax_pass.grid(True, alpha=0.3)
         ax_pass.legend(loc="lower right", fontsize=8.5, frameon=True)
         ax_pass.set_title("B. Latent Pass Scaling Across Explicit Effort Levels")
@@ -1226,11 +1250,14 @@ def _render_effort_matrix_figure(
         x_idx = np.arange(len(efforts))
         width = 0.8 / max(1, len(passes))
         p_colors = ["#5B9BD5", "#ED7D31", "#7030A0", "#70AD47"]
+        max_tok_val = 0.0
         for idx_p, p in enumerate(passes):
             vals = [
                 float(cell_summaries.get(f"{eff}_loop{p}", {}).get("reasoning_tokens_mean") or 0.0)
                 for eff in efforts
             ]
+            if vals:
+                max_tok_val = max(max_tok_val, max(vals))
             offset = (idx_p - (len(passes) - 1) / 2.0) * width
             ax_tok.bar(
                 x_idx + offset, vals, width=width * 0.92,
@@ -1240,8 +1267,10 @@ def _render_effort_matrix_figure(
             )
         ax_tok.set_xticks(x_idx, [f"effort={e}" for e in efforts])
         ax_tok.set_ylabel("Mean Explicit Reasoning Tokens")
+        if max_tok_val > 0:
+            ax_tok.set_ylim(0, max_tok_val * 1.22)
         ax_tok.grid(axis="y", alpha=0.3)
-        ax_tok.legend(loc="upper left", fontsize=8.5, frameon=True)
+        ax_tok.legend(loc="upper left", ncol=len(passes), fontsize=8.3, frameon=True)
         ax_tok.set_title("C. Explicit CoT Token Budget Consumption")
 
         # Panel D: Multi-step vs Direct Accuracy under Suppressed vs Full CoT
@@ -1471,11 +1500,13 @@ def _render_holdout_figure(
             e2e_s, rel_accs, yerr=[ci_lo, ci_hi],
             fmt="o", markersize=8, color="#C00000", ecolor="#4472C4", elinewidth=1.6, capsize=4, zorder=3,
         )
-        for x_v, y_v, p in zip(e2e_s, rel_accs, passes_sorted):
-            ax_pareto.annotate(f"loop={p}", (x_v, y_v), textcoords="offset points", xytext=(6, -16), fontsize=8.5, fontweight="bold")
+        for idx_p, (x_v, y_v, p) in enumerate(zip(e2e_s, rel_accs, passes_sorted)):
+            dx_p = -32 if idx_p == len(passes_sorted) - 1 else 6
+            ax_pareto.annotate(f"loop={p}", (x_v, y_v), textcoords="offset points", xytext=(dx_p, -16), fontsize=8.5, fontweight="bold")
         ax_pareto.set_xlabel("Single-Stream E2E Latency P50 (s)")
         ax_pareto.set_ylabel("ChartQA Relaxed 5% Accuracy (%)")
         ax_pareto.set_ylim(-5, 108)
+        ax_pareto.margins(x=0.12)
         ax_pareto.grid(True, alpha=0.3)
         ax_pareto.set_title(f"A. Real-World Holdout Pareto Curve ({holdout_tag})")
 

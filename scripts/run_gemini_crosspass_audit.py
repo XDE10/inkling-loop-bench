@@ -1,7 +1,7 @@
 """Single-shot cached qualitative cross-pass CoT failure & repair audit using Google AI Studio Gemini API.
 
 Design guarantees:
-- Reads API keys from `D:/Users/Mr.Z/Desktop/安全码.txt` (or `GEMINI_STUDIO_KEYS_FILE` / env)
+- Reads API keys from `--keys-file`, `GEMINI_STUDIO_KEYS`, or `GEMINI_STUDIO_KEYS_FILE`
   without ever printing or persisting raw keys into logs or git-tracked files.
 - Uses a persistent local SQLite WAL cache (`~/.cache/loopbench/gemini_audit_cache.sqlite3`)
   so re-runs incur zero API quota usage.
@@ -33,22 +33,25 @@ API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 
 
 def load_studio_keys(keys_file: str | Path | None = None) -> list[str]:
+    env_raw = os.environ.get("GEMINI_STUDIO_KEYS", "").strip()
+    if env_raw:
+        keys = [k.strip() for k in env_raw.replace(",", "\n").splitlines() if k.strip()]
+        if keys:
+            return keys
     candidates: list[Path] = []
     if keys_file:
         candidates.append(Path(keys_file))
     env_p = os.environ.get("GEMINI_STUDIO_KEYS_FILE", "").strip()
     if env_p:
         candidates.append(Path(env_p))
-    candidates.extend([
-        Path(r"D:\Users\Mr.Z\Desktop\安全码.txt"),
-        Path("/mnt/d/Users/Mr.Z/Desktop/安全码.txt"),
-    ])
     for p in candidates:
         if p.is_file():
             keys = [ln.strip() for ln in p.read_text(encoding="utf-8").splitlines() if ln.strip() and not ln.strip().startswith("#")]
             if keys:
                 return keys
-    raise FileNotFoundError("No Gemini Studio API keys file found.")
+    raise FileNotFoundError(
+        "No Gemini Studio API keys found. Provide `--keys-file`, `GEMINI_STUDIO_KEYS`, or `GEMINI_STUDIO_KEYS_FILE`."
+    )
 
 
 def _cache_db_path() -> Path:
@@ -254,8 +257,8 @@ def build_audit_dossier(phase4_dir: Path, phase5_dir: Path) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--phase4-dir", default="/tmp/loopbench_p4_stage/jsonls")
-    ap.add_argument("--phase5-dir", default="/tmp/loopbench_p5_stage/jsonls")
+    ap.add_argument("--phase4-dir", default=str(ROOT / "artifacts/phase4"))
+    ap.add_argument("--phase5-dir", default=str(ROOT / "artifacts/phase5"))
     ap.add_argument("--out", default=str(ROOT / "artifacts/phase6/gemini_crosspass_audit.json"))
     ap.add_argument("--keys-file", default=None)
     args = ap.parse_args()
