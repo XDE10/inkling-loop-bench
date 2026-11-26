@@ -1,6 +1,6 @@
 # Final research and implementation plan
 
-This plan is the closed decision from AI Debate Room room-001 (messages 001–005).
+This specification locks the experimental protocol, checkpoint provenance, and acceptance gates for LoopBench.
 
 ## Research question
 

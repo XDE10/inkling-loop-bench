@@ -80,7 +80,7 @@ def write_warmup_subset(full_dataset: Path, subset_dir: Path) -> Path:
     first_q["image_path"] = str(resolve_image_path(full_dataset, first_q["image_path"]))
     manifest = {
         "schema_version": full_data.get("schema_version", 2),
-        "seed": full_data["seed"],
+        "seed": full_data.get("seed", 0),
         "image_count": 1,
         "question_count": 1,
         "questions": [first_q],

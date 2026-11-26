@@ -170,20 +170,32 @@ def _render_oracle_figure(suites: dict[str, dict], any_mock: bool, out_path: Pat
             xs = [(p["e2e_mean_ms"] or 0.0) / 1000.0 for p in fps]
             ys = [(p["accuracy"] or 0.0) * 100.0 for p in fps]
             ax.scatter(xs, ys, s=55, color="#2E75B6", label="Fixed Policies", zorder=3)
-            # Sort by (x, y) so nearby points alternate label vertical offsets cleanly
+            cell12_offsets = {
+                "L-p1": (-26, -12),
+                "M-p1": (5, 5),
+                "N-p1": (5, -10),
+                "H-p1": (5, -11),
+                "L-p3": (6, 4),
+                "N-p3": (5, -11),
+                "M-p3": (5, 5),
+                "H-p3": (5, -11),
+                "L-p5": (5, 5),
+                "M-p5": (-26, 7),
+                "N-p5": (5, -11),
+                "H-p5": (5, 6),
+            }
             indexed = sorted(enumerate(fps), key=lambda t: (xs[t[0]], ys[t[0]]))
             for rank, (idx, p) in enumerate(indexed):
                 lbl = p["config_label"]
                 if len(fps) > 6:
-                    # Compact label for 12-cell grid: e.g. low_loop3 -> L-3
                     parts = lbl.split("_loop")
                     short = {"none": "N", "low": "L", "medium": "M", "high": "H"}.get(parts[0], parts[0])
                     lbl = f"{short}-p{parts[1]}" if len(parts) == 2 else lbl
-                    dy = 6 if (rank % 2 == 0) else -11
-                    dx = 4 if (rank % 3 != 2) else -18
+                    dx, dy = cell12_offsets.get(lbl, (5, 6 if (rank % 2 == 0) else -11))
                 else:
-                    dy = 5 if (rank % 2 == 0) else -11
-                    dx = 4
+                    is_last = rank == len(indexed) - 1
+                    dy = 5 if (rank % 2 == 0) else -12
+                    dx = -28 if is_last else 5
                 ax.annotate(lbl, (xs[idx], ys[idx]), textcoords="offset points", xytext=(dx, dy), fontsize=7.8)
             ro = s["router_oracle"]
             co = s["cascade_oracle"]
