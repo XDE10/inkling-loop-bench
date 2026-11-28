@@ -1,0 +1,5 @@
+﻿suite,n_questions,best_fixed_config,best_fixed_acc,best_fixed_e2e_mean_ms,router_oracle_acc,router_oracle_e2e_mean_ms,router_speedup_vs_best_fixed,cascade_oracle_e2e_mean_ms,cascade_speedup_vs_best_fixed,pareto_frontier_p50
+phase4_synth240_pass_oracle,240,loop5,0.9541666666666667,66575.98325673734,0.9875,19718.32979684167,3.3764,31219.84172206249,2.1325,"[""loop1"", ""loop5""]"
+phase4_synth240_hard_multistep_oracle,60,loop1,0.9666666666666667,28099.55023324998,0.9666666666666667,26233.97387958329,1.0711,46406.37562603332,0.6055,"[""loop1""]"
+phase5_joint_effort_pass_oracle,48,low_loop3,0.9791666666666666,33156.45191437498,0.9791666666666666,15841.484525562437,2.093,63245.10613912493,0.5243,"[""low_loop1"", ""medium_loop1"", ""low_loop3""]"
+phase5_chartqa80_holdout_oracle,80,loop1,0.9,8230.064021574912,0.925,10072.650448774868,0.8171,17897.990638887433,0.4598,"[""loop1""]"

@@ -1,0 +1,1788 @@
+{
+  "schema_version": 2,
+  "seed": 20261124,
+  "image_count": 24,
+  "question_count": 48,
+  "questions": [
+    {
+      "question_id": "chart-000-direct",
+      "image_id": "chart-000",
+      "template_id": "chart-v1-0",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the value for North in the bar chart? Answer with a number in units.",
+      "answer": 65.0,
+      "unit": "units",
+      "image_path": "images/chart-000.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "bar4_grid5",
+        "values": {
+          "North": 65,
+          "South": 90,
+          "East": 70,
+          "West": 35
+        },
+        "target_region": "North",
+        "pixel_sha256": "a03e3faaa888ca500ad7f8480726ddb28237d63c75a6284af401db11fb252114"
+      }
+    },
+    {
+      "question_id": "chart-000-multi_step",
+      "image_id": "chart-000",
+      "template_id": "chart-v1-0",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "What is the difference between the highest regional value and the lowest regional value? Answer with a number in units.",
+      "answer": 55.0,
+      "unit": "units",
+      "image_path": "images/chart-000.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "bar4_grid5",
+        "values": {
+          "North": 65,
+          "South": 90,
+          "East": 70,
+          "West": 35
+        },
+        "target_region": "North",
+        "pixel_sha256": "a03e3faaa888ca500ad7f8480726ddb28237d63c75a6284af401db11fb252114"
+      }
+    },
+    {
+      "question_id": "chart-001-direct",
+      "image_id": "chart-001",
+      "template_id": "chart-v2-0",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the Q3 output for West? Answer with a number in units.",
+      "answer": 28.0,
+      "unit": "units",
+      "image_path": "images/chart-001.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "grouped_bar3x4_net_diff",
+        "series": {
+          "Q1": {
+            "North": 39,
+            "South": 21,
+            "East": 77,
+            "West": 70
+          },
+          "Q2": {
+            "North": 44,
+            "South": 68,
+            "East": 48,
+            "West": 72
+          },
+          "Q3": {
+            "North": 40,
+            "South": 53,
+            "East": 75,
+            "West": 28
+          }
+        },
+        "target_quarter": "Q3",
+        "target_region": "West",
+        "highest_q3_region": "East",
+        "lowest_q1_region": "South",
+        "pixel_sha256": "b0f5cc7b33e2cf1b565f409a12f5949dc331cf5e3c92c87c21e2ce5949452647"
+      }
+    },
+    {
+      "question_id": "chart-001-multi_step",
+      "image_id": "chart-001",
+      "template_id": "chart-v2-0",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "Find the region with the highest Q3 output and the region with the lowest Q1 output. What is the three-quarter total (Q1 plus Q2 plus Q3) of that highest-Q3 region minus the three-quarter total (Q1 plus Q2 plus Q3) of that lowest-Q1 region? Answer with a number in units.",
+      "answer": 58.0,
+      "unit": "units",
+      "image_path": "images/chart-001.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "grouped_bar3x4_net_diff",
+        "series": {
+          "Q1": {
+            "North": 39,
+            "South": 21,
+            "East": 77,
+            "West": 70
+          },
+          "Q2": {
+            "North": 44,
+            "South": 68,
+            "East": 48,
+            "West": 72
+          },
+          "Q3": {
+            "North": 40,
+            "South": 53,
+            "East": 75,
+            "West": 28
+          }
+        },
+        "target_quarter": "Q3",
+        "target_region": "West",
+        "highest_q3_region": "East",
+        "lowest_q1_region": "South",
+        "pixel_sha256": "b0f5cc7b33e2cf1b565f409a12f5949dc331cf5e3c92c87c21e2ce5949452647"
+      }
+    },
+    {
+      "question_id": "chart-002-direct",
+      "image_id": "chart-002",
+      "template_id": "chart-v1-1",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the highest output among the four sectors? Answer with a number in units.",
+      "answer": 75.0,
+      "unit": "units",
+      "image_path": "images/chart-002.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "barh4_grid5",
+        "values": {
+          "Solar": 75,
+          "Wind": 20,
+          "Hydro": 45,
+          "Biomass": 70
+        },
+        "sum_pair": [
+          "Biomass",
+          "Solar"
+        ],
+        "pixel_sha256": "9f161f36a6e32609297e08a4c20941f9ddb5cfa3c6b2df3122cb70c25db57eae"
+      }
+    },
+    {
+      "question_id": "chart-002-multi_step",
+      "image_id": "chart-002",
+      "template_id": "chart-v1-1",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "What is the combined output of Biomass and Solar? Answer with a number in units.",
+      "answer": 145.0,
+      "unit": "units",
+      "image_path": "images/chart-002.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "barh4_grid5",
+        "values": {
+          "Solar": 75,
+          "Wind": 20,
+          "Hydro": 45,
+          "Biomass": 70
+        },
+        "sum_pair": [
+          "Biomass",
+          "Solar"
+        ],
+        "pixel_sha256": "9f161f36a6e32609297e08a4c20941f9ddb5cfa3c6b2df3122cb70c25db57eae"
+      }
+    },
+    {
+      "question_id": "chart-003-direct",
+      "image_id": "chart-003",
+      "template_id": "chart-v2-1",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "In Apr, what is the value of series Alpha in the line chart? Answer with a number in units.",
+      "answer": 45.0,
+      "unit": "units",
+      "image_path": "images/chart-003.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "dual_line6_crossover_grid5",
+        "series": {
+          "Alpha": {
+            "Jan": 15,
+            "Feb": 95,
+            "Mar": 90,
+            "Apr": 45,
+            "May": 40,
+            "Jun": 35
+          },
+          "Beta": {
+            "Jan": 60,
+            "Feb": 70,
+            "Mar": 75,
+            "Apr": 90,
+            "May": 80,
+            "Jun": 55
+          }
+        },
+        "target_series": "Alpha",
+        "target_month": "Apr",
+        "pixel_sha256": "be2a53adc6952d937bf5f044badcc8752fdbb945277445139f7cbd2da5cb740c"
+      }
+    },
+    {
+      "question_id": "chart-003-multi_step",
+      "image_id": "chart-003",
+      "template_id": "chart-v2-1",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "Across all months where Alpha is strictly greater than Beta, what is the sum of the positive gaps (Alpha minus Beta)? Answer with a number in units.",
+      "answer": 40.0,
+      "unit": "units",
+      "image_path": "images/chart-003.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "dual_line6_crossover_grid5",
+        "series": {
+          "Alpha": {
+            "Jan": 15,
+            "Feb": 95,
+            "Mar": 90,
+            "Apr": 45,
+            "May": 40,
+            "Jun": 35
+          },
+          "Beta": {
+            "Jan": 60,
+            "Feb": 70,
+            "Mar": 75,
+            "Apr": 90,
+            "May": 80,
+            "Jun": 55
+          }
+        },
+        "target_series": "Alpha",
+        "target_month": "Apr",
+        "pixel_sha256": "be2a53adc6952d937bf5f044badcc8752fdbb945277445139f7cbd2da5cb740c"
+      }
+    },
+    {
+      "question_id": "chart-004-direct",
+      "image_id": "chart-004",
+      "template_id": "chart-v1-2",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the value recorded in Mar? Answer with a number in units.",
+      "answer": 35.0,
+      "unit": "units",
+      "image_path": "images/chart-004.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "line5_grid5",
+        "values": {
+          "Jan": 40,
+          "Feb": 65,
+          "Mar": 35,
+          "Apr": 55,
+          "May": 30
+        },
+        "target_month": "Mar",
+        "sum_pair": [
+          "Jan",
+          "Feb"
+        ],
+        "pixel_sha256": "42cd6b4296c153edc11c60ee586c6dd576e29c79fadb8b42963f90196ac6d411"
+      }
+    },
+    {
+      "question_id": "chart-004-multi_step",
+      "image_id": "chart-004",
+      "template_id": "chart-v1-2",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "What is the combined value of Jan and Feb in the line chart? Answer with a number in units.",
+      "answer": 105.0,
+      "unit": "units",
+      "image_path": "images/chart-004.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "line5_grid5",
+        "values": {
+          "Jan": 40,
+          "Feb": 65,
+          "Mar": 35,
+          "Apr": 55,
+          "May": 30
+        },
+        "target_month": "Mar",
+        "sum_pair": [
+          "Jan",
+          "Feb"
+        ],
+        "pixel_sha256": "42cd6b4296c153edc11c60ee586c6dd576e29c79fadb8b42963f90196ac6d411"
+      }
+    },
+    {
+      "question_id": "chart-005-direct",
+      "image_id": "chart-005",
+      "template_id": "chart-v2-2",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the Peak segment value for Plant B? Answer with a number in units.",
+      "answer": 21.0,
+      "unit": "units",
+      "image_path": "images/chart-005.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "stacked3_bar4_range",
+        "segments": {
+          "Base": {
+            "Plant A": 24,
+            "Plant B": 21,
+            "Plant C": 32,
+            "Plant D": 27
+          },
+          "Mid": {
+            "Plant A": 31,
+            "Plant B": 29,
+            "Plant C": 25,
+            "Plant D": 36
+          },
+          "Peak": {
+            "Plant A": 20,
+            "Plant B": 21,
+            "Plant C": 24,
+            "Plant D": 26
+          }
+        },
+        "target_segment": "Peak",
+        "target_plant": "Plant B",
+        "pixel_sha256": "28a0ab3135f7298b8eb0c36d09555810009b076e9c2d786a730129402ea02ac6"
+      }
+    },
+    {
+      "question_id": "chart-005-multi_step",
+      "image_id": "chart-005",
+      "template_id": "chart-v2-2",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "Compute the combined total (Base plus Mid plus Peak) for each of the four plants. What is the highest combined plant total minus the lowest combined plant total? Answer with a number in units.",
+      "answer": 18.0,
+      "unit": "units",
+      "image_path": "images/chart-005.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "stacked3_bar4_range",
+        "segments": {
+          "Base": {
+            "Plant A": 24,
+            "Plant B": 21,
+            "Plant C": 32,
+            "Plant D": 27
+          },
+          "Mid": {
+            "Plant A": 31,
+            "Plant B": 29,
+            "Plant C": 25,
+            "Plant D": 36
+          },
+          "Peak": {
+            "Plant A": 20,
+            "Plant B": 21,
+            "Plant C": 24,
+            "Plant D": 26
+          }
+        },
+        "target_segment": "Peak",
+        "target_plant": "Plant B",
+        "pixel_sha256": "28a0ab3135f7298b8eb0c36d09555810009b076e9c2d786a730129402ea02ac6"
+      }
+    },
+    {
+      "question_id": "chart-006-direct",
+      "image_id": "chart-006",
+      "template_id": "chart-v1-3",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the Q1 production for Plant C? Answer with a number in units.",
+      "answer": 19.0,
+      "unit": "units",
+      "image_path": "images/chart-006.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "grouped_bar_labeled",
+        "series": {
+          "Q1": {
+            "Plant A": 40,
+            "Plant B": 26,
+            "Plant C": 19
+          },
+          "Q2": {
+            "Plant A": 87,
+            "Plant B": 84,
+            "Plant C": 51
+          }
+        },
+        "target_series": "Q1",
+        "target_plant": "Plant C",
+        "sum_series": "Q1",
+        "pixel_sha256": "1c07619347954010958338acf5fe372295eba7a439475093588e871024060a8e"
+      }
+    },
+    {
+      "question_id": "chart-006-multi_step",
+      "image_id": "chart-006",
+      "template_id": "chart-v1-3",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "What is the total Q1 production summed across all three plants? Answer with a number in units.",
+      "answer": 85.0,
+      "unit": "units",
+      "image_path": "images/chart-006.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "grouped_bar_labeled",
+        "series": {
+          "Q1": {
+            "Plant A": 40,
+            "Plant B": 26,
+            "Plant C": 19
+          },
+          "Q2": {
+            "Plant A": 87,
+            "Plant B": 84,
+            "Plant C": 51
+          }
+        },
+        "target_series": "Q1",
+        "target_plant": "Plant C",
+        "sum_series": "Q1",
+        "pixel_sha256": "1c07619347954010958338acf5fe372295eba7a439475093588e871024060a8e"
+      }
+    },
+    {
+      "question_id": "chart-007-direct",
+      "image_id": "chart-007",
+      "template_id": "chart-v2-3",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the signed net change value for sector S2? Answer with a number in units.",
+      "answer": -20.0,
+      "unit": "units",
+      "image_path": "images/chart-007.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "diverging_barh6_grid5",
+        "values": {
+          "S1": -35,
+          "S2": -20,
+          "S3": 25,
+          "S4": -25,
+          "S5": 10,
+          "S6": 20
+        },
+        "target_sector": "S2",
+        "pixel_sha256": "b56765d13ffadc29ddf1a0f46b21933d063df96035b47bb7f6b3743d5dda6b8f"
+      }
+    },
+    {
+      "question_id": "chart-007-multi_step",
+      "image_id": "chart-007",
+      "template_id": "chart-v2-3",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "What is the overall net sum across all six sectors (adding positive sector values and subtracting negative sector magnitudes)? Answer with a number in units.",
+      "answer": -25.0,
+      "unit": "units",
+      "image_path": "images/chart-007.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "diverging_barh6_grid5",
+        "values": {
+          "S1": -35,
+          "S2": -20,
+          "S3": 25,
+          "S4": -25,
+          "S5": 10,
+          "S6": 20
+        },
+        "target_sector": "S2",
+        "pixel_sha256": "b56765d13ffadc29ddf1a0f46b21933d063df96035b47bb7f6b3743d5dda6b8f"
+      }
+    },
+    {
+      "question_id": "chart-008-direct",
+      "image_id": "chart-008",
+      "template_id": "chart-v1-4",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the Addon value for Div Z? Answer with a number in units.",
+      "answer": 32.0,
+      "unit": "units",
+      "image_path": "images/chart-008.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "stacked_bar_labeled",
+        "segments": {
+          "Core": {
+            "Div X": 47,
+            "Div Y": 44,
+            "Div Z": 44
+          },
+          "Addon": {
+            "Div X": 24,
+            "Div Y": 30,
+            "Div Z": 32
+          }
+        },
+        "target_segment": "Addon",
+        "target_division": "Div Z",
+        "sum_divisions": [
+          "Div Y",
+          "Div X"
+        ],
+        "pixel_sha256": "a16ed3e3b9444348fa6b689e0d2578ac0901bf7d92261f0f3bc9f318a7be7544"
+      }
+    },
+    {
+      "question_id": "chart-008-multi_step",
+      "image_id": "chart-008",
+      "template_id": "chart-v1-4",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "What is the combined total (Core plus Addon) of Div Y and Div X together? Answer with a number in units.",
+      "answer": 145.0,
+      "unit": "units",
+      "image_path": "images/chart-008.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "stacked_bar_labeled",
+        "segments": {
+          "Core": {
+            "Div X": 47,
+            "Div Y": 44,
+            "Div Z": 44
+          },
+          "Addon": {
+            "Div X": 24,
+            "Div Y": 30,
+            "Div Z": 32
+          }
+        },
+        "target_segment": "Addon",
+        "target_division": "Div Z",
+        "sum_divisions": [
+          "Div Y",
+          "Div X"
+        ],
+        "pixel_sha256": "a16ed3e3b9444348fa6b689e0d2578ac0901bf7d92261f0f3bc9f318a7be7544"
+      }
+    },
+    {
+      "question_id": "chart-009-direct",
+      "image_id": "chart-009",
+      "template_id": "chart-v2-4",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the output value of product P4 in the bar chart? Answer with a number in units.",
+      "answer": 25.0,
+      "unit": "units",
+      "image_path": "images/chart-009.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "band_bar6_grid5",
+        "values": {
+          "P1": 50,
+          "P2": 90,
+          "P3": 95,
+          "P4": 25,
+          "P5": 10,
+          "P6": 45
+        },
+        "floor": 35,
+        "cap": 65,
+        "target_product": "P4",
+        "pixel_sha256": "c2900de52baab6f14b91dcb3971f544f457d5729e8939566ea2fb1745201c9fa"
+      }
+    },
+    {
+      "question_id": "chart-009-multi_step",
+      "image_id": "chart-009",
+      "template_id": "chart-v2-4",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "For every product strictly below the Floor line or strictly above the Cap line, compute how far outside the band it lies (Floor minus value if below Floor, or value minus Cap if above Cap). What is the sum of these outside deviations across all outside products? Answer with a number in units.",
+      "answer": 90.0,
+      "unit": "units",
+      "image_path": "images/chart-009.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "band_bar6_grid5",
+        "values": {
+          "P1": 50,
+          "P2": 90,
+          "P3": 95,
+          "P4": 25,
+          "P5": 10,
+          "P6": 45
+        },
+        "floor": 35,
+        "cap": 65,
+        "target_product": "P4",
+        "pixel_sha256": "c2900de52baab6f14b91dcb3971f544f457d5729e8939566ea2fb1745201c9fa"
+      }
+    },
+    {
+      "question_id": "chart-010-direct",
+      "image_id": "chart-010",
+      "template_id": "chart-v1-5",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the value of the dashed Target line? Answer with a number in units.",
+      "answer": 45.0,
+      "unit": "units",
+      "image_path": "images/chart-010.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "threshold_bar5_grid5",
+        "values": {
+          "P1": 25,
+          "P2": 95,
+          "P3": 55,
+          "P4": 30,
+          "P5": 60
+        },
+        "target": 45,
+        "pixel_sha256": "a4be9fd3b27057cda0f9f59648b20bce68c649d66c7f8c0fa85a55981b6a092e"
+      }
+    },
+    {
+      "question_id": "chart-010-multi_step",
+      "image_id": "chart-010",
+      "template_id": "chart-v1-5",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "For all products strictly above the Target line, what is the sum of their excess amounts above the Target line? Answer with a number in units.",
+      "answer": 75.0,
+      "unit": "units",
+      "image_path": "images/chart-010.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "threshold_bar5_grid5",
+        "values": {
+          "P1": 25,
+          "P2": 95,
+          "P3": 55,
+          "P4": 30,
+          "P5": 60
+        },
+        "target": 45,
+        "pixel_sha256": "a4be9fd3b27057cda0f9f59648b20bce68c649d66c7f8c0fa85a55981b6a092e"
+      }
+    },
+    {
+      "question_id": "chart-011-direct",
+      "image_id": "chart-011",
+      "template_id": "chart-v2-5",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "In the matrix chart, what is the output value in row Line Z and column W3? Answer with a number in units.",
+      "answer": 35.0,
+      "unit": "units",
+      "image_path": "images/chart-011.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "matrix_heatmap_3x4",
+        "matrix": {
+          "Line X": {
+            "W1": 40,
+            "W2": 25,
+            "W3": 74,
+            "W4": 36
+          },
+          "Line Y": {
+            "W1": 43,
+            "W2": 22,
+            "W3": 72,
+            "W4": 53
+          },
+          "Line Z": {
+            "W1": 78,
+            "W2": 31,
+            "W3": 35,
+            "W4": 27
+          }
+        },
+        "target_row": "Line Z",
+        "target_col": "W3",
+        "pixel_sha256": "8dafc09ca2cc778de743462fe9eefe1ae8d8b4eb7f70e121c79592a699dbf706"
+      }
+    },
+    {
+      "question_id": "chart-011-multi_step",
+      "image_id": "chart-011",
+      "template_id": "chart-v2-5",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "Find the column with the largest three-row column sum and the row with the smallest four-column row sum. What is that largest column sum minus that smallest row sum? Answer with a number in units.",
+      "answer": 10.0,
+      "unit": "units",
+      "image_path": "images/chart-011.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "matrix_heatmap_3x4",
+        "matrix": {
+          "Line X": {
+            "W1": 40,
+            "W2": 25,
+            "W3": 74,
+            "W4": 36
+          },
+          "Line Y": {
+            "W1": 43,
+            "W2": 22,
+            "W3": 72,
+            "W4": 53
+          },
+          "Line Z": {
+            "W1": 78,
+            "W2": 31,
+            "W3": 35,
+            "W4": 27
+          }
+        },
+        "target_row": "Line Z",
+        "target_col": "W3",
+        "pixel_sha256": "8dafc09ca2cc778de743462fe9eefe1ae8d8b4eb7f70e121c79592a699dbf706"
+      }
+    },
+    {
+      "question_id": "geometry-000-direct",
+      "image_id": "geometry-000",
+      "template_id": "geometry-v1-0",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "In triangle ABC, what is the marked interior angle at vertex C, in degrees?",
+      "answer": 96.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-000.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "scalene_triangle",
+        "angles": {
+          "A": 38,
+          "B": 46,
+          "C": 96
+        },
+        "known": [
+          "C",
+          "A"
+        ],
+        "target": "B",
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            0.5699698526539374,
+            0.44530925342067296
+          ]
+        },
+        "pixel_sha256": "ce5e9fec7acded82c4aefed5d1880505a03ec1103b181c4b7a4c868bc8c07e32"
+      }
+    },
+    {
+      "question_id": "geometry-000-multi_step",
+      "image_id": "geometry-000",
+      "template_id": "geometry-v1-0",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "In triangle ABC, find the interior angle marked '?' at vertex B, in degrees.",
+      "answer": 46.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-000.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "scalene_triangle",
+        "angles": {
+          "A": 38,
+          "B": 46,
+          "C": 96
+        },
+        "known": [
+          "C",
+          "A"
+        ],
+        "target": "B",
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            0.5699698526539374,
+            0.44530925342067296
+          ]
+        },
+        "pixel_sha256": "ce5e9fec7acded82c4aefed5d1880505a03ec1103b181c4b7a4c868bc8c07e32"
+      }
+    },
+    {
+      "question_id": "geometry-001-direct",
+      "image_id": "geometry-001",
+      "template_id": "geometry-v2-0",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "In quadrilateral ABCD with diagonal AC, sides AB and DC are parallel and sides AD and CD have tick marks indicating equal length. What is the marked interior angle ABC at vertex B, in degrees?",
+      "answer": 56.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-001.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "quad_parallel_isosceles",
+        "angle_BAC": 49,
+        "angle_ABC": 56,
+        "angle_ACB": 75,
+        "angle_ADC": 82,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            0.7643855726816127,
+            0.8793250137484661
+          ],
+          "C": [
+            1.0,
+            0.0
+          ],
+          "D": [
+            0.5,
+            -0.5751842036105047
+          ]
+        },
+        "pixel_sha256": "e4ffa0e69f8d284bb4f40b41d511434eca6f7c64da577efea907164d58652bdf"
+      }
+    },
+    {
+      "question_id": "geometry-001-multi_step",
+      "image_id": "geometry-001",
+      "template_id": "geometry-v2-0",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "In quadrilateral ABCD with diagonal AC, sides AB and DC are parallel and sides AD and CD have tick marks indicating equal length. Find the interior angle ADC marked '?' at vertex D, in degrees.",
+      "answer": 82.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-001.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "quad_parallel_isosceles",
+        "angle_BAC": 49,
+        "angle_ABC": 56,
+        "angle_ACB": 75,
+        "angle_ADC": 82,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            0.7643855726816127,
+            0.8793250137484661
+          ],
+          "C": [
+            1.0,
+            0.0
+          ],
+          "D": [
+            0.5,
+            -0.5751842036105047
+          ]
+        },
+        "pixel_sha256": "e4ffa0e69f8d284bb4f40b41d511434eca6f7c64da577efea907164d58652bdf"
+      }
+    },
+    {
+      "question_id": "geometry-002-direct",
+      "image_id": "geometry-002",
+      "template_id": "geometry-v1-1",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "In triangle ABC, what is the marked interior angle at vertex A, in degrees?",
+      "answer": 52.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-002.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "right_triangle_symbol",
+        "angles": {
+          "A": 52,
+          "B": 90,
+          "C": 38
+        },
+        "known_acute": "A",
+        "target_acute": "C",
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            1.0,
+            1.2799416321930788
+          ]
+        },
+        "pixel_sha256": "a86f4e5d3ea363b82afb2d75817e1d94b767c5ce59f215fe90be9dc5225fa617"
+      }
+    },
+    {
+      "question_id": "geometry-002-multi_step",
+      "image_id": "geometry-002",
+      "template_id": "geometry-v1-1",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "In triangle ABC, find the interior angle marked '?' at vertex C, in degrees.",
+      "answer": 38.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-002.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "right_triangle_symbol",
+        "angles": {
+          "A": 52,
+          "B": 90,
+          "C": 38
+        },
+        "known_acute": "A",
+        "target_acute": "C",
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            1.0,
+            1.2799416321930788
+          ]
+        },
+        "pixel_sha256": "a86f4e5d3ea363b82afb2d75817e1d94b767c5ce59f215fe90be9dc5225fa617"
+      }
+    },
+    {
+      "question_id": "geometry-003-direct",
+      "image_id": "geometry-003",
+      "template_id": "geometry-v2-1",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "Points A, D, C, and E lie in order on a straight line, and segments AD and BD have tick marks indicating equal length. What is the marked exterior angle BCE at vertex C, in degrees?",
+      "answer": 119.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-003.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "collinear_isosceles_exterior",
+        "angle_BAD": 35,
+        "exterior_BCE": 119,
+        "angle_BDC": 70,
+        "angle_DBC": 49,
+        "vertices": {
+          "A": [
+            -1.0,
+            0.0
+          ],
+          "B": [
+            0.3420201433256688,
+            0.9396926207859083
+          ],
+          "C": [
+            0.8629002686106721,
+            0.0
+          ],
+          "D": [
+            0.0,
+            0.0
+          ],
+          "E": [
+            1.4429002686106722,
+            0.0
+          ]
+        },
+        "pixel_sha256": "ad9a29050add406d37ea9b5bed1b1e859a3331e7e3a271b1fbefe9e63b287ea4"
+      }
+    },
+    {
+      "question_id": "geometry-003-multi_step",
+      "image_id": "geometry-003",
+      "template_id": "geometry-v2-1",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "Points A, D, C, and E lie in order on a straight line, and segments AD and BD have tick marks indicating equal length. Find the interior angle DBC marked '?' in triangle BDC, in degrees.",
+      "answer": 49.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-003.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "collinear_isosceles_exterior",
+        "angle_BAD": 35,
+        "exterior_BCE": 119,
+        "angle_BDC": 70,
+        "angle_DBC": 49,
+        "vertices": {
+          "A": [
+            -1.0,
+            0.0
+          ],
+          "B": [
+            0.3420201433256688,
+            0.9396926207859083
+          ],
+          "C": [
+            0.8629002686106721,
+            0.0
+          ],
+          "D": [
+            0.0,
+            0.0
+          ],
+          "E": [
+            1.4429002686106722,
+            0.0
+          ]
+        },
+        "pixel_sha256": "ad9a29050add406d37ea9b5bed1b1e859a3331e7e3a271b1fbefe9e63b287ea4"
+      }
+    },
+    {
+      "question_id": "geometry-004-direct",
+      "image_id": "geometry-004",
+      "template_id": "geometry-v1-2",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "In triangle ABC, sides marked with tick marks are equal in length. What is the marked interior angle at vertex C, in degrees?",
+      "answer": 68.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-004.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "isosceles_ticks",
+        "angles": {
+          "A": 56,
+          "B": 56,
+          "C": 68
+        },
+        "mode": "given_apex",
+        "given_vertex": "C",
+        "target_vertex": "B",
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            0.5,
+            0.7412804842563702
+          ]
+        },
+        "pixel_sha256": "69b33e3e9a46eff5ed770dab2415b355eec8918845be4fac162140562af50d38"
+      }
+    },
+    {
+      "question_id": "geometry-004-multi_step",
+      "image_id": "geometry-004",
+      "template_id": "geometry-v1-2",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "In triangle ABC, sides marked with tick marks are equal in length. Find the interior angle marked '?' at vertex B, in degrees.",
+      "answer": 56.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-004.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "isosceles_ticks",
+        "angles": {
+          "A": 56,
+          "B": 56,
+          "C": 68
+        },
+        "mode": "given_apex",
+        "given_vertex": "C",
+        "target_vertex": "B",
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            0.5,
+            0.7412804842563702
+          ]
+        },
+        "pixel_sha256": "69b33e3e9a46eff5ed770dab2415b355eec8918845be4fac162140562af50d38"
+      }
+    },
+    {
+      "question_id": "geometry-005-direct",
+      "image_id": "geometry-005",
+      "template_id": "geometry-v2-2",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "Straight line PCQ is parallel to straight line ADB. What is the marked angle PCM at point C, in degrees?",
+      "answer": 139.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-005.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "parallel_zigzag_obtuse",
+        "angle_PCM": 139,
+        "angle_ADM": 135,
+        "angle_CMD": 86,
+        "vertices": {
+          "P": [
+            -0.58,
+            1.0
+          ],
+          "C": [
+            0.0,
+            1.0
+          ],
+          "Q": [
+            1.078191571754925,
+            1.0
+          ],
+          "A": [
+            -0.58,
+            0.0
+          ],
+          "D": [
+            0.11819157175492495,
+            0.0
+          ],
+          "B": [
+            1.078191571754925,
+            0.0
+          ],
+          "M": [
+            0.598191571754925,
+            0.48
+          ]
+        },
+        "pixel_sha256": "305ee4167961b042e4b0e50983fcfeb398a0935de17616a53ce6c6de1b90d5b7"
+      }
+    },
+    {
+      "question_id": "geometry-005-multi_step",
+      "image_id": "geometry-005",
+      "template_id": "geometry-v2-2",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "Straight line PCQ is parallel to straight line ADB, and vertex M lies between the two parallel lines. Find the interior bend angle CMD marked '?' at vertex M, in degrees.",
+      "answer": 86.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-005.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "parallel_zigzag_obtuse",
+        "angle_PCM": 139,
+        "angle_ADM": 135,
+        "angle_CMD": 86,
+        "vertices": {
+          "P": [
+            -0.58,
+            1.0
+          ],
+          "C": [
+            0.0,
+            1.0
+          ],
+          "Q": [
+            1.078191571754925,
+            1.0
+          ],
+          "A": [
+            -0.58,
+            0.0
+          ],
+          "D": [
+            0.11819157175492495,
+            0.0
+          ],
+          "B": [
+            1.078191571754925,
+            0.0
+          ],
+          "M": [
+            0.598191571754925,
+            0.48
+          ]
+        },
+        "pixel_sha256": "305ee4167961b042e4b0e50983fcfeb398a0935de17616a53ce6c6de1b90d5b7"
+      }
+    },
+    {
+      "question_id": "geometry-006-direct",
+      "image_id": "geometry-006",
+      "template_id": "geometry-v1-3",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "Point B lies on straight line segment AD. What is the marked interior angle at vertex C, in degrees?",
+      "answer": 39.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-006.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "exterior_angle",
+        "angle_A": 40,
+        "angle_C": 39,
+        "angle_ABC": 101,
+        "exterior_CBD": 79,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            1.1948922357976899,
+            1.0026336343544369
+          ],
+          "D": [
+            1.58,
+            0.0
+          ]
+        },
+        "pixel_sha256": "dc3cbcbdb683ed6ca1f01187574a1a887bf54737fbb662ce2387f93d9a989999"
+      }
+    },
+    {
+      "question_id": "geometry-006-multi_step",
+      "image_id": "geometry-006",
+      "template_id": "geometry-v1-3",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "Point B lies on straight line segment AD. Find the exterior angle CBD marked '?', in degrees.",
+      "answer": 79.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-006.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "exterior_angle",
+        "angle_A": 40,
+        "angle_C": 39,
+        "angle_ABC": 101,
+        "exterior_CBD": 79,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            1.1948922357976899,
+            1.0026336343544369
+          ],
+          "D": [
+            1.58,
+            0.0
+          ]
+        },
+        "pixel_sha256": "dc3cbcbdb683ed6ca1f01187574a1a887bf54737fbb662ce2387f93d9a989999"
+      }
+    },
+    {
+      "question_id": "geometry-007-direct",
+      "image_id": "geometry-007",
+      "template_id": "geometry-v2-3",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "Straight segments AC and BD intersect at point O, angle ABO is a right angle, and segments OC and OD have tick marks indicating equal length. What is the marked interior angle BAO at vertex A, in degrees?",
+      "answer": 40.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-007.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "bowtie_right_isosceles",
+        "angle_BAO": 40,
+        "angle_AOB": 50,
+        "angle_OCD": 65,
+        "vertices": {
+          "A": [
+            -1.0,
+            0.0
+          ],
+          "B": [
+            -0.41317591116653485,
+            0.49240387650610407
+          ],
+          "C": [
+            1.05,
+            0.0
+          ],
+          "D": [
+            0.6749269901708663,
+            -0.8043466652749269
+          ],
+          "O": [
+            0.0,
+            0.0
+          ]
+        },
+        "pixel_sha256": "52da87d7613838ff59b1b5ede1e917ba84bbd83c0e8613b5348c945f37df4bbc"
+      }
+    },
+    {
+      "question_id": "geometry-007-multi_step",
+      "image_id": "geometry-007",
+      "template_id": "geometry-v2-3",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "Straight segments AC and BD intersect at point O, angle ABO is a right angle, and segments OC and OD have tick marks indicating equal length. Find the interior angle OCD marked '?' at vertex C, in degrees.",
+      "answer": 65.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-007.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "bowtie_right_isosceles",
+        "angle_BAO": 40,
+        "angle_AOB": 50,
+        "angle_OCD": 65,
+        "vertices": {
+          "A": [
+            -1.0,
+            0.0
+          ],
+          "B": [
+            -0.41317591116653485,
+            0.49240387650610407
+          ],
+          "C": [
+            1.05,
+            0.0
+          ],
+          "D": [
+            0.6749269901708663,
+            -0.8043466652749269
+          ],
+          "O": [
+            0.0,
+            0.0
+          ]
+        },
+        "pixel_sha256": "52da87d7613838ff59b1b5ede1e917ba84bbd83c0e8613b5348c945f37df4bbc"
+      }
+    },
+    {
+      "question_id": "geometry-008-direct",
+      "image_id": "geometry-008",
+      "template_id": "geometry-v1-4",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "Lines PQ and AB are parallel. What is the marked angle PCA, in degrees?",
+      "answer": 51.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-008.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "parallel_line_apex",
+        "angle_PCA": 51,
+        "angle_CBA": 59,
+        "angle_ACB": 70,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.1,
+            0.0
+          ],
+          "C": [
+            0.6314577063125365,
+            0.7797853259974968
+          ],
+          "P": [
+            0.011457706312536509,
+            0.7797853259974968
+          ],
+          "Q": [
+            1.2514577063125365,
+            0.7797853259974968
+          ]
+        },
+        "pixel_sha256": "541250c2e1aa223359bee69c72947333291801982d7065c0bd8f0fd3d64f88e6"
+      }
+    },
+    {
+      "question_id": "geometry-008-multi_step",
+      "image_id": "geometry-008",
+      "template_id": "geometry-v1-4",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "Lines PQ and AB are parallel. Find the interior angle ACB marked '?', in degrees.",
+      "answer": 70.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-008.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "parallel_line_apex",
+        "angle_PCA": 51,
+        "angle_CBA": 59,
+        "angle_ACB": 70,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.1,
+            0.0
+          ],
+          "C": [
+            0.6314577063125365,
+            0.7797853259974968
+          ],
+          "P": [
+            0.011457706312536509,
+            0.7797853259974968
+          ],
+          "Q": [
+            1.2514577063125365,
+            0.7797853259974968
+          ]
+        },
+        "pixel_sha256": "541250c2e1aa223359bee69c72947333291801982d7065c0bd8f0fd3d64f88e6"
+      }
+    },
+    {
+      "question_id": "geometry-009-direct",
+      "image_id": "geometry-009",
+      "template_id": "geometry-v2-4",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "Point D lies on straight segment AC, point E lies on straight segment BC, and segments BD and BE have tick marks indicating equal length. What is the marked interior angle ACB at vertex C, in degrees?",
+      "answer": 43.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-009.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "three_triangle_isosceles_chain",
+        "angle_BAC": 49,
+        "angle_ABD": 30,
+        "angle_ACB": 43,
+        "angle_DEC": 119,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            0.5820150843022731,
+            0.6695317655074076
+          ],
+          "C": [
+            1.3,
+            0.0
+          ],
+          "D": [
+            0.45187129274542076,
+            0.0
+          ],
+          "E": [
+            1.080844521090754,
+            0.2043657902925961
+          ]
+        },
+        "pixel_sha256": "8f36ac0554bd3177d94c593f2837d863cbba0c38dbf0ff14b143129a72267afd"
+      }
+    },
+    {
+      "question_id": "geometry-009-multi_step",
+      "image_id": "geometry-009",
+      "template_id": "geometry-v2-4",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "Point D lies on straight segment AC, point E lies on straight segment BC, and segments BD and BE have tick marks indicating equal length. Find the angle DEC marked '?' at point E, in degrees.",
+      "answer": 119.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-009.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "three_triangle_isosceles_chain",
+        "angle_BAC": 49,
+        "angle_ABD": 30,
+        "angle_ACB": 43,
+        "angle_DEC": 119,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            0.5820150843022731,
+            0.6695317655074076
+          ],
+          "C": [
+            1.3,
+            0.0
+          ],
+          "D": [
+            0.45187129274542076,
+            0.0
+          ],
+          "E": [
+            1.080844521090754,
+            0.2043657902925961
+          ]
+        },
+        "pixel_sha256": "8f36ac0554bd3177d94c593f2837d863cbba0c38dbf0ff14b143129a72267afd"
+      }
+    },
+    {
+      "question_id": "geometry-010-direct",
+      "image_id": "geometry-010",
+      "template_id": "geometry-v1-5",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "Point D lies on straight segment AC. What is the marked angle ADB, in degrees?",
+      "answer": 76.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-010.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "cevian_two_triangles",
+        "angle_A": 39,
+        "angle_ADB": 76,
+        "angle_ABD": 65,
+        "angle_BDC": 104,
+        "angle_C": 40,
+        "angle_CBD": 36,
+        "vertices": {
+          "A": [
+            -1.4401373289760084,
+            0.0
+          ],
+          "B": [
+            -0.24192189559966779,
+            0.9702957262759965
+          ],
+          "C": [
+            0.9144315220685594,
+            0.0
+          ],
+          "D": [
+            0.0,
+            0.0
+          ]
+        },
+        "pixel_sha256": "1b97a5800a400a74a35b312e61c8b554d672dcd40376517261e216a76cfd1a1e"
+      }
+    },
+    {
+      "question_id": "geometry-010-multi_step",
+      "image_id": "geometry-010",
+      "template_id": "geometry-v1-5",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "Point D lies on straight segment AC. Find the angle CBD marked '?' in triangle CBD, in degrees.",
+      "answer": 36.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-010.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "standard",
+        "subtype": "cevian_two_triangles",
+        "angle_A": 39,
+        "angle_ADB": 76,
+        "angle_ABD": 65,
+        "angle_BDC": 104,
+        "angle_C": 40,
+        "angle_CBD": 36,
+        "vertices": {
+          "A": [
+            -1.4401373289760084,
+            0.0
+          ],
+          "B": [
+            -0.24192189559966779,
+            0.9702957262759965
+          ],
+          "C": [
+            0.9144315220685594,
+            0.0
+          ],
+          "D": [
+            0.0,
+            0.0
+          ]
+        },
+        "pixel_sha256": "1b97a5800a400a74a35b312e61c8b554d672dcd40376517261e216a76cfd1a1e"
+      }
+    },
+    {
+      "question_id": "geometry-011-direct",
+      "image_id": "geometry-011",
+      "template_id": "geometry-v2-5",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "Straight line PCQE is parallel to straight line ADB, and angle ACD is a right angle. What is the marked angle CDE at point D, in degrees?",
+      "answer": 82.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-011.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "parallel_right_w_chain",
+        "angle_CAD": 57,
+        "angle_CDE": 82,
+        "angle_QED": 115,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            3.435580215167092,
+            0.0
+          ],
+          "C": [
+            0.6494075931975105,
+            1.0
+          ],
+          "D": [
+            2.1892725570120932,
+            0.0
+          ],
+          "E": [
+            2.6555802151670918,
+            1.0
+          ],
+          "P": [
+            -0.42,
+            1.0
+          ],
+          "Q": [
+            3.435580215167092,
+            1.0
+          ]
+        },
+        "pixel_sha256": "2564e87e838dcde7e8a1843e3aa8e24c9092a2eff542548dc78d6637761f6031"
+      }
+    },
+    {
+      "question_id": "geometry-011-multi_step",
+      "image_id": "geometry-011",
+      "template_id": "geometry-v2-5",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "Straight line PCQE is parallel to straight line ADB, and angle ACD is a right angle. Find the angle QED marked '?' at point E, in degrees.",
+      "answer": 115.0,
+      "unit": "degrees",
+      "image_path": "images/geometry-011.png",
+      "metadata": {
+        "seed": 20261124,
+        "difficulty": "hard",
+        "subtype": "parallel_right_w_chain",
+        "angle_CAD": 57,
+        "angle_CDE": 82,
+        "angle_QED": 115,
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            3.435580215167092,
+            0.0
+          ],
+          "C": [
+            0.6494075931975105,
+            1.0
+          ],
+          "D": [
+            2.1892725570120932,
+            0.0
+          ],
+          "E": [
+            2.6555802151670918,
+            1.0
+          ],
+          "P": [
+            -0.42,
+            1.0
+          ],
+          "Q": [
+            3.435580215167092,
+            1.0
+          ]
+        },
+        "pixel_sha256": "2564e87e838dcde7e8a1843e3aa8e24c9092a2eff542548dc78d6637761f6031"
+      }
+    }
+  ],
+  "profile": "synth",
+  "seed_mode": "per_item"
+}

@@ -1,0 +1,122 @@
+{
+  "loop_1": {
+    "run": {
+      "config_id": "607486f1e095",
+      "new_rows": 4,
+      "total_questions": 4,
+      "image_mode": "correct"
+    },
+    "summary": {
+      "n": 4,
+      "accuracy": 1.0,
+      "correct": 4,
+      "wrong_answers": 0,
+      "parse_failures": 0,
+      "truncated": 0,
+      "backend_errors": 0,
+      "outcomes": {
+        "correct": 4,
+        "wrong_answer": 0,
+        "parse_failure": 0,
+        "truncated": 0,
+        "backend_error": 0
+      },
+      "e2e_p50_ms": 5042.472527500024,
+      "e2e_p90_ms": 5554.37704040001,
+      "ttft_p50_ms": 113.8758940000173,
+      "ttft_p90_ms": 115.43423599999869,
+      "peak_vram_max_mb": 50629.9697265625,
+      "by_modality": {
+        "chart": 1.0,
+        "geometry": 1.0
+      },
+      "by_task_type": {
+        "direct": 1.0,
+        "multi_step": 1.0
+      },
+      "by_template": {
+        "chart-v1-0": 1.0,
+        "geometry-v1-0": 1.0
+      },
+      "accuracy_cluster_bootstrap_95ci": [
+        1.0,
+        1.0
+      ],
+      "mock": false,
+      "avg_reasoning_tokens": 111.5,
+      "avg_answer_tokens": 18.0,
+      "effective_layers_verified": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "visual_tokens_sample": 400,
+      "image_grid_thw_sample": [
+        1,
+        20,
+        20
+      ]
+    }
+  },
+  "loop_3": {
+    "run": {
+      "config_id": "500de08c2017",
+      "new_rows": 4,
+      "total_questions": 4,
+      "image_mode": "correct"
+    },
+    "summary": {
+      "n": 4,
+      "accuracy": 1.0,
+      "correct": 4,
+      "wrong_answers": 0,
+      "parse_failures": 0,
+      "truncated": 0,
+      "backend_errors": 0,
+      "outcomes": {
+        "correct": 4,
+        "wrong_answer": 0,
+        "parse_failure": 0,
+        "truncated": 0,
+        "backend_error": 0
+      },
+      "e2e_p50_ms": 11778.3538205,
+      "e2e_p90_ms": 17474.740317999996,
+      "ttft_p50_ms": 230.05831200001126,
+      "ttft_p90_ms": 242.1862472000157,
+      "peak_vram_max_mb": 50696.48828125,
+      "by_modality": {
+        "chart": 1.0,
+        "geometry": 1.0
+      },
+      "by_task_type": {
+        "direct": 1.0,
+        "multi_step": 1.0
+      },
+      "by_template": {
+        "chart-v1-0": 1.0,
+        "geometry-v1-0": 1.0
+      },
+      "accuracy_cluster_bootstrap_95ci": [
+        1.0,
+        1.0
+      ],
+      "mock": false,
+      "avg_reasoning_tokens": 121.75,
+      "avg_answer_tokens": 18.5,
+      "effective_layers_verified": [
+        48,
+        48,
+        48,
+        48
+      ],
+      "visual_tokens_sample": 400,
+      "image_grid_thw_sample": [
+        1,
+        20,
+        20
+      ]
+    }
+  }
+}

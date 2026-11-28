@@ -1,0 +1,88 @@
+{
+  "n_items": 8,
+  "text_exact_matches": 2,
+  "reasoning_exact_matches": 1,
+  "pred_matches": 7,
+  "items": [
+    {
+      "question_id": "mathvista-0037-q1",
+      "text_exact_match": false,
+      "reasoning_exact_match": false,
+      "pred_bs1": -1.0,
+      "pred_bs4": 4.0,
+      "pred_match": false,
+      "r_tok_bs1": 488,
+      "r_tok_bs4": 506
+    },
+    {
+      "question_id": "mathvista-0044-q1",
+      "text_exact_match": true,
+      "reasoning_exact_match": true,
+      "pred_bs1": 18.0,
+      "pred_bs4": 18.0,
+      "pred_match": true,
+      "r_tok_bs1": 94,
+      "r_tok_bs4": 94
+    },
+    {
+      "question_id": "mathvista-0088-q1",
+      "text_exact_match": false,
+      "reasoning_exact_match": false,
+      "pred_bs1": 30.0,
+      "pred_bs4": 30.0,
+      "pred_match": true,
+      "r_tok_bs1": 191,
+      "r_tok_bs4": 194
+    },
+    {
+      "question_id": "mathvista-0098-q1",
+      "text_exact_match": false,
+      "reasoning_exact_match": false,
+      "pred_bs1": 2.0,
+      "pred_bs4": 2.0,
+      "pred_match": true,
+      "r_tok_bs1": 510,
+      "r_tok_bs4": 244
+    },
+    {
+      "question_id": "mathvista-0241-q1",
+      "text_exact_match": false,
+      "reasoning_exact_match": false,
+      "pred_bs1": 16.0,
+      "pred_bs4": 16.0,
+      "pred_match": true,
+      "r_tok_bs1": 510,
+      "r_tok_bs4": 510
+    },
+    {
+      "question_id": "mathvista-0252-q1",
+      "text_exact_match": false,
+      "reasoning_exact_match": false,
+      "pred_bs1": 1.0,
+      "pred_bs4": 1.0,
+      "pred_match": true,
+      "r_tok_bs1": 510,
+      "r_tok_bs4": 510
+    },
+    {
+      "question_id": "mathvista-0519-q1",
+      "text_exact_match": false,
+      "reasoning_exact_match": false,
+      "pred_bs1": null,
+      "pred_bs4": null,
+      "pred_match": true,
+      "r_tok_bs1": 510,
+      "r_tok_bs4": 510
+    },
+    {
+      "question_id": "mathvista-0933-q1",
+      "text_exact_match": true,
+      "reasoning_exact_match": false,
+      "pred_bs1": 9606.0,
+      "pred_bs4": 9606.0,
+      "pred_match": true,
+      "r_tok_bs1": 98,
+      "r_tok_bs4": 122
+    }
+  ]
+}

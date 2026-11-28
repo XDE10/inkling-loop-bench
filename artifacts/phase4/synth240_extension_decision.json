@@ -1,0 +1,35 @@
+{
+  "trigger_synth320": false,
+  "max_ci_half_width_threshold": 0.05,
+  "ambiguous_min_abs_diff_threshold": 0.025,
+  "primary_comparisons_checked": {
+    "loop3_minus_loop1": {
+      "diff_accuracy": 0.0,
+      "ci95": [
+        -0.0375,
+        0.0375
+      ],
+      "ci_half_width": 0.0375,
+      "spans_zero": true
+    },
+    "loop5_minus_loop1": {
+      "diff_accuracy": 0.016667,
+      "ci95": [
+        -0.016667,
+        0.054167
+      ],
+      "ci_half_width": 0.035417,
+      "spans_zero": true
+    },
+    "loop5_minus_loop3": {
+      "diff_accuracy": 0.016667,
+      "ci95": [
+        -0.016667,
+        0.05
+      ],
+      "ci_half_width": 0.033333,
+      "spans_zero": true
+    }
+  },
+  "reasons": []
+}

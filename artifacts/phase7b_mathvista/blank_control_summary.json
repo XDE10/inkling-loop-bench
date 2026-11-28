@@ -1,0 +1,76 @@
+{
+  "n": 83,
+  "correct": 5,
+  "accuracy": 0.060240963855421686,
+  "ci95": [
+    0.012048192771084338,
+    0.10843373493975904
+  ],
+  "wrong_answers": 76,
+  "truncated": 2,
+  "parse_failures": 0,
+  "reasoning_tokens_mean": 373.49397590361446,
+  "e2e_p50_ms": 9928.06665199896,
+  "e2e_mean_ms": 12985.015292915507,
+  "by_source_counts": {
+    "FunctionQA": "3/26",
+    "GEOS": "2/5",
+    "IQTest": "0/13",
+    "PaperQA": "0/6",
+    "TabMWP": "0/26",
+    "TheoremQA": "0/7"
+  },
+  "correct_items_detail": [
+    {
+      "question_id": "mathvista-0602-q1",
+      "source": "GEOS",
+      "expected": 18.0,
+      "predicted": 18.0,
+      "text": "Each square has area 9, so its side length is 3.  \nThe rectangle is made of two ",
+      "reasoning_tokens": 91
+    },
+    {
+      "question_id": "mathvista-0720-q1",
+      "source": "FunctionQA",
+      "expected": 2.0,
+      "predicted": 2.0,
+      "text": "2",
+      "reasoning_tokens": 260
+    },
+    {
+      "question_id": "mathvista-0893-q1",
+      "source": "FunctionQA",
+      "expected": 0.0,
+      "predicted": 0.0,
+      "text": "0",
+      "reasoning_tokens": 201
+    },
+    {
+      "question_id": "mathvista-0920-q1",
+      "source": "GEOS",
+      "expected": 30.0,
+      "predicted": 30.0,
+      "text": "30",
+      "reasoning_tokens": 318
+    },
+    {
+      "question_id": "mathvista-0942-q1",
+      "source": "FunctionQA",
+      "expected": 0.0,
+      "predicted": 0.0,
+      "text": "0",
+      "reasoning_tokens": 194
+    }
+  ],
+  "correct_minus_blank_low_loop1": {
+    "n_questions": 83,
+    "n_clusters": 83,
+    "base_accuracy": 0.060240963855421686,
+    "cand_accuracy": 0.8313253012048193,
+    "diff_accuracy": 0.7710843373493976,
+    "diff_cluster_bootstrap_95ci": [
+      0.6746987951807228,
+      0.8554216867469879
+    ]
+  }
+}

@@ -45,3 +45,12 @@ def test_extract_number_formats_and_trailing_asides():
     assert extract_number(r"Result: \boxed{65\text{ units}} (where max was 90).") == 65.0
     assert extract_number(r"Result: \boxed{35^\circ} in triangle CBD (with C = 45^\circ).") == 35.0
     assert extract_number(r"**Answer**: \(40^\circ\)") == 40.0
+
+    # Fractions, scientific notation, LaTeX comma grouping, Unicode minus
+    assert abs(extract_number(r"\boxed{\frac{3}{4}}") - 0.75) < 1e-9
+    assert abs(extract_number("Answer: 3/4") - 0.75) < 1e-9
+    assert abs(extract_number(r"\boxed{-\frac{5}{2}}") - (-2.5)) < 1e-9
+    assert abs(extract_number("1.5e3") - 1500.0) < 1e-9
+    assert abs(extract_number(r"Final answer is 2.5 \times 10^3") - 2500.0) < 1e-9
+    assert abs(extract_number(r"\boxed{12{,}500}") - 12500.0) < 1e-9
+    assert abs(extract_number("The value is \u22124.") - (-4.0)) < 1e-9

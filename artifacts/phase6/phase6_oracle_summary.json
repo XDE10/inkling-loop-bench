@@ -1,0 +1,500 @@
+{
+  "label": "REAL MODEL EVALUATION \u2014 PHASE 6 OFFLINE ORACLE ABLATIONS",
+  "mock": false,
+  "suites": {
+    "phase4_synth240_pass_oracle": {
+      "n_shared_questions": 240,
+      "escalation_order": [
+        "loop1",
+        "loop2",
+        "loop3",
+        "loop5"
+      ],
+      "fixed_policies": [
+        {
+          "config_label": "loop1",
+          "n": 240,
+          "accuracy": 0.9375,
+          "correct": 225,
+          "e2e_p50_ms": 9356.686556499966,
+          "e2e_mean_ms": 19489.381344891663,
+          "total_gpu_s": 4677.45,
+          "reasoning_tokens_mean": 497.72
+        },
+        {
+          "config_label": "loop2",
+          "n": 240,
+          "accuracy": 0.9291666666666667,
+          "correct": 223,
+          "e2e_p50_ms": 15916.35211699986,
+          "e2e_mean_ms": 31332.450069175036,
+          "total_gpu_s": 7519.79,
+          "reasoning_tokens_mean": 482.4
+        },
+        {
+          "config_label": "loop3",
+          "n": 240,
+          "accuracy": 0.9375,
+          "correct": 225,
+          "e2e_p50_ms": 21053.55680450066,
+          "e2e_mean_ms": 43866.024560037586,
+          "total_gpu_s": 10527.85,
+          "reasoning_tokens_mean": 473.0
+        },
+        {
+          "config_label": "loop5",
+          "n": 240,
+          "accuracy": 0.9541666666666667,
+          "correct": 229,
+          "e2e_p50_ms": 33884.82994549861,
+          "e2e_mean_ms": 66575.98325673734,
+          "total_gpu_s": 15978.24,
+          "reasoning_tokens_mean": 443.34
+        }
+      ],
+      "pareto_frontier_p50": [
+        "loop1",
+        "loop5"
+      ],
+      "pareto_frontier_mean": [
+        "loop1",
+        "loop5"
+      ],
+      "best_fixed_policy": {
+        "config_label": "loop5",
+        "n": 240,
+        "accuracy": 0.9541666666666667,
+        "correct": 229,
+        "e2e_p50_ms": 33884.82994549861,
+        "e2e_mean_ms": 66575.98325673734,
+        "total_gpu_s": 15978.24,
+        "reasoning_tokens_mean": 443.34
+      },
+      "router_oracle": {
+        "accuracy": 0.9875,
+        "correct": 237,
+        "unsolved_by_all": 3,
+        "e2e_p50_ms": 9544.648324999884,
+        "e2e_mean_ms": 19718.32979684167,
+        "total_gpu_s": 4732.4,
+        "mean_speedup_vs_best_fixed": 3.3764,
+        "selection_distribution": {
+          "loop1": 208,
+          "loop2": 21,
+          "loop3": 9,
+          "loop5": 2
+        },
+        "paired_gain_vs_best_fixed": {
+          "n_questions": 240,
+          "n_clusters": 120,
+          "base_accuracy": 0.9541666666666667,
+          "cand_accuracy": 0.9875,
+          "diff_accuracy": 0.033333333333333326,
+          "diff_cluster_bootstrap_95ci": [
+            0.012500000000000067,
+            0.05833333333333335
+          ]
+        }
+      },
+      "cascade_oracle": {
+        "accuracy": 0.9875,
+        "e2e_p50_ms": 9544.648324999884,
+        "e2e_mean_ms": 31219.84172206249,
+        "total_gpu_s": 7492.76,
+        "mean_speedup_vs_best_fixed": 2.1325
+      }
+    },
+    "phase4_synth240_hard_multistep_oracle": {
+      "n_shared_questions": 60,
+      "escalation_order": [
+        "loop1",
+        "loop2",
+        "loop3",
+        "loop5"
+      ],
+      "fixed_policies": [
+        {
+          "config_label": "loop1",
+          "n": 60,
+          "accuracy": 0.9666666666666667,
+          "correct": 58,
+          "e2e_p50_ms": 20907.4683299998,
+          "e2e_mean_ms": 28099.55023324998,
+          "total_gpu_s": 1685.97,
+          "reasoning_tokens_mean": 690.98
+        },
+        {
+          "config_label": "loop2",
+          "n": 60,
+          "accuracy": 0.9333333333333333,
+          "correct": 56,
+          "e2e_p50_ms": 35871.112476000235,
+          "e2e_mean_ms": 42965.75339338335,
+          "total_gpu_s": 2577.95,
+          "reasoning_tokens_mean": 634.0
+        },
+        {
+          "config_label": "loop3",
+          "n": 60,
+          "accuracy": 0.9166666666666666,
+          "correct": 55,
+          "e2e_p50_ms": 55333.59759749874,
+          "e2e_mean_ms": 66181.17913740005,
+          "total_gpu_s": 3970.87,
+          "reasoning_tokens_mean": 684.8
+        },
+        {
+          "config_label": "loop5",
+          "n": 60,
+          "accuracy": 0.9333333333333333,
+          "correct": 56,
+          "e2e_p50_ms": 84489.73381099995,
+          "e2e_mean_ms": 98046.02137601662,
+          "total_gpu_s": 5882.76,
+          "reasoning_tokens_mean": 624.43
+        }
+      ],
+      "pareto_frontier_p50": [
+        "loop1"
+      ],
+      "pareto_frontier_mean": [
+        "loop1"
+      ],
+      "best_fixed_policy": {
+        "config_label": "loop1",
+        "n": 60,
+        "accuracy": 0.9666666666666667,
+        "correct": 58,
+        "e2e_p50_ms": 20907.4683299998,
+        "e2e_mean_ms": 28099.55023324998,
+        "total_gpu_s": 1685.97,
+        "reasoning_tokens_mean": 690.98
+      },
+      "router_oracle": {
+        "accuracy": 0.9666666666666667,
+        "correct": 58,
+        "unsolved_by_all": 2,
+        "e2e_p50_ms": 19983.42417799961,
+        "e2e_mean_ms": 26233.97387958329,
+        "total_gpu_s": 1574.04,
+        "mean_speedup_vs_best_fixed": 1.0711,
+        "selection_distribution": {
+          "loop1": 56,
+          "loop2": 4
+        },
+        "paired_gain_vs_best_fixed": {
+          "n_questions": 60,
+          "n_clusters": 60,
+          "base_accuracy": 0.9666666666666667,
+          "cand_accuracy": 0.9666666666666667,
+          "diff_accuracy": 0.0,
+          "diff_cluster_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "cascade_oracle": {
+        "accuracy": 0.9666666666666667,
+        "e2e_p50_ms": 20907.4683299998,
+        "e2e_mean_ms": 46406.37562603332,
+        "total_gpu_s": 2784.38,
+        "mean_speedup_vs_best_fixed": 0.6055
+      }
+    },
+    "phase5_joint_effort_pass_oracle": {
+      "n_shared_questions": 48,
+      "escalation_order": [
+        "low_loop1",
+        "medium_loop1",
+        "none_loop1",
+        "high_loop1",
+        "low_loop3",
+        "none_loop3",
+        "medium_loop3",
+        "high_loop3",
+        "low_loop5",
+        "medium_loop5",
+        "none_loop5",
+        "high_loop5"
+      ],
+      "fixed_policies": [
+        {
+          "config_label": "none_loop1",
+          "n": 48,
+          "accuracy": 0.8333333333333334,
+          "correct": 40,
+          "e2e_p50_ms": 9565.742373000034,
+          "e2e_mean_ms": 19816.325735666655,
+          "total_gpu_s": 951.18,
+          "reasoning_tokens_mean": 539.48
+        },
+        {
+          "config_label": "none_loop3",
+          "n": 48,
+          "accuracy": 0.8958333333333334,
+          "correct": 43,
+          "e2e_p50_ms": 21136.023135499956,
+          "e2e_mean_ms": 42197.55050737498,
+          "total_gpu_s": 2025.48,
+          "reasoning_tokens_mean": 460.0
+        },
+        {
+          "config_label": "none_loop5",
+          "n": 48,
+          "accuracy": 0.875,
+          "correct": 42,
+          "e2e_p50_ms": 30426.09123049988,
+          "e2e_mean_ms": 74558.08627810418,
+          "total_gpu_s": 3578.79,
+          "reasoning_tokens_mean": 519.12
+        },
+        {
+          "config_label": "low_loop1",
+          "n": 48,
+          "accuracy": 0.8958333333333334,
+          "correct": 43,
+          "e2e_p50_ms": 8094.062768499953,
+          "e2e_mean_ms": 16510.328424562467,
+          "total_gpu_s": 792.5,
+          "reasoning_tokens_mean": 422.19
+        },
+        {
+          "config_label": "low_loop3",
+          "n": 48,
+          "accuracy": 0.9791666666666666,
+          "correct": 47,
+          "e2e_p50_ms": 15495.826322000084,
+          "e2e_mean_ms": 33156.45191437498,
+          "total_gpu_s": 1591.51,
+          "reasoning_tokens_mean": 348.85
+        },
+        {
+          "config_label": "low_loop5",
+          "n": 48,
+          "accuracy": 0.9583333333333334,
+          "correct": 46,
+          "e2e_p50_ms": 23706.048490000285,
+          "e2e_mean_ms": 51475.81988779181,
+          "total_gpu_s": 2470.84,
+          "reasoning_tokens_mean": 335.52
+        },
+        {
+          "config_label": "medium_loop1",
+          "n": 48,
+          "accuracy": 0.9166666666666666,
+          "correct": 44,
+          "e2e_p50_ms": 10520.31681799997,
+          "e2e_mean_ms": 18757.686528479167,
+          "total_gpu_s": 900.37,
+          "reasoning_tokens_mean": 486.62
+        },
+        {
+          "config_label": "medium_loop3",
+          "n": 48,
+          "accuracy": 0.9375,
+          "correct": 45,
+          "e2e_p50_ms": 20266.576293499384,
+          "e2e_mean_ms": 45032.73193593751,
+          "total_gpu_s": 2161.57,
+          "reasoning_tokens_mean": 483.25
+        },
+        {
+          "config_label": "medium_loop5",
+          "n": 48,
+          "accuracy": 0.9166666666666666,
+          "correct": 44,
+          "e2e_p50_ms": 30872.851568499755,
+          "e2e_mean_ms": 73829.49686702088,
+          "total_gpu_s": 3543.82,
+          "reasoning_tokens_mean": 512.08
+        },
+        {
+          "config_label": "high_loop1",
+          "n": 48,
+          "accuracy": 0.875,
+          "correct": 42,
+          "e2e_p50_ms": 11640.20954399996,
+          "e2e_mean_ms": 22013.50685562499,
+          "total_gpu_s": 1056.65,
+          "reasoning_tokens_mean": 589.88
+        },
+        {
+          "config_label": "high_loop3",
+          "n": 48,
+          "accuracy": 0.8541666666666666,
+          "correct": 41,
+          "e2e_p50_ms": 22695.77238300019,
+          "e2e_mean_ms": 50979.22842579167,
+          "total_gpu_s": 2447.0,
+          "reasoning_tokens_mean": 567.65
+        },
+        {
+          "config_label": "high_loop5",
+          "n": 48,
+          "accuracy": 0.9166666666666666,
+          "correct": 44,
+          "e2e_p50_ms": 37567.15767150004,
+          "e2e_mean_ms": 81047.3387305,
+          "total_gpu_s": 3890.27,
+          "reasoning_tokens_mean": 568.27
+        }
+      ],
+      "pareto_frontier_p50": [
+        "low_loop1",
+        "medium_loop1",
+        "low_loop3"
+      ],
+      "pareto_frontier_mean": [
+        "low_loop1",
+        "medium_loop1",
+        "low_loop3"
+      ],
+      "best_fixed_policy": {
+        "config_label": "low_loop3",
+        "n": 48,
+        "accuracy": 0.9791666666666666,
+        "correct": 47,
+        "e2e_p50_ms": 15495.826322000084,
+        "e2e_mean_ms": 33156.45191437498,
+        "total_gpu_s": 1591.51,
+        "reasoning_tokens_mean": 348.85
+      },
+      "router_oracle": {
+        "accuracy": 0.9791666666666666,
+        "correct": 47,
+        "unsolved_by_all": 1,
+        "e2e_p50_ms": 7890.357879000107,
+        "e2e_mean_ms": 15841.484525562437,
+        "total_gpu_s": 760.39,
+        "mean_speedup_vs_best_fixed": 2.093,
+        "selection_distribution": {
+          "low_loop1": 28,
+          "medium_loop1": 3,
+          "none_loop1": 14,
+          "high_loop1": 1,
+          "medium_loop3": 1,
+          "high_loop3": 1
+        },
+        "paired_gain_vs_best_fixed": {
+          "n_questions": 48,
+          "n_clusters": 24,
+          "base_accuracy": 0.9791666666666666,
+          "cand_accuracy": 0.9791666666666666,
+          "diff_accuracy": 0.0,
+          "diff_cluster_bootstrap_95ci": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "cascade_oracle": {
+        "accuracy": 0.9791666666666666,
+        "e2e_p50_ms": 8094.062768499953,
+        "e2e_mean_ms": 63245.10613912493,
+        "total_gpu_s": 3035.77,
+        "mean_speedup_vs_best_fixed": 0.5243
+      }
+    },
+    "phase5_chartqa80_holdout_oracle": {
+      "n_shared_questions": 80,
+      "escalation_order": [
+        "loop1",
+        "loop2",
+        "loop3",
+        "loop5"
+      ],
+      "fixed_policies": [
+        {
+          "config_label": "loop1",
+          "n": 80,
+          "accuracy": 0.9,
+          "correct": 72,
+          "e2e_p50_ms": 5094.628084500073,
+          "e2e_mean_ms": 8230.064021574912,
+          "total_gpu_s": 658.41,
+          "reasoning_tokens_mean": 228.07
+        },
+        {
+          "config_label": "loop2",
+          "n": 80,
+          "accuracy": 0.8875,
+          "correct": 71,
+          "e2e_p50_ms": 8878.135560999908,
+          "e2e_mean_ms": 15542.992846299967,
+          "total_gpu_s": 1243.44,
+          "reasoning_tokens_mean": 252.89
+        },
+        {
+          "config_label": "loop3",
+          "n": 80,
+          "accuracy": 0.8875,
+          "correct": 71,
+          "e2e_p50_ms": 12537.795457500124,
+          "e2e_mean_ms": 21282.711144087545,
+          "total_gpu_s": 1702.62,
+          "reasoning_tokens_mean": 247.19
+        },
+        {
+          "config_label": "loop5",
+          "n": 80,
+          "accuracy": 0.9,
+          "correct": 72,
+          "e2e_p50_ms": 19793.59960650072,
+          "e2e_mean_ms": 31913.69766693763,
+          "total_gpu_s": 2553.1,
+          "reasoning_tokens_mean": 230.16
+        }
+      ],
+      "pareto_frontier_p50": [
+        "loop1"
+      ],
+      "pareto_frontier_mean": [
+        "loop1"
+      ],
+      "best_fixed_policy": {
+        "config_label": "loop1",
+        "n": 80,
+        "accuracy": 0.9,
+        "correct": 72,
+        "e2e_p50_ms": 5094.628084500073,
+        "e2e_mean_ms": 8230.064021574912,
+        "total_gpu_s": 658.41,
+        "reasoning_tokens_mean": 228.07
+      },
+      "router_oracle": {
+        "accuracy": 0.925,
+        "correct": 74,
+        "unsolved_by_all": 6,
+        "e2e_p50_ms": 5094.628084500073,
+        "e2e_mean_ms": 10072.650448774868,
+        "total_gpu_s": 805.81,
+        "mean_speedup_vs_best_fixed": 0.8171,
+        "selection_distribution": {
+          "loop1": 71,
+          "loop2": 6,
+          "loop3": 2,
+          "loop5": 1
+        },
+        "paired_gain_vs_best_fixed": {
+          "n_questions": 80,
+          "n_clusters": 40,
+          "base_accuracy": 0.9,
+          "cand_accuracy": 0.925,
+          "diff_accuracy": 0.025000000000000022,
+          "diff_cluster_bootstrap_95ci": [
+            0.0,
+            0.0625
+          ]
+        }
+      },
+      "cascade_oracle": {
+        "accuracy": 0.925,
+        "e2e_p50_ms": 5218.441507499847,
+        "e2e_mean_ms": 17897.990638887433,
+        "total_gpu_s": 1431.84,
+        "mean_speedup_vs_best_fixed": 0.4598
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "varloop": {
+    "model_id": "thinkingmachines/TML-d24-varloop-research",
+    "model_revision": "c90921bd5f78df6c8168173b9f8a3a850320c594",
+    "load_s": 4.73,
+    "missing_keys_count": 0,
+    "unexpected_keys_count": 0,
+    "mismatched_keys_count": 0,
+    "missing_keys_sample": [],
+    "unexpected_keys_sample": [],
+    "mismatched_keys_sample": []
+  },
+  "mini": {
+    "model_id": "thinkingmachines/Inkling-2-Mini",
+    "model_revision": "c9d028302cd0f035fdf8e7e91f089a4ce94d2195",
+    "load_s": 64.89,
+    "missing_keys_count": 0,
+    "unexpected_keys_count": 0,
+    "mismatched_keys_count": 0,
+    "missing_keys_sample": [],
+    "unexpected_keys_sample": [],
+    "mismatched_keys_sample": []
+  }
+}

@@ -1,0 +1,2737 @@
+{
+  "schema_version": 2,
+  "profile": "holdout_mathvista_hard",
+  "source_dataset": "AI4Math/MathVista",
+  "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+  "selection_sources": [
+    "FunctionQA",
+    "GEOS",
+    "IQTest",
+    "PaperQA",
+    "TabMWP",
+    "TheoremQA"
+  ],
+  "by_source": {
+    "FunctionQA": 26,
+    "GEOS": 5,
+    "IQTest": 13,
+    "PaperQA": 6,
+    "TabMWP": 26,
+    "TheoremQA": 7
+  },
+  "image_count": 83,
+  "question_count": 83,
+  "questions": [
+    {
+      "question_id": "mathvista-0037-q1",
+      "image_id": "mathvista-0037",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the limit as x approaches -1?",
+      "answer": 3.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0037.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 37,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "3",
+        "source_img_sha256": "27956cd805ac2460bd9ecdaf10ef34946958b1741750f7cf92f477e978210e04",
+        "native_size": [
+          408,
+          410
+        ],
+        "pixel_sha256": "4902347a00fa37e12255eed8fcd69e732f2c739b608ddec622c59f92d36e8c37"
+      }
+    },
+    {
+      "question_id": "mathvista-0044-q1",
+      "image_id": "mathvista-0044",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Chase wants to buy 4 kilograms of oval beads and 5 kilograms of star-shaped beads. How much will he spend? (Unit: $)",
+      "answer": 18.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0044.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 44,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "18",
+        "source_img_sha256": "c9e7fa57b309b429a26e7123178b9ff6f5e2bf40d66b8afa886bba6e8a062afa",
+        "native_size": [
+          305,
+          226
+        ],
+        "pixel_sha256": "f9494d8dfb3957fa4a97cd229d77c8debf190889dfdc4649e3efc30523e522cf"
+      }
+    },
+    {
+      "question_id": "mathvista-0045-q1",
+      "image_id": "mathvista-0045",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: An administrator at the Department of Motor Vehicles (DMV) tracked the average wait time from month to month. According to the table, what was the rate of change between August and September? (Unit: minutes per month)",
+      "answer": -3.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0045.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 45,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "-3",
+        "source_img_sha256": "fe0d0a1be02cb72bd2b9fe6016bb123e69665d6a981c8e2541a4ce8e588cab63",
+        "native_size": [
+          273,
+          218
+        ],
+        "pixel_sha256": "652856d8d83a5d467a670ba97159b0086d6949326df6d46edc88ed69fb4a3ce0"
+      }
+    },
+    {
+      "question_id": "mathvista-0078-q1",
+      "image_id": "mathvista-0078",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Find the missing value.",
+      "answer": 8.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0078.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 78,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "arithmetic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "8",
+        "source_img_sha256": "d977e7dccb0a89ec3a78ab953c67939400fc2959b891e149468273b829b67a7e",
+        "native_size": [
+          1062,
+          394
+        ],
+        "pixel_sha256": "e331d176532254ffe85e7e5c741d7610c0cf4c02a31201cc3bed3e64b2a46a96"
+      }
+    },
+    {
+      "question_id": "mathvista-0081-q1",
+      "image_id": "mathvista-0081",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the value of r at theta=3*pi/2?",
+      "answer": -1.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0081.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 81,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "-1",
+        "source_img_sha256": "5f8dc4f9ea821e894f3f19cf492835e10337ac2f26d9941d2050bfbc7b960217",
+        "native_size": [
+          616,
+          460
+        ],
+        "pixel_sha256": "1ca0cbfd22cff4fcb5914a6b612d1b5bec6d737bf411c9fa330cf84be21dbe0e"
+      }
+    },
+    {
+      "question_id": "mathvista-0084-q1",
+      "image_id": "mathvista-0084",
+      "template_id": "mathvista-theoremqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring a floating-point number with one decimal place and provide the final value, e.g., 1.2, 1.3, 1.4, at the end.\nQuestion: ABCD is a square. Inscribed Circle center is O. Find the the angle of ∠AMK. Return the numeric value.",
+      "answer": 130.9,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0084.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 84,
+        "source": "TheoremQA",
+        "grade": "college",
+        "context": "scientific figure",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "float",
+        "precision": 1,
+        "raw_answer": "130.9",
+        "source_img_sha256": "3679153609ad060fe638a23799f6b9b74c3e2091726d56001a3ebc93425d5e2a",
+        "native_size": [
+          1194,
+          1220
+        ],
+        "pixel_sha256": "e770181a10f80d627441e57cb15f95453d254914c35e20b795e8fa6db1e5afa9"
+      }
+    },
+    {
+      "question_id": "mathvista-0088-q1",
+      "image_id": "mathvista-0088",
+      "template_id": "mathvista-geos",
+      "modality": "geometry",
+      "task_type": "geometry_problem_solving",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: A square is tangent to a line at point P in the figure above. What is the value of x?",
+      "answer": 30.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0088.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 88,
+        "source": "GEOS",
+        "grade": "high school",
+        "context": "geometry diagram",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "30",
+        "source_img_sha256": "5588a8f994eabf4157bcc49b253164469641b7c991f3b7a838f14987449deac7",
+        "native_size": [
+          442,
+          277
+        ],
+        "pixel_sha256": "e8464ce9a6972ed679404f3bdac2c1a7496c5bd285f1e2c5be91444c42c3e83c"
+      }
+    },
+    {
+      "question_id": "mathvista-0098-q1",
+      "image_id": "mathvista-0098",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Find the value of the square in the figure.",
+      "answer": 2.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0098.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 98,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "2",
+        "source_img_sha256": "6e27e5a60b2d08cacdb43ee864a898186641f7e421347903f217c6f52507dda9",
+        "native_size": [
+          900,
+          506
+        ],
+        "pixel_sha256": "57bae3616be3bf232f2da7c0f9f16e193e9441511a3059cce841bcca2ff26528"
+      }
+    },
+    {
+      "question_id": "mathvista-0118-q1",
+      "image_id": "mathvista-0118",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the maximum value of this function?",
+      "answer": 1.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0118.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 118,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "1",
+        "source_img_sha256": "6b3038db8d856d49d7bd1079feecbe7256fc7efff41103e4ac60ff35a3e598fb",
+        "native_size": [
+          600,
+          296
+        ],
+        "pixel_sha256": "57504685c30f9a9c3e5840d988788c2d293b7e8ca4ac1f0514881508e4b31b39"
+      }
+    },
+    {
+      "question_id": "mathvista-0120-q1",
+      "image_id": "mathvista-0120",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the degree of this function?",
+      "answer": 3.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0120.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 120,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "3",
+        "source_img_sha256": "e4d8cab9a1dad270e328673a9180a980609d7fc6b8f44c5cfec9ce09dab46eca",
+        "native_size": [
+          312,
+          320
+        ],
+        "pixel_sha256": "e9ee8376c48241ca1bb88d9aa278002b872d0b5f9db0887121f5fc44c9eac930"
+      }
+    },
+    {
+      "question_id": "mathvista-0121-q1",
+      "image_id": "mathvista-0121",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: In trying to calculate how much money could be saved by packing lunch, Manny recorded the amount he spent on lunch each day. According to the table, what was the rate of change between Wednesday and Thursday? (Unit: $, per day)",
+      "answer": 5.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0121.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 121,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "5",
+        "source_img_sha256": "1a2ff0c38f46360e533372903770dbdb6649c6c5fdd1caef5395c9143f1dcd3a",
+        "native_size": [
+          235,
+          218
+        ],
+        "pixel_sha256": "03cc894c3e460d0660db3c10d0a63fd9b6abf8663cb3f3ab7514e4f7d495b728"
+      }
+    },
+    {
+      "question_id": "mathvista-0145-q1",
+      "image_id": "mathvista-0145",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Can you find the missing term?",
+      "answer": 10.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0145.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 145,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "10",
+        "source_img_sha256": "348807671e2d20eb3cb612079875559899077bbe9e822ae59cfc49559c10e082",
+        "native_size": [
+          900,
+          506
+        ],
+        "pixel_sha256": "fe31609c3a227ff02f541302ca9b4d938ace1fde4090323a97d7cc63bcbd510c"
+      }
+    },
+    {
+      "question_id": "mathvista-0146-q1",
+      "image_id": "mathvista-0146",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Kimberly's classmates revealed how many science articles they read. What is the range of the numbers?'",
+      "answer": 4.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0146.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 146,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "4",
+        "source_img_sha256": "4bcee4b0ee8dc55200339453b88d6b9fdf53ac0884134b9a0e8c4150b9896f96",
+        "native_size": [
+          286,
+          218
+        ],
+        "pixel_sha256": "c8493ca32b3fa43e27bc7e70c76ad9161eb1781934707f1b02b7db0f4b750888"
+      }
+    },
+    {
+      "question_id": "mathvista-0156-q1",
+      "image_id": "mathvista-0156",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the limit of the as x approaches 1 from the left side?",
+      "answer": 4.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0156.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 156,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "4",
+        "source_img_sha256": "9e9332fb5421241d3ddd5b371ebf4be51ebf2dd99050213ca139437292761f13",
+        "native_size": [
+          327,
+          291
+        ],
+        "pixel_sha256": "8b70863dbe299ab963afa21a878482c27a42e0c43ba95759fff74548bbb7981e"
+      }
+    },
+    {
+      "question_id": "mathvista-0167-q1",
+      "image_id": "mathvista-0167",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the biggest zero of this function?",
+      "answer": 2.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0167.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 167,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "2",
+        "source_img_sha256": "d4885cc59150610a34cf59f004974df22b755242fadf5e3a74b36c6fefe30916",
+        "native_size": [
+          1920,
+          1920
+        ],
+        "pixel_sha256": "c575f92482dbbdb8e544639488ab94b5e3b6767da87e38e531cefab8fde0e05e"
+      }
+    },
+    {
+      "question_id": "mathvista-0188-q1",
+      "image_id": "mathvista-0188",
+      "template_id": "mathvista-paperqa",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How many methods in the table achieve an A-847 score higher than 20.0?",
+      "answer": 3.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0188.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 188,
+        "source": "PaperQA",
+        "grade": "college",
+        "context": "table",
+        "skills": [
+          "scientific reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "3",
+        "source_img_sha256": "187b0c644918390574c053cb2986207ba0257ad96404e60df8f6526bb6b835c1",
+        "native_size": [
+          2226,
+          634
+        ],
+        "pixel_sha256": "73df9cd246f5aee76bf811a2185a6ff15eea33155fcde8cb6c09cfcc24b56f0a"
+      }
+    },
+    {
+      "question_id": "mathvista-0197-q1",
+      "image_id": "mathvista-0197",
+      "template_id": "mathvista-paperqa",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How many sequences have negative Influence Scores?",
+      "answer": 2.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0197.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 197,
+        "source": "PaperQA",
+        "grade": "college",
+        "context": "bar chart",
+        "skills": [
+          "scientific reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "2",
+        "source_img_sha256": "5af03a1c79c3865a3c9e2ebc20d88142d301842b9fefd5b7b9ebeda2b22c3c1f",
+        "native_size": [
+          1766,
+          772
+        ],
+        "pixel_sha256": "ea0250d14f97d5fa99a3dc74848b8f80aa91e2045ffd472d58be17701a88288b"
+      }
+    },
+    {
+      "question_id": "mathvista-0205-q1",
+      "image_id": "mathvista-0205",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: A statistician analyzed the number of runs scored by players last season. How many players scored more than 2 runs last season?'",
+      "answer": 24.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0205.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 205,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "24",
+        "source_img_sha256": "9bda6a2f4d956da70e3dae5f447be5ec8b8241b27322eabe0cb9a19734c9ebbf",
+        "native_size": [
+          351,
+          190
+        ],
+        "pixel_sha256": "161bc14633d69340b8a6f48a4e488e0d68820f40e05da81a4b4c131f32cc2e10"
+      }
+    },
+    {
+      "question_id": "mathvista-0215-q1",
+      "image_id": "mathvista-0215",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Layla went on a camping trip and logged the number of miles she hiked each day. What is the range of the numbers?'",
+      "answer": 8.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0215.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 215,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "8",
+        "source_img_sha256": "b4b6fd091de3832426e6af55c2fa164fe3c11a547659dab48cc1f8fcb9fc5e65",
+        "native_size": [
+          212,
+          249
+        ],
+        "pixel_sha256": "9421a6816dad03d3c4573e6fb014d8d437587ee0d1ffd462ec975f7388502357"
+      }
+    },
+    {
+      "question_id": "mathvista-0217-q1",
+      "image_id": "mathvista-0217",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the degree of this function?",
+      "answer": 2.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0217.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 217,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "2",
+        "source_img_sha256": "c02166f228ed923f05e15c588a575dd5f18118522a2016b6388b48f4b4587827",
+        "native_size": [
+          304,
+          202
+        ],
+        "pixel_sha256": "b455856e4603625f6fa0c8ab74d14be5178145a401983ee354f451222eb96520"
+      }
+    },
+    {
+      "question_id": "mathvista-0241-q1",
+      "image_id": "mathvista-0241",
+      "template_id": "mathvista-paperqa",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How many models in the table have a model size larger than 10B?",
+      "answer": 11.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0241.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 241,
+        "source": "PaperQA",
+        "grade": "college",
+        "context": "table",
+        "skills": [
+          "scientific reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "11",
+        "source_img_sha256": "5564d6129a3c2fa27558aee8f716fb9d7cde702c8f7bc610efc3d264c719f8f4",
+        "native_size": [
+          1570,
+          1184
+        ],
+        "pixel_sha256": "15f99eae0b44358425d7258e8edcdbd1b7514f60525077bf36e9a084264b9fad"
+      }
+    },
+    {
+      "question_id": "mathvista-0252-q1",
+      "image_id": "mathvista-0252",
+      "template_id": "mathvista-theoremqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring a floating-point number with two decimal places and provide the final value, e.g., 1.23, 1.34, 1.45, at the end.\nQuestion: Consider the infinitely long chain of resistors shown below. What is the resistance between terminals a and b if R=1?",
+      "answer": 0.73,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0252.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 252,
+        "source": "TheoremQA",
+        "grade": "college",
+        "context": "scientific figure",
+        "skills": [
+          "scientific reasoning"
+        ],
+        "answer_type": "float",
+        "precision": 2,
+        "raw_answer": "0.73",
+        "source_img_sha256": "a4668515e6b03e7d9a01e1a6852e5ca36c3e2f878e3c1f7b31edec449c87c677",
+        "native_size": [
+          463,
+          169
+        ],
+        "pixel_sha256": "f6326f8a331f25c6106ce5271d3f4de904fb516d97fe3a97a6171b13ef310219"
+      }
+    },
+    {
+      "question_id": "mathvista-0304-q1",
+      "image_id": "mathvista-0304",
+      "template_id": "mathvista-geos",
+      "modality": "geometry",
+      "task_type": "geometry_problem_solving",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: In the figure above, two line segments meet at a point on line l. If the value of y is equal to the square of the value of x, what is the value of y?",
+      "answer": 100.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0304.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 304,
+        "source": "GEOS",
+        "grade": "high school",
+        "context": "geometry diagram",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "100",
+        "source_img_sha256": "be420da175713cdce5e9f2065477688a16f5e5a7cd74baca54a990dd46aecde0",
+        "native_size": [
+          431,
+          247
+        ],
+        "pixel_sha256": "f923b9798f264094ae7d5dfa7fffedcde25ebba4d0e6ea96c0a0fc4555d35681"
+      }
+    },
+    {
+      "question_id": "mathvista-0309-q1",
+      "image_id": "mathvista-0309",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: The movie critic liked to count the number of actors in each movie he saw. How many movies had at least 30 actors but fewer than 47 actors? (Unit: movies)",
+      "answer": 5.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0309.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 309,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "5",
+        "source_img_sha256": "fe1ce8b1c1fdf8a534e840a45d5de6908dbe0c1db8b140aa983191094b4da809",
+        "native_size": [
+          131,
+          136
+        ],
+        "pixel_sha256": "342dc2033826181af779390f8ae37af71781659832772a1c7e8bb1b2c886c458"
+      }
+    },
+    {
+      "question_id": "mathvista-0346-q1",
+      "image_id": "mathvista-0346",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the y-intercept of this function?",
+      "answer": 1.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0346.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 346,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "1",
+        "source_img_sha256": "fb46b049fe563ad477af09d1c2ea91bbffba5c6b5e9fdd372c26469322e9bb2a",
+        "native_size": [
+          341,
+          339
+        ],
+        "pixel_sha256": "01e13dc57e321c2620f258d01f418b4e653b409c8ca3dd4e6b5bf3d19feb0845"
+      }
+    },
+    {
+      "question_id": "mathvista-0359-q1",
+      "image_id": "mathvista-0359",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Kylie spent a week at the beach and recorded the number of shells she found each day. According to the table, what was the rate of change between Thursday and Friday? (Unit: shells per day)",
+      "answer": -7.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0359.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 359,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "-7",
+        "source_img_sha256": "9612730f4512a9df4fa817ce4321c4f2d3681dabb06c03650061d245f823644c",
+        "native_size": [
+          241,
+          218
+        ],
+        "pixel_sha256": "fe13b5cabbcc5c5eb05851c1b5d60b0c0cba2d1c072afeb486ab951dac6a6a74"
+      }
+    },
+    {
+      "question_id": "mathvista-0409-q1",
+      "image_id": "mathvista-0409",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the radius of this circle?",
+      "answer": 5.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0409.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 409,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "geometry reasoning",
+          "arithmetic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "5",
+        "source_img_sha256": "66ef4a559e6a91d48cc28ffb85ddba90038658af0c8f43a5c6d8e9fbacdd86bf",
+        "native_size": [
+          358,
+          356
+        ],
+        "pixel_sha256": "c48e67dbf57140df3d67c25e937f680e9b75957d5bf25809095013268042aea7"
+      }
+    },
+    {
+      "question_id": "mathvista-0437-q1",
+      "image_id": "mathvista-0437",
+      "template_id": "mathvista-theoremqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Fig.Q3 shows an excerpt of the transmission phase of a TCP connection. Assume the length of the IP header is 20 bytes. What is the ACK number at message 6?",
+      "answer": 839.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0437.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 437,
+        "source": "TheoremQA",
+        "grade": "college",
+        "context": "scientific figure",
+        "skills": [
+          "scientific reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "839",
+        "source_img_sha256": "c8a523757ed793d9f688172240ebe8b619e5d9053e4bb3a38e5e39d936b1aa98",
+        "native_size": [
+          638,
+          814
+        ],
+        "pixel_sha256": "ad183b08c9f74ef6c7ef6c4c8b399d12d2125b025ab233835c1b89f76a6bdb70"
+      }
+    },
+    {
+      "question_id": "mathvista-0461-q1",
+      "image_id": "mathvista-0461",
+      "template_id": "mathvista-theoremqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: A perceptual audio codec is used to compress an audio signal. The codec groups every 4 barks into a subband and then allocates bits to different subbands according to the result of a spectrum analysis based on a psychoacoustic model. All samples in the same subband are quantized with the same quantizer, and the bit resolution of which is allocated by the codec. (The Bark scale is a psychoacoustical scale proposed by Eberhard Zwicker in 1961.) Fig. Q1a shows the frequency spectrum of a windowed segment of audio signal. The psychoacoustic model shown in Fig. Q1b is used in the audio codec to derive the masking threshold for the audio segment. How many potential maskers in Fig. Q1a?",
+      "answer": 7.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0461.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 461,
+        "source": "TheoremQA",
+        "grade": "college",
+        "context": "scientific figure",
+        "skills": [
+          "scientific reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "7",
+        "source_img_sha256": "bc439694a34624fb553fe539ee2f05ee20feac51175e7a6aca2924119f584460",
+        "native_size": [
+          908,
+          488
+        ],
+        "pixel_sha256": "905fc8cb50347d07304e5b25d293793acf9e843edca948efd5287a4c01b87977"
+      }
+    },
+    {
+      "question_id": "mathvista-0471-q1",
+      "image_id": "mathvista-0471",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Lily and her friends recorded their scores while playing a board game. Which score did the greatest number of people receive?'",
+      "answer": 8.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0471.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 471,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "8",
+        "source_img_sha256": "e5452727e1501e8f0d26d830665ca716c4e1a44c90a1f9d72740fca5962b627b",
+        "native_size": [
+          351,
+          190
+        ],
+        "pixel_sha256": "f26a620dc9881d9c4dae061801884096c0eb3d6e00e57f376902322b2a551d38"
+      }
+    },
+    {
+      "question_id": "mathvista-0489-q1",
+      "image_id": "mathvista-0489",
+      "template_id": "mathvista-geos",
+      "modality": "geometry",
+      "task_type": "geometry_problem_solving",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: For trapezoid ABCD shown above, AB = 24, AD = 23, and BC = 16. What is the length of segment CD?",
+      "answer": 25.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0489.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 489,
+        "source": "GEOS",
+        "grade": "high school",
+        "context": "geometry diagram",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "25",
+        "source_img_sha256": "88e10fa98bd046da1b37611a34461e54f56ebd8ecdd508c164c0b26d46322178",
+        "native_size": [
+          426,
+          297
+        ],
+        "pixel_sha256": "47b1f62854a2acfd9267327e4738ea2b10b7cd49da1adaaa992d566059b26912"
+      }
+    },
+    {
+      "question_id": "mathvista-0508-q1",
+      "image_id": "mathvista-0508",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: The owner of a bed and breakfast inn recalled how many guests the inn had hosted each day. What is the median of the numbers?'",
+      "answer": 5.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0508.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 508,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "5",
+        "source_img_sha256": "01101c35d8ee8f1353415a90fd48a2a67fa701a5f7d40fc44e443514ec4e7c4f",
+        "native_size": [
+          241,
+          218
+        ],
+        "pixel_sha256": "382e8b98a5c33a5636204851f461d1df2f1f60e454beb23dc8bd1f493b1f455a"
+      }
+    },
+    {
+      "question_id": "mathvista-0517-q1",
+      "image_id": "mathvista-0517",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: At Bloomington Consulting, the head of human resources examined how the number of employees with health care benefits varied in response to policy changes. According to the table, what was the rate of change between 2014 and 2015? (Unit: employees per year)",
+      "answer": -1.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0517.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 517,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "-1",
+        "source_img_sha256": "cf485fbf6f203b8831edb959d0735f1bd258737da5ac76f8c0ba3860cc63ecd9",
+        "native_size": [
+          275,
+          218
+        ],
+        "pixel_sha256": "3d5530220070d6a8f7362db960b49e377fe8fba74af7a8db388d70597a43d5a1"
+      }
+    },
+    {
+      "question_id": "mathvista-0519-q1",
+      "image_id": "mathvista-0519",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How many Triangles do you see in the picture?",
+      "answer": 12.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0519.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 519,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "geometry reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "12",
+        "source_img_sha256": "5363ffa4ab03508be819fdbb84989c92293c3295afcafc58712506fae7ecd678",
+        "native_size": [
+          948,
+          852
+        ],
+        "pixel_sha256": "13c44a344696241a5787c2c849f00f5b87af5ac26ebaff5455af605c232404cc"
+      }
+    },
+    {
+      "question_id": "mathvista-0524-q1",
+      "image_id": "mathvista-0524",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: The Kingwood Ski Resort asked its guests how many times they went sledding last winter. How many guests went sledding more than 2 times?'",
+      "answer": 0.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0524.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 524,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "0",
+        "source_img_sha256": "da39c949f9b8d8afede682fe4fcff66afc2a0f4ffd69bada89c6b2281935af7a",
+        "native_size": [
+          351,
+          163
+        ],
+        "pixel_sha256": "d26c3ebc22bd220d27cafea39c6b6d4302f5970a81c82e97b58bba625a468f28"
+      }
+    },
+    {
+      "question_id": "mathvista-0530-q1",
+      "image_id": "mathvista-0530",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: The advertising agency counted the number of billboards in each city in the state. How many cities have fewer than 70 billboards? (Unit: cities)",
+      "answer": 9.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0530.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 530,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "9",
+        "source_img_sha256": "956c7c4215d47dd76bb23cf87ed1f97c02182da77ce465dacb0e3e087609aba3",
+        "native_size": [
+          140,
+          180
+        ],
+        "pixel_sha256": "5cdc9760812eaa3a1b93dc2eeae4bc181bde6aae02217ccbbee0476278c5a554"
+      }
+    },
+    {
+      "question_id": "mathvista-0542-q1",
+      "image_id": "mathvista-0542",
+      "template_id": "mathvista-paperqa",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How many models in the figure achieve an Acc score greater than 60?",
+      "answer": 2.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0542.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 542,
+        "source": "PaperQA",
+        "grade": "college",
+        "context": "scatter plot",
+        "skills": [
+          "scientific reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "2",
+        "source_img_sha256": "597233506e26a85a387465a173c60732e2e660df984e0d3cb4b50b1236b02ab4",
+        "native_size": [
+          1690,
+          1358
+        ],
+        "pixel_sha256": "725274c1fa531d8922c4efaddd68072ab37e4b283728923a007e00d6a00a973a"
+      }
+    },
+    {
+      "question_id": "mathvista-0552-q1",
+      "image_id": "mathvista-0552",
+      "template_id": "mathvista-paperqa",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How many queries have a p-value lower than 0.50?",
+      "answer": 4.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0552.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 552,
+        "source": "PaperQA",
+        "grade": "college",
+        "context": "table",
+        "skills": [
+          "scientific reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "4",
+        "source_img_sha256": "635d7225cda8b9bab13fee3e7ff9dc5f7a5c5889a6b7661911395a6789a7a6f1",
+        "native_size": [
+          1726,
+          330
+        ],
+        "pixel_sha256": "7ced84d6d779f313b7f72554a5ff63e5ad157e9b87e306d0b7fb907cc19bed69"
+      }
+    },
+    {
+      "question_id": "mathvista-0572-q1",
+      "image_id": "mathvista-0572",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: When does the function start decreasing?",
+      "answer": 5.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0572.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 572,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "5",
+        "source_img_sha256": "587d0268efa5865b6b061946d3f87578de7b3bf547f58689afd1884708d9af5f",
+        "native_size": [
+          400,
+          316
+        ],
+        "pixel_sha256": "f7b78572ba968275975042211303858c8ddcc516ec37356ceb3c4b0f90255975"
+      }
+    },
+    {
+      "question_id": "mathvista-0592-q1",
+      "image_id": "mathvista-0592",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the global maximum of this function?",
+      "answer": 4.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0592.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 592,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "4",
+        "source_img_sha256": "17949f0f72e6d41d4ffa3b79474a9f8d9a69151d8302dc2080814ee7095c22a0",
+        "native_size": [
+          283,
+          318
+        ],
+        "pixel_sha256": "bc02b9e660e72653e562813ec17497f624e527bf2e996a18ab9e84eca62885dc"
+      }
+    },
+    {
+      "question_id": "mathvista-0602-q1",
+      "image_id": "mathvista-0602",
+      "template_id": "mathvista-geos",
+      "modality": "geometry",
+      "task_type": "geometry_problem_solving",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Rectangle ABCD is subdivided into two identical square regions, as in the figure above. If the area of each square is 9, what is the perimeter of ABCD?",
+      "answer": 18.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0602.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 602,
+        "source": "GEOS",
+        "grade": "high school",
+        "context": "geometry diagram",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "18",
+        "source_img_sha256": "b02dc07513415d711c37c9f6966fc7f5b5fae6b0949fd1d6a4f30eacc47510a9",
+        "native_size": [
+          435,
+          219
+        ],
+        "pixel_sha256": "b43b11166376c3d1f7b9d8ce0918f25669835f3dd1efc76b8b2e1658760d456a"
+      }
+    },
+    {
+      "question_id": "mathvista-0619-q1",
+      "image_id": "mathvista-0619",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the value of f(4)?",
+      "answer": 16.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0619.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 619,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "16",
+        "source_img_sha256": "377213543c756f666b334801ce334c2477dbe65ed81a7556a9839ccc8ee1726d",
+        "native_size": [
+          970,
+          666
+        ],
+        "pixel_sha256": "d986d5f4e532f439134bf039e8bd5a467352cb147d5e0b21f5c4ee977ae9c8e0"
+      }
+    },
+    {
+      "question_id": "mathvista-0627-q1",
+      "image_id": "mathvista-0627",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Some friends played a trivia game and recorded their scores. What is the mode of the numbers?'",
+      "answer": 6.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0627.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 627,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "6",
+        "source_img_sha256": "ef4f483654e722f1b45c625cfdeffa167b7407bc81da21531701cada1f9187c1",
+        "native_size": [
+          155,
+          311
+        ],
+        "pixel_sha256": "0e245fcd2c48425007494dab774746a42eee081c548c33775352edecf2fcb2b5"
+      }
+    },
+    {
+      "question_id": "mathvista-0630-q1",
+      "image_id": "mathvista-0630",
+      "template_id": "mathvista-theoremqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Find the size of angle MBD in the figure below.",
+      "answer": 72.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0630.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 630,
+        "source": "TheoremQA",
+        "grade": "college",
+        "context": "scientific figure",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "72",
+        "source_img_sha256": "f814ab97d7126b19e8b6b6a0069d802efa4ac520f427d523443abe59c41619a0",
+        "native_size": [
+          340,
+          195
+        ],
+        "pixel_sha256": "0e40ce2a130661ccaefeb0c2bcaa21e3ac2ef921aac382f7948e23b7daf6dfa9"
+      }
+    },
+    {
+      "question_id": "mathvista-0648-q1",
+      "image_id": "mathvista-0648",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the minimum value of this function?",
+      "answer": -1.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0648.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 648,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "-1",
+        "source_img_sha256": "6b3038db8d856d49d7bd1079feecbe7256fc7efff41103e4ac60ff35a3e598fb",
+        "native_size": [
+          600,
+          296
+        ],
+        "pixel_sha256": "57504685c30f9a9c3e5840d988788c2d293b7e8ca4ac1f0514881508e4b31b39"
+      }
+    },
+    {
+      "question_id": "mathvista-0671-q1",
+      "image_id": "mathvista-0671",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring a floating-point number with two decimal places and provide the final value, e.g., 1.23, 1.34, 1.45, at the end.\nQuestion: What is the size of the semicircle rounded to 2 decimal places?",
+      "answer": 14.14,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0671.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 671,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "float",
+        "precision": 2,
+        "raw_answer": "14.14",
+        "source_img_sha256": "7245fe43908438bc56c258cccdd82f1ef2e4ee28a25f18354f74a23a0b6e76bf",
+        "native_size": [
+          433,
+          312
+        ],
+        "pixel_sha256": "78ed6e6dc6bc25ad57e09a39330abb7004c70820151e1919e22092385c90a0e4"
+      }
+    },
+    {
+      "question_id": "mathvista-0691-q1",
+      "image_id": "mathvista-0691",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Calculate the missing item.",
+      "answer": 256.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0691.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 691,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "256",
+        "source_img_sha256": "bc1a709145b095b05b2db256aa128ae1f9fddc4ac7c36f0aacae791d5f7b686d",
+        "native_size": [
+          596,
+          500
+        ],
+        "pixel_sha256": "211042e57e88f65245b2cd51e1c7ae9bf23b798fc164fc7491beee6f1aca496a"
+      }
+    },
+    {
+      "question_id": "mathvista-0709-q1",
+      "image_id": "mathvista-0709",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the value of f(0)?",
+      "answer": 4.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0709.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 709,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "4",
+        "source_img_sha256": "a199c743b167cb244d413e0e356382abb4a077553de44fedf1f74eec15f8e23a",
+        "native_size": [
+          552,
+          393
+        ],
+        "pixel_sha256": "b6c6ec4e0a2bf33d45ccd944f9f3ef042278d150e26b09bba8258c5d2c8fc221"
+      }
+    },
+    {
+      "question_id": "mathvista-0718-q1",
+      "image_id": "mathvista-0718",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring a floating-point number with two decimal places and provide the final value, e.g., 1.23, 1.34, 1.45, at the end.\nQuestion: Jeffrey is the proud owner of an eclectic bow tie collection. He keeps track of how many bow ties he has, and organizes them by pattern and material. What is the probability that a randomly selected bow tie is designed with swirls and is made of velvet? Simplify any fractions.'",
+      "answer": 0.21,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0718.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 718,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "float",
+        "precision": 2,
+        "raw_answer": "0.21",
+        "source_img_sha256": "23d778a721dc23640282f3be04dac7d2d49cb336169e57668e44eb0059236fb6",
+        "native_size": [
+          215,
+          94
+        ],
+        "pixel_sha256": "d599c8a337a270e38cfb2aec3885fa5494b495209e3c7c5f78c5c8d023fbff63"
+      }
+    },
+    {
+      "question_id": "mathvista-0720-q1",
+      "image_id": "mathvista-0720",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: When does the function value first reach 2?",
+      "answer": 2.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0720.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 720,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "2",
+        "source_img_sha256": "fdd24b795139fad668b31bbad1582582f13ebddc0cfb553773a046aef911ef82",
+        "native_size": [
+          362,
+          350
+        ],
+        "pixel_sha256": "436e1002ab3b6f2e07bd8c1ec190a8f0ce53c0ed361e237d29877d3b690cc63c"
+      }
+    },
+    {
+      "question_id": "mathvista-0721-q1",
+      "image_id": "mathvista-0721",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How many odd functions are in the graph?",
+      "answer": 4.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0721.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 721,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "4",
+        "source_img_sha256": "3b8ddeb56713eb2ba3a55eb44b86e60d6dd16dff700744df41a183c3ffbfab8f",
+        "native_size": [
+          441,
+          297
+        ],
+        "pixel_sha256": "87d90c483adc861affdb2858cb042f3947cc1f9abd34961ce58c32e8ab1b8a44"
+      }
+    },
+    {
+      "question_id": "mathvista-0731-q1",
+      "image_id": "mathvista-0731",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: The train conductor made sure to count the number of passengers on each train. What is the smallest number of passengers? (Unit: passengers)",
+      "answer": 40.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0731.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 731,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "40",
+        "source_img_sha256": "2efcfac58ed92d32bbfd19b7540f967e54d112c79fdb4fd6b56b06ac7f78a10d",
+        "native_size": [
+          159,
+          180
+        ],
+        "pixel_sha256": "70eff5f2d48cd4e6184557003737a776514b717d18845891c13a44e32bb3c2d5"
+      }
+    },
+    {
+      "question_id": "mathvista-0733-q1",
+      "image_id": "mathvista-0733",
+      "template_id": "mathvista-theoremqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring a floating-point number with one decimal place and provide the final value, e.g., 1.2, 1.3, 1.4, at the end.\nQuestion: Square ABCD. CT: tangent to semicircle. Find the angle ∠CTD. Return the numeric value.",
+      "answer": 63.4,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0733.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 733,
+        "source": "TheoremQA",
+        "grade": "college",
+        "context": "scientific figure",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "float",
+        "precision": 1,
+        "raw_answer": "63.4",
+        "source_img_sha256": "cc366cb6ff9ca3bae832eba58be03577fde814093632e5210a73517fc42124c5",
+        "native_size": [
+          972,
+          1018
+        ],
+        "pixel_sha256": "7d9b2880c7724da4925cc0d8ac63be2c0ee5544c36ae8202e43ef1e65cf80531"
+      }
+    },
+    {
+      "question_id": "mathvista-0739-q1",
+      "image_id": "mathvista-0739",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How much money does Hannah need to buy a baking dish and a cookie jar? (Unit: $)",
+      "answer": 23.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0739.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 739,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "23",
+        "source_img_sha256": "25d55a6a75c19a4649f9d0728ab6717ebd633178174e38e21b5cf28c7a10cfac",
+        "native_size": [
+          201,
+          160
+        ],
+        "pixel_sha256": "1ceb993322a2b03f713d86b0c0f42daac5818c3b9411261554c2952c17aea05f"
+      }
+    },
+    {
+      "question_id": "mathvista-0746-q1",
+      "image_id": "mathvista-0746",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Mrs. Zimmerman hosts an annual art contest for kids, and she keeps a record of the number of entries each year. According to the table, what was the rate of change between 2013 and 2014? (Unit: entries per year)",
+      "answer": 7.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0746.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 746,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "7",
+        "source_img_sha256": "86845bfc27d5102be4c0d4a36f6973521a5054f84811e86315cf65e2e2690b50",
+        "native_size": [
+          199,
+          218
+        ],
+        "pixel_sha256": "8bee53aad3a1a99b65d43e72f64a5fe80e98c318a5fea0258d92fae6a15d90a2"
+      }
+    },
+    {
+      "question_id": "mathvista-0750-q1",
+      "image_id": "mathvista-0750",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Which number is missing?",
+      "answer": 18.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0750.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 750,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "arithmetic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "18",
+        "source_img_sha256": "f8dc4b1b13ce63982ad0ec8c8d3a7aa764f6346f7244dc13169742e60bded24d",
+        "native_size": [
+          290,
+          356
+        ],
+        "pixel_sha256": "54ac4e584c46e8081c74e6f26b242db60b578738f413aa4e79c4a4721810f315"
+      }
+    },
+    {
+      "question_id": "mathvista-0767-q1",
+      "image_id": "mathvista-0767",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the maximum value of y?",
+      "answer": 5.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0767.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 767,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "5",
+        "source_img_sha256": "23b04858f8b5e053ed85f1b22514ab1eefae59a613b4e7d48c43a8eb1959e0c5",
+        "native_size": [
+          483,
+          429
+        ],
+        "pixel_sha256": "83dfe09837de24bc911c553802d61064a35f99eed3fe02b863a4b8cbc7ac2e7a"
+      }
+    },
+    {
+      "question_id": "mathvista-0770-q1",
+      "image_id": "mathvista-0770",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the amplitude of this function?",
+      "answer": 1.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0770.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 770,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "1",
+        "source_img_sha256": "28664997671a5c2be208009fc87d6f57bcab73cf2ec51a15eaec0f19c6c0b163",
+        "native_size": [
+          482,
+          276
+        ],
+        "pixel_sha256": "96364755db0a911ebd9e3a6571dc1826085d78e48d8b3f86ea2c5b347d3199de"
+      }
+    },
+    {
+      "question_id": "mathvista-0780-q1",
+      "image_id": "mathvista-0780",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Which number is missing?",
+      "answer": 7.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0780.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 780,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "arithmetic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "7",
+        "source_img_sha256": "735c15632e46bf5ad4f941f467eb596ab67ab737fbb50b1c1ad17d1b1b80441f",
+        "native_size": [
+          848,
+          209
+        ],
+        "pixel_sha256": "121c2280ed09c2da8bfb27088bb087c80344de88cc85f4d9d98e3483f923053a"
+      }
+    },
+    {
+      "question_id": "mathvista-0782-q1",
+      "image_id": "mathvista-0782",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Which number is missing?",
+      "answer": 4.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0782.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 782,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "arithmetic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "4",
+        "source_img_sha256": "5f3efd8a254ade80f775d4aaa5d77438ad5ead4fc88ae095ea34e4f0f5f25a78",
+        "native_size": [
+          384,
+          376
+        ],
+        "pixel_sha256": "ea69afb89d2ff6ed77a2e5b29af527f0efdd2b31c40330274713027500cfb482"
+      }
+    },
+    {
+      "question_id": "mathvista-0791-q1",
+      "image_id": "mathvista-0791",
+      "template_id": "mathvista-theoremqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring a floating-point number with two decimal places and provide the final value, e.g., 1.23, 1.34, 1.45, at the end.\nQuestion: Given $V_s$ = 5V, $R_1$ = 1kΩ, $R_2$ = 2.2kΩ, $R_3$ = 2.2kΩ, $R_4$ = 1.5kΩ, and $R_L$ = 4.7kΩ. Determine the voltage and current across $R_L$. Answer in unit of V (3 sig.fig.).",
+      "answer": 1.06,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0791.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 791,
+        "source": "TheoremQA",
+        "grade": "college",
+        "context": "scientific figure",
+        "skills": [
+          "algebraic reasoning",
+          "scientific reasoning"
+        ],
+        "answer_type": "float",
+        "precision": 2,
+        "raw_answer": "1.06",
+        "source_img_sha256": "c49b1d22a5d07466d39d99250eab483ef767870a7aaf2b7b88336edc8db42fe9",
+        "native_size": [
+          444,
+          400
+        ],
+        "pixel_sha256": "b2d1c25e67d61e06ffaca0f83d76d7d81b075d63b36fbce918404f9e22875068"
+      }
+    },
+    {
+      "question_id": "mathvista-0793-q1",
+      "image_id": "mathvista-0793",
+      "template_id": "mathvista-paperqa",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the highest Elo score for the agent using an offline RL algorithm?",
+      "answer": 1578.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0793.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 793,
+        "source": "PaperQA",
+        "grade": "college",
+        "context": "table",
+        "skills": [
+          "scientific reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "1578",
+        "source_img_sha256": "4444d0c9250668806c68640d634ac4be3462e77de95b73d7429bd61051b01dc3",
+        "native_size": [
+          1922,
+          1056
+        ],
+        "pixel_sha256": "2032f5f0283aa456a1031519312e53ef4ccec0ef817529564a0e6afe8e6ea8d6"
+      }
+    },
+    {
+      "question_id": "mathvista-0801-q1",
+      "image_id": "mathvista-0801",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: A gymnast jotted down the number of cartwheels she did each day. What is the mode of the numbers?'",
+      "answer": 10.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0801.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 801,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "10",
+        "source_img_sha256": "691ccaff0c16bce8e59aa95ba9e202efb4c0d3ed9e4b0adbe195863dca8ecf87",
+        "native_size": [
+          272,
+          280
+        ],
+        "pixel_sha256": "6f7d0707ac9dedb942fbf6acc405b87c8789aed58d23bf58526337a7f0c9df33"
+      }
+    },
+    {
+      "question_id": "mathvista-0802-q1",
+      "image_id": "mathvista-0802",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Karen bought 4 pounds of silk scraps and 4 pounds of canvas scraps. How much did she spend? (Unit: $)",
+      "answer": 69.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0802.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 802,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "69",
+        "source_img_sha256": "7045844cdc706b88747a2569c47496bc7dfecdd5e0a175ef6f3d5166c80c417e",
+        "native_size": [
+          243,
+          194
+        ],
+        "pixel_sha256": "4cefd3fccc1aba21d184fd79e3447ec0bc68d4bd00e30f450f27c7a57c521426"
+      }
+    },
+    {
+      "question_id": "mathvista-0811-q1",
+      "image_id": "mathvista-0811",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: A machine at the candy factory dispensed different numbers of lemon-flavored candies into various bags. What is the smallest number of lemon-flavored candies? (Unit: lemon-flavored candies)",
+      "answer": 34.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0811.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 811,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "34",
+        "source_img_sha256": "b0957b8ca6a0d2dc84c9344ff6039f1cf7e1a929d2dc6ef6e12aa6d5aa30643f",
+        "native_size": [
+          247,
+          136
+        ],
+        "pixel_sha256": "ceb9e97ad265b5e0b3f486546bcc41ea6847a1d18ead4b118b72edfd0af896a1"
+      }
+    },
+    {
+      "question_id": "mathvista-0832-q1",
+      "image_id": "mathvista-0832",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the value of f(0)?",
+      "answer": -2.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0832.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 832,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "-2",
+        "source_img_sha256": "d4885cc59150610a34cf59f004974df22b755242fadf5e3a74b36c6fefe30916",
+        "native_size": [
+          1920,
+          1920
+        ],
+        "pixel_sha256": "c575f92482dbbdb8e544639488ab94b5e3b6767da87e38e531cefab8fde0e05e"
+      }
+    },
+    {
+      "question_id": "mathvista-0852-q1",
+      "image_id": "mathvista-0852",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Which number is missing?",
+      "answer": 40.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0852.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 852,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "arithmetic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "40",
+        "source_img_sha256": "91708fbb9c161c7d119693e92cc2709c7674d32c33645c870cb1cee631dd08e0",
+        "native_size": [
+          612,
+          598
+        ],
+        "pixel_sha256": "61ab20fcca77c6ac17e5c5d4bb2c51d3d995f5a5c509ca8502e5c6b4827ca311"
+      }
+    },
+    {
+      "question_id": "mathvista-0874-q1",
+      "image_id": "mathvista-0874",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the value of y at x=-2.5?",
+      "answer": 2.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0874.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 874,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "2",
+        "source_img_sha256": "a1d40252df325857990c49d1e6c6787002ef9d202856c55ca1d51f9bb2d4d7ea",
+        "native_size": [
+          479,
+          479
+        ],
+        "pixel_sha256": "2b1038f995afc93ccd5d95927b8b7e7c8cafad11f2d83b6e35053982b178f068"
+      }
+    },
+    {
+      "question_id": "mathvista-0883-q1",
+      "image_id": "mathvista-0883",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Which number is missing?",
+      "answer": 15.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0883.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 883,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "arithmetic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "15",
+        "source_img_sha256": "8b92999cf04cff07768cea9ddcfbb854e81cc6baf355710a7a067080a51129d3",
+        "native_size": [
+          868,
+          207
+        ],
+        "pixel_sha256": "eee75a3e1d6ca5493d1243dbee05ea68f65598e959f17dc1df81b8d2e01a18f6"
+      }
+    },
+    {
+      "question_id": "mathvista-0885-q1",
+      "image_id": "mathvista-0885",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Grayson counted the number of pieces of pepperoni on each pizza he made. What is the smallest number of pieces of pepperoni? (Unit: pieces of pepperoni)",
+      "answer": 18.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0885.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 885,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "18",
+        "source_img_sha256": "47f397521907a6979c672be020efd9daba856805d79ba27b5367af51ef09c356",
+        "native_size": [
+          225,
+          136
+        ],
+        "pixel_sha256": "4ebdd564b0bbedb83889af5373493320dac0a1ad57e8c435d111ff8ea5cfee46"
+      }
+    },
+    {
+      "question_id": "mathvista-0886-q1",
+      "image_id": "mathvista-0886",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: A newspaper researched how many grocery stores there are in each town. What is the median of the numbers?'",
+      "answer": 6.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0886.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 886,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "6",
+        "source_img_sha256": "92fc3091ee2092249cf1ceb5ddf8214e25073b8fe28213db297f925e9ea6c981",
+        "native_size": [
+          235,
+          218
+        ],
+        "pixel_sha256": "925c45aebab77755adec7c1ff9f19004dc494fb257d208d09e4d0d7ae78de9d2"
+      }
+    },
+    {
+      "question_id": "mathvista-0893-q1",
+      "image_id": "mathvista-0893",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the limit of the blue function as x approaches negative infinity?",
+      "answer": 0.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0893.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 893,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "0",
+        "source_img_sha256": "0f26449d4d053f7be1409880d8fe53d618bb807a2d299fbc29a4ab07cba2d3f9",
+        "native_size": [
+          327,
+          331
+        ],
+        "pixel_sha256": "5997c8b3bfd13e81dbfa4cb4abbe442be65464903ae912623348968f4d3445e4"
+      }
+    },
+    {
+      "question_id": "mathvista-0899-q1",
+      "image_id": "mathvista-0899",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Which number comes next?",
+      "answer": 2123.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0899.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 899,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "arithmetic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "2123",
+        "source_img_sha256": "b107a237451acd5fd63d9a1ca780e68c1aa07f450fa58666186aaaf5a57ad9eb",
+        "native_size": [
+          406,
+          185
+        ],
+        "pixel_sha256": "7f4f0580f9133644af6d8c5edef34888241111aa5f888f51cb14f9decd3543db"
+      }
+    },
+    {
+      "question_id": "mathvista-0918-q1",
+      "image_id": "mathvista-0918",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Calculate the missing item.",
+      "answer": 1.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0918.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 918,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "1",
+        "source_img_sha256": "a66c4b31d03f2a378645616a54b7940f643b2bef380b03984fd87a9db424d873",
+        "native_size": [
+          538,
+          492
+        ],
+        "pixel_sha256": "a1c2b4cbc342d9ac51152156528e76b0500c11fe4de3627edf516f5ab58eaa06"
+      }
+    },
+    {
+      "question_id": "mathvista-0920-q1",
+      "image_id": "mathvista-0920",
+      "template_id": "mathvista-geos",
+      "modality": "geometry",
+      "task_type": "geometry_problem_solving",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: The measure of angle BAC equals x*\\degree. What is the value of x?",
+      "answer": 30.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0920.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 920,
+        "source": "GEOS",
+        "grade": "high school",
+        "context": "geometry diagram",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "30",
+        "source_img_sha256": "97763be04afce323ab49b64b2f48e25ea1fe389b1760a4012c3aa5d5b4b29f55",
+        "native_size": [
+          388,
+          310
+        ],
+        "pixel_sha256": "32802327827c28f3d9207d7af3ec6c962d89a5d304c4c921fc6a85cd406a9e52"
+      }
+    },
+    {
+      "question_id": "mathvista-0926-q1",
+      "image_id": "mathvista-0926",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring a floating-point number with two decimal places and provide the final value, e.g., 1.23, 1.34, 1.45, at the end.\nQuestion: What is the size of the shaded area under the curve? Round the answer to 2 decimal places",
+      "answer": 7.07,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0926.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 926,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "geometry reasoning",
+          "algebraic reasoning"
+        ],
+        "answer_type": "float",
+        "precision": 2,
+        "raw_answer": "7.07",
+        "source_img_sha256": "7245fe43908438bc56c258cccdd82f1ef2e4ee28a25f18354f74a23a0b6e76bf",
+        "native_size": [
+          433,
+          312
+        ],
+        "pixel_sha256": "78ed6e6dc6bc25ad57e09a39330abb7004c70820151e1919e22092385c90a0e4"
+      }
+    },
+    {
+      "question_id": "mathvista-0928-q1",
+      "image_id": "mathvista-0928",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How much more does a navy blue bath mat cost than a yellow bath towel? (Unit: $)",
+      "answer": 5.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0928.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 928,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "5",
+        "source_img_sha256": "6a3c2ddae1a3bad839a3f9414439f5327f43185f5c7839b4f92163a7de3bdb64",
+        "native_size": [
+          234,
+          160
+        ],
+        "pixel_sha256": "7f1f69cff52288a0e1e4a4e26682a24b0bbb8922739927adbef36fb8f90afeb0"
+      }
+    },
+    {
+      "question_id": "mathvista-0933-q1",
+      "image_id": "mathvista-0933",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How much money does Hector need to buy a European vacation package and an Australian vacation package? (Unit: $)",
+      "answer": 9606.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0933.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 933,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "9606",
+        "source_img_sha256": "2fdf6bb7004ed119e85402e5168cbcd377f01199e62471152a6d13bf9a2dfad7",
+        "native_size": [
+          344,
+          160
+        ],
+        "pixel_sha256": "e1aa4b32452896564b0203eacac31fe36ed600c32f1ae4e2682e3ffd294a9f74"
+      }
+    },
+    {
+      "question_id": "mathvista-0941-q1",
+      "image_id": "mathvista-0941",
+      "template_id": "mathvista-iqtest",
+      "modality": "math_visual",
+      "task_type": "figure_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Which is the next number in the series?",
+      "answer": 2.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0941.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 941,
+        "source": "IQTest",
+        "grade": "elementary school",
+        "context": "puzzle test",
+        "skills": [
+          "logical reasoning",
+          "arithmetic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "2",
+        "source_img_sha256": "58aaee737f7f62e3575349a958c8db7513d412992ffbd7add9429d1a6a52856c",
+        "native_size": [
+          271,
+          327
+        ],
+        "pixel_sha256": "e51c2f307dbaeaeb57673f7083bcef9ff4ceb0f3bd510cf9c8f2f8672eefa992"
+      }
+    },
+    {
+      "question_id": "mathvista-0942-q1",
+      "image_id": "mathvista-0942",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: What is the value of f(0)?",
+      "answer": 0.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0942.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 942,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "0",
+        "source_img_sha256": "d089fde3b47ec042358c3bd95fb082c06adf989e7c62c93ee4d743909253557f",
+        "native_size": [
+          500,
+          395
+        ],
+        "pixel_sha256": "adb7e05a6e4084d17867309c6a6b7a9977779aedd05fedfd95ebb77c1320cc02"
+      }
+    },
+    {
+      "question_id": "mathvista-0963-q1",
+      "image_id": "mathvista-0963",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: For what x does f reach its local maximum?",
+      "answer": 3.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0963.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 963,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "3",
+        "source_img_sha256": "7b2f340a36e965bf5722e272da4051ecf7ce606de61ed6ce9d1bc6a46096a757",
+        "native_size": [
+          441,
+          397
+        ],
+        "pixel_sha256": "064efbbfc4c5c9ecb3a642bf3cbd96ad0e8ed4dce355352d0644635f0b5f12cb"
+      }
+    },
+    {
+      "question_id": "mathvista-0973-q1",
+      "image_id": "mathvista-0973",
+      "template_id": "mathvista-functionqa",
+      "modality": "math_visual",
+      "task_type": "textbook_question_answering",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: How many zeros does this function have?",
+      "answer": 1.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0973.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 973,
+        "source": "FunctionQA",
+        "grade": "college",
+        "context": "function plot",
+        "skills": [
+          "algebraic reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "1",
+        "source_img_sha256": "853f5340961603c4fc8b40383fc00e00e41b4371e7c7edd64efe189baebe8414",
+        "native_size": [
+          2560,
+          2039
+        ],
+        "pixel_sha256": "21e52e57913b954266835cc71c229b0e2d30629411229f1bfa0d3ad0b860505d"
+      }
+    },
+    {
+      "question_id": "mathvista-0978-q1",
+      "image_id": "mathvista-0978",
+      "template_id": "mathvista-tabmwp",
+      "modality": "math_visual",
+      "task_type": "math_word_problem",
+      "prompt": "Hint: Please answer the question requiring an integer answer and provide the final value, e.g., 1, 2, 3, at the end.\nQuestion: Allie kept a written log of how many miles she biked during the past 7 days. What is the range of the numbers?'",
+      "answer": 7.0,
+      "unit": "numeric",
+      "image_path": "images/mathvista-0978.png",
+      "metadata": {
+        "difficulty": "real_world_hard",
+        "source_dataset": "AI4Math/MathVista",
+        "source_revision": "2b6ad69445fbb5695c9b165475e8decdbeb97747",
+        "pid": 978,
+        "source": "TabMWP",
+        "grade": "high school",
+        "context": "table",
+        "skills": [
+          "arithmetic reasoning",
+          "statistical reasoning"
+        ],
+        "answer_type": "integer",
+        "precision": null,
+        "raw_answer": "7",
+        "source_img_sha256": "7754a73a7005c9b95dfc55b1668c97c53322d6c0cdc57159ba13e9d478efbcfe",
+        "native_size": [
+          230,
+          280
+        ],
+        "pixel_sha256": "b9450710d49a0a582c39d30e9f07cb92b8d88f7e9d37ba0db4e0046e1c0a0ce0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "taxonomy_source": "deterministic_rule_fallback (RuntimeError('ArgonClient failed after 5 attempts: RuntimeError(\\'HTTP 429 on key_3: {\"type\":\"error\",\"error\":{\"type\":\"GoUsageLimitError\",\"message\":\"OpenCode Go usage limit reached (5-hour, resets in 3h 52m). To keep going now, turn on Extra Usage or upgrade to Go Plus at https://opencode.ai/console/org_01M5W62SYF7YEZJVC3VKCQ56Q0/go.\"},\"metadata\":{\"workspace\":\"org_01M5W62SYF7YEZJVC3VKCQ56Q0\",\"limitName\":\"5 hour\"}}\\')'))",
+  "loop1_summary": {
+    "n": 240,
+    "accuracy": 0.9375,
+    "ci95": [
+      0.9041666666666667,
+      0.9666666666666667
+    ],
+    "outcomes": {
+      "correct": 225,
+      "wrong_answer": 10,
+      "parse_failure": 0,
+      "truncated": 5,
+      "backend_error": 0
+    },
+    "by_difficulty": {
+      "hard": 0.9333333333333333,
+      "standard": 0.9416666666666667
+    },
+    "by_difficulty_task": {
+      "hard/direct": 0.9,
+      "hard/multi_step": 0.9666666666666667,
+      "standard/direct": 0.9,
+      "standard/multi_step": 0.9833333333333333
+    },
+    "by_modality_difficulty": {
+      "chart/hard": 0.9833333333333333,
+      "chart/standard": 1.0,
+      "geometry/hard": 0.8833333333333333,
+      "geometry/standard": 0.8833333333333333
+    },
+    "ttft_p50_ms": 115.9060799999736,
+    "tpot_p50_ms": 35.09719302515735,
+    "e2e_p50_ms": 9356.686556499966,
+    "peak_vram_max_mb": 50697.18359375
+  },
+  "failure_taxonomy_counts": {
+    "reasoning_loop_truncation": 5,
+    "target_swap_question_mark": 7,
+    "genuine_deduction_or_arithmetic_error": 3
+  },
+  "classifications": [
+    {
+      "question_id": "chart-019-direct",
+      "category": "reasoning_loop_truncation",
+      "evidence": "Exhausted budget (2046 thinking tokens)."
+    },
+    {
+      "question_id": "geometry-005-direct",
+      "category": "target_swap_question_mark",
+      "evidence": "Predicted paired multi-step '?' answer (86.0) instead of direct value (139.0)."
+    },
+    {
+      "question_id": "geometry-008-direct",
+      "category": "target_swap_question_mark",
+      "evidence": "Predicted paired multi-step '?' answer (70.0) instead of direct value (51.0)."
+    },
+    {
+      "question_id": "geometry-009-direct",
+      "category": "reasoning_loop_truncation",
+      "evidence": "Exhausted budget (2046 thinking tokens)."
+    },
+    {
+      "question_id": "geometry-009-multi_step",
+      "category": "reasoning_loop_truncation",
+      "evidence": "Exhausted budget (2046 thinking tokens)."
+    },
+    {
+      "question_id": "geometry-016-direct",
+      "category": "target_swap_question_mark",
+      "evidence": "Predicted paired multi-step '?' answer (55.0) instead of direct value (70.0)."
+    },
+    {
+      "question_id": "geometry-017-direct",
+      "category": "target_swap_question_mark",
+      "evidence": "Predicted paired multi-step '?' answer (80.0) instead of direct value (143.0)."
+    },
+    {
+      "question_id": "geometry-025-direct",
+      "category": "reasoning_loop_truncation",
+      "evidence": "Exhausted budget (2046 thinking tokens)."
+    },
+    {
+      "question_id": "geometry-029-direct",
+      "category": "genuine_deduction_or_arithmetic_error",
+      "evidence": "Predicted 140.0 vs expected 137.0."
+    },
+    {
+      "question_id": "geometry-034-direct",
+      "category": "target_swap_question_mark",
+      "evidence": "Predicted paired multi-step '?' answer (40.0) instead of direct value (86.0)."
+    },
+    {
+      "question_id": "geometry-036-direct",
+      "category": "target_swap_question_mark",
+      "evidence": "Predicted paired multi-step '?' answer (54.0) instead of direct value (77.0)."
+    },
+    {
+      "question_id": "geometry-040-direct",
+      "category": "target_swap_question_mark",
+      "evidence": "Predicted paired multi-step '?' answer (59.0) instead of direct value (62.0)."
+    },
+    {
+      "question_id": "geometry-045-multi_step",
+      "category": "reasoning_loop_truncation",
+      "evidence": "Exhausted budget (2046 thinking tokens)."
+    },
+    {
+      "question_id": "geometry-046-direct",
+      "category": "genuine_deduction_or_arithmetic_error",
+      "evidence": "Predicted 46.0 vs expected 84.0."
+    },
+    {
+      "question_id": "geometry-046-multi_step",
+      "category": "genuine_deduction_or_arithmetic_error",
+      "evidence": "Predicted 3.0 vs expected 41.0."
+    }
+  ],
+  "argon_cache_stats": {
+    "local_cache_hits": 0,
+    "network_calls": 0,
+    "prompt_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "reasoning_tokens": 0,
+    "allowance_usd": 0.0,
+    "list_cost_usd": 0.0,
+    "per_key_calls": {
+      "key_0": 0,
+      "key_1": 0,
+      "key_2": 0,
+      "key_3": 0,
+      "key_4": 0
+    },
+    "per_key_cache_read_tokens": {
+      "key_0": 0,
+      "key_1": 0,
+      "key_2": 0,
+      "key_3": 0,
+      "key_4": 0
+    },
+    "upstream_cache_hit_ratio": 0.0,
+    "sqlite_cached_entries": 40
+  }
+}

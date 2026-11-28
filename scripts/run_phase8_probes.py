@@ -63,37 +63,47 @@ def render_probes_figure(payload: dict[str, Any], out_path: Path) -> None:
             ax_conv.grid(True, alpha=0.3)
             ax_conv.set_title("A. Hidden-State Convergence Across Passes", fontweight="bold")
 
-        # Panel B: Logit-Lens agreement & entropy
-        ax_ll.plot(ps, agree, "-o", color="#70AD47", linewidth=2.2, markersize=7, label="Top-1 Agree w/ Final Pass (%)")
+        # Panel B: Full-model output agreement & entropy
+        agree3 = [r["agree_loop3_rate"] * 100.0 for r in per_pass if r.get("agree_loop3_rate") is not None]
+        ax_ll.plot(ps, agree, "-o", color="#70AD47", linewidth=2.2, markersize=7, label="Top-1 Agree w/ Pass 5 (%)")
+        if len(agree3) == len(ps):
+            ax_ll.plot(ps, agree3, ":D", color="#2E75B6", linewidth=1.8, markersize=5.5, label="Top-1 Agree w/ loop=3 (%)")
         for x, y in zip(ps, agree):
             ax_ll.annotate(f"{y:.1f}%", (x, y), textcoords="offset points", xytext=(0, 7), ha="center", fontsize=8.0)
         ax_ll2 = ax_ll.twinx()
-        ax_ll2.plot(ps, ent, "--^", color="#ED7D31", linewidth=2.0, markersize=6, label="Mean Logit Entropy (nats)")
-        ax_ll2.set_ylabel("Mean Logit-Lens Entropy (nats)", color="#ED7D31")
+        ax_ll2.plot(ps, ent, "--^", color="#ED7D31", linewidth=2.0, markersize=6, label="Mean Entropy (nats)")
+        ax_ll2.set_ylabel("Mean Next-Token Entropy (nats)", color="#ED7D31")
         ax_ll.set_xlabel("Recurrent Pass p")
-        ax_ll.set_ylabel("Top-1 Agreement with Pass 5 (%)", color="#70AD47")
+        ax_ll.set_ylabel("Top-1 Agreement (%)", color="#70AD47")
         ax_ll.set_xticks(ps)
-        ax_ll.set_ylim(0, 112)
+        ax_ll.set_ylim(0, 115)
         ax_ll.grid(True, alpha=0.3)
-        ax_ll.set_title("B. Logit-Lens Stability & Entropy Decay", fontweight="bold")
+        ax_ll.legend(loc="lower right", fontsize=7.6, frameon=True)
+        ax_ll.set_title("B. Full-Model Agreement & Entropy (Post-Coda + Softcap)", fontweight="bold")
 
-        # Panel C: Dynamic Early-Exit Pareto (Compute Saving vs Token Fidelity)
+        # Panel C: Offline Early-Exit Frontier (Total Layer Visits Saved vs Real Fidelity)
+        def _fid(r: dict[str, Any]) -> float:
+            return float(r.get("token_fidelity", r.get("token_fidelity_vs_final", 0.0))) * 100.0
+
+        def _sav(r: dict[str, Any]) -> float:
+            return float(r.get("total_layer_visit_saving_pct", r.get("core_compute_saving_pct", 0.0)))
+
         for sig, col, mk, lbl in (("entropy", "#7030A0", "o", "Entropy-Gated Exit"), ("cos_sim", "#2E75B6", "s", "Cosine-Stability Exit")):
             pts = [r for r in sweep if r["signal"] == sig]
             if pts:
-                xs = [r["core_compute_saving_pct"] for r in pts]
-                ys = [r["token_fidelity_vs_final"] * 100.0 for r in pts]
+                xs = [_sav(r) for r in pts]
+                ys = [_fid(r) for r in pts]
                 ax_ee.plot(xs, ys, f"-{mk}", color=col, linewidth=2.0, markersize=6, label=lbl)
                 for r in pts:
-                    ax_ee.annotate(f"{r['threshold']}", (r["core_compute_saving_pct"], r["token_fidelity_vs_final"] * 100.0), textcoords="offset points", xytext=(4, -9), fontsize=7.3)
-        ax_ee.set_xlabel("Recurrent Core Compute Saved (%)")
-        ax_ee.set_ylabel("Exact Top-1 Token Fidelity vs Pass 5 (%)")
-        ax_ee.set_ylim(max(0.0, min((r["token_fidelity_vs_final"] * 100.0 for r in sweep), default=50) - 10), 103)
+                    ax_ee.annotate(f"{r['threshold']}", (_sav(r), _fid(r)), textcoords="offset points", xytext=(4, -9), fontsize=7.3)
+        ax_ee.set_xlabel("Total Layer Visits Saved (%)")
+        ax_ee.set_ylabel("Teacher-Forced Top-1 Fidelity vs Pass 5 (%)")
+        ax_ee.set_ylim(max(0.0, min((_fid(r) for r in sweep), default=50) - 10), 103)
         ax_ee.grid(True, alpha=0.3)
         ax_ee.legend(loc="lower left", fontsize=8.0, frameon=True)
-        ax_ee.set_title("C. Offline Dynamic Early-Exit Frontier", fontweight="bold")
+        ax_ee.set_title("C. Offline Teacher-Forced Early-Exit Frontier", fontweight="bold")
 
-        fig.suptitle("LoopBench Phase 8C: Cross-Pass Latent Convergence, Logit-Lens & Dynamic Early-Exit (loop=5)", fontweight="bold", fontsize=11.3)
+        fig.suptitle("LoopBench Phase 8C: True-Coda Cross-Pass Probes & Teacher-Forced Early-Exit (p=1..5)", fontweight="bold", fontsize=11.3)
         fig.tight_layout(rect=(0, 0, 1, 0.93))
         fig.savefig(out_path, metadata={"Software": "LoopBench"})
         plt.close(fig)

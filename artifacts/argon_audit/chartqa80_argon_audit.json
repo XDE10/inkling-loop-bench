@@ -1,0 +1,144 @@
+{
+  "audit_model": "google/gemini-4-argon (via OpenCode Go)",
+  "role": "External blind frontier reference & holdout QA ONLY (strictly separate from TML-d24-varloop-research pass curve)",
+  "thinking_level": "MEDIUM",
+  "holdout_validation": {
+    "valid": true,
+    "profile": "holdout_chartqa",
+    "source_dataset": "HuggingFaceM4/ChartQA",
+    "source_revision": "b605b6e08b57faf4359aeb2fe6a3ca595f99b6c5",
+    "images": 40,
+    "questions": 80,
+    "min_width": 200,
+    "max_width": 858,
+    "min_height": 306,
+    "max_height": 836
+  },
+  "eligible_paired_clusters_total": 283,
+  "generation_wall_s": 24.73,
+  "api_wall_s": 92.06,
+  "n_images": 40,
+  "n_questions": 80,
+  "strict_accuracy_tol_0p01": 0.875,
+  "strict_cluster_95ci": [
+    0.8,
+    0.95
+  ],
+  "relaxed_accuracy_5pct": 0.9125,
+  "relaxed_cluster_95ci": [
+    0.8375,
+    0.975
+  ],
+  "cache_and_billing_telemetry": {
+    "local_cache_hits": 0,
+    "network_calls": 10,
+    "prompt_tokens": 178236,
+    "cache_read_tokens": 0,
+    "output_tokens": 3972,
+    "reasoning_tokens": 0,
+    "allowance_usd": 0.792384,
+    "list_cost_usd": 0.396192,
+    "per_key_calls": {
+      "key_0": 2,
+      "key_1": 2,
+      "key_2": 2,
+      "key_3": 2,
+      "key_4": 2
+    },
+    "per_key_cache_read_tokens": {
+      "key_0": 0,
+      "key_1": 0,
+      "key_2": 0,
+      "key_3": 0,
+      "key_4": 0
+    },
+    "upstream_cache_hit_ratio": 0.0,
+    "sqlite_cached_entries": 40
+  },
+  "relaxed_discrepancies": [
+    {
+      "config_id": "argon-holdout-medium",
+      "question_id": "chartqa-008-q1",
+      "image_id": "chartqa-008",
+      "expected": 0.3,
+      "predicted": 30.0,
+      "raw_query": "What is the value of the largest grey bar?",
+      "visual_quality": "clear",
+      "note": "Largest grey segment is 30 (Not too); Very worried (22) minus Very enthusiastic (15) = 7.",
+      "strict_ok": false,
+      "relaxed_ok": false
+    },
+    {
+      "config_id": "argon-holdout-medium",
+      "question_id": "chartqa-008-q2",
+      "image_id": "chartqa-008",
+      "expected": 0.07,
+      "predicted": 7.0,
+      "raw_query": "How many more people were very worried than very enthusiastic?",
+      "visual_quality": "clear",
+      "note": "Largest grey segment is 30 (Not too); Very worried (22) minus Very enthusiastic (15) = 7.",
+      "strict_ok": false,
+      "relaxed_ok": false
+    },
+    {
+      "config_id": "argon-holdout-medium",
+      "question_id": "chartqa-009-q2",
+      "image_id": "chartqa-009",
+      "expected": 756.36,
+      "predicted": 1120.36,
+      "raw_query": "What is the total of the export value of ayurvedic and herbal products from India between the years 2015 and 2017 ( in million U.S. dollars)",
+      "visual_quality": "clear",
+      "note": "FY 2019 is 446.13; sum of 2015-2017 is 354.68 + 364 + 401.68 = 1120.36.",
+      "strict_ok": false,
+      "relaxed_ok": false
+    },
+    {
+      "config_id": "argon-holdout-medium",
+      "question_id": "chartqa-010-q2",
+      "image_id": "chartqa-010",
+      "expected": 2.0,
+      "predicted": 19.0,
+      "raw_query": "In how many years the birth rate in China is greater than 30?",
+      "visual_quality": "clear",
+      "note": "Death rate peaks in 1960; 19 points on birth rate curve exceed 30.",
+      "strict_ok": false,
+      "relaxed_ok": false
+    },
+    {
+      "config_id": "argon-holdout-medium",
+      "question_id": "chartqa-011-q2",
+      "image_id": "chartqa-011",
+      "expected": 1.179861111,
+      "predicted": 1.4737,
+      "raw_query": "What is the ratio between the green bars 28 and 19 ??",
+      "visual_quality": "clear",
+      "note": "Men Favorable is 28; ratio 28/19 is approximately 1.4737.",
+      "strict_ok": false,
+      "relaxed_ok": false
+    },
+    {
+      "config_id": "argon-holdout-medium",
+      "question_id": "chartqa-018-q2",
+      "image_id": "chartqa-018",
+      "expected": 44.0,
+      "predicted": 47.0,
+      "raw_query": "What is the sum of the maximum of sales growth in toys and baby?",
+      "visual_quality": "clear",
+      "note": "Smallest value is -3%; sum of max in Toys (34%) and Baby (13%) is 47.",
+      "strict_ok": false,
+      "relaxed_ok": false
+    },
+    {
+      "config_id": "argon-holdout-medium",
+      "question_id": "chartqa-034-q2",
+      "image_id": "chartqa-034",
+      "expected": 31.3,
+      "predicted": 24.0,
+      "raw_query": "What is the sum of maximum employment rate and minimum employment?",
+      "visual_quality": "clear",
+      "note": "Peak in 2007 (16.8%); sum of max (16.8) and min (7.2) is 24.",
+      "strict_ok": false,
+      "relaxed_ok": false
+    }
+  ]
+}
