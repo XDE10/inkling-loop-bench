@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-11-28T03:06:13Z",
+  "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+  "gpu": {
+    "device_name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "compute_capability": "12.0",
+    "total_vram_mb": 97250.06,
+    "cuda_runtime": "13.0"
+  },
+  "nvidia_smi": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 580.82.07, 97887 MiB",
+  "packages": {
+    "torch": "2.14.0",
+    "transformers": "5.24.1",
+    "accelerate": "1.16.0",
+    "kernels": "0.19.1"
+  },
+  "pinned_model_id": "thinkingmachines/Inkling-2-Mini",
+  "pinned_model_revision": "c9d028302cd0f035fdf8e7e91f089a4ce94d2195"
+}

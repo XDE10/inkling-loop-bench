@@ -1,0 +1,4005 @@
+{
+  "model_id": "thinkingmachines/TML-d24-varloop-research",
+  "model_revision": "c90921bd5f78df6c8168173b9f8a3a850320c594",
+  "loop_num_passes": 5,
+  "n_questions": 20,
+  "overall_summary": {
+    "passes": 5,
+    "n_steps": 1920,
+    "mean_first_stable_pass": 2.115,
+    "p50_first_stable_pass": 1.0,
+    "per_pass": [
+      {
+        "pass": 1,
+        "effective_layers": 24,
+        "mean_cos_sim_prev": null,
+        "mean_rel_l2_prev": null,
+        "mean_banach_ratio": null,
+        "p50_banach_ratio": null,
+        "banach_contracting_rate": null,
+        "mean_entropy": 1.19095,
+        "mean_top1_prob": 0.68113,
+        "mean_kl_to_final": 0.60313,
+        "agree_final_rate": 0.70833
+      },
+      {
+        "pass": 2,
+        "effective_layers": 36,
+        "mean_cos_sim_prev": 0.94527,
+        "mean_rel_l2_prev": 0.42587,
+        "mean_banach_ratio": null,
+        "p50_banach_ratio": null,
+        "banach_contracting_rate": null,
+        "mean_entropy": 1.14222,
+        "mean_top1_prob": 0.69267,
+        "mean_kl_to_final": 0.60092,
+        "agree_final_rate": 0.71094
+      },
+      {
+        "pass": 3,
+        "effective_layers": 48,
+        "mean_cos_sim_prev": 0.95253,
+        "mean_rel_l2_prev": 0.30485,
+        "mean_banach_ratio": 0.86215,
+        "p50_banach_ratio": 0.84368,
+        "banach_contracting_rate": 0.85365,
+        "mean_entropy": 1.19434,
+        "mean_top1_prob": 0.67754,
+        "mean_kl_to_final": 0.18079,
+        "agree_final_rate": 0.83906
+      },
+      {
+        "pass": 4,
+        "effective_layers": 60,
+        "mean_cos_sim_prev": 0.98639,
+        "mean_rel_l2_prev": 0.15678,
+        "mean_banach_ratio": 0.46357,
+        "p50_banach_ratio": 0.43209,
+        "banach_contracting_rate": 0.98802,
+        "mean_entropy": 1.16955,
+        "mean_top1_prob": 0.68321,
+        "mean_kl_to_final": 0.09931,
+        "agree_final_rate": 0.88177
+      },
+      {
+        "pass": 5,
+        "effective_layers": 72,
+        "mean_cos_sim_prev": 0.99206,
+        "mean_rel_l2_prev": 0.10412,
+        "mean_banach_ratio": 0.6594,
+        "p50_banach_ratio": 0.63547,
+        "banach_contracting_rate": 0.96562,
+        "mean_entropy": 1.17112,
+        "mean_top1_prob": 0.68209,
+        "mean_kl_to_final": 0.0,
+        "agree_final_rate": 1.0
+      }
+    ],
+    "early_exit_sweep": [
+      {
+        "rule": "entropy<=0.05",
+        "signal": "entropy",
+        "threshold": 0.05,
+        "mean_passes": 4.641,
+        "core_compute_saving_pct": 7.18,
+        "token_fidelity_vs_final": 0.99792
+      },
+      {
+        "rule": "entropy<=0.15",
+        "signal": "entropy",
+        "threshold": 0.15,
+        "mean_passes": 4.234,
+        "core_compute_saving_pct": 15.31,
+        "token_fidelity_vs_final": 0.99271
+      },
+      {
+        "rule": "entropy<=0.30",
+        "signal": "entropy",
+        "threshold": 0.3,
+        "mean_passes": 3.853,
+        "core_compute_saving_pct": 22.95,
+        "token_fidelity_vs_final": 0.98073
+      },
+      {
+        "rule": "entropy<=0.50",
+        "signal": "entropy",
+        "threshold": 0.5,
+        "mean_passes": 3.414,
+        "core_compute_saving_pct": 31.72,
+        "token_fidelity_vs_final": 0.96146
+      },
+      {
+        "rule": "entropy<=1.00",
+        "signal": "entropy",
+        "threshold": 1.0,
+        "mean_passes": 2.615,
+        "core_compute_saving_pct": 47.7,
+        "token_fidelity_vs_final": 0.91563
+      },
+      {
+        "rule": "cos_sim>=0.995",
+        "signal": "cos_sim",
+        "threshold": 0.995,
+        "mean_passes": 4.624,
+        "core_compute_saving_pct": 7.52,
+        "token_fidelity_vs_final": 0.98125
+      },
+      {
+        "rule": "cos_sim>=0.990",
+        "signal": "cos_sim",
+        "threshold": 0.99,
+        "mean_passes": 4.309,
+        "core_compute_saving_pct": 13.81,
+        "token_fidelity_vs_final": 0.95
+      },
+      {
+        "rule": "cos_sim>=0.980",
+        "signal": "cos_sim",
+        "threshold": 0.98,
+        "mean_passes": 3.811,
+        "core_compute_saving_pct": 23.78,
+        "token_fidelity_vs_final": 0.91406
+      },
+      {
+        "rule": "cos_sim>=0.960",
+        "signal": "cos_sim",
+        "threshold": 0.96,
+        "mean_passes": 3.014,
+        "core_compute_saving_pct": 39.72,
+        "token_fidelity_vs_final": 0.83542
+      },
+      {
+        "rule": "cos_sim>=0.940",
+        "signal": "cos_sim",
+        "threshold": 0.94,
+        "mean_passes": 2.564,
+        "core_compute_saving_pct": 48.72,
+        "token_fidelity_vs_final": 0.77812
+      }
+    ]
+  },
+  "by_p7b_transition_group": {
+    "F->T": {
+      "passes": 5,
+      "n_steps": 480,
+      "mean_first_stable_pass": 2.25,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.32583,
+          "mean_top1_prob": 0.64962,
+          "mean_kl_to_final": 0.63209,
+          "agree_final_rate": 0.67917
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94082,
+          "mean_rel_l2_prev": 0.43354,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.22153,
+          "mean_top1_prob": 0.67122,
+          "mean_kl_to_final": 0.70468,
+          "agree_final_rate": 0.68333
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.94681,
+          "mean_rel_l2_prev": 0.31684,
+          "mean_banach_ratio": 0.87768,
+          "p50_banach_ratio": 0.86225,
+          "banach_contracting_rate": 0.83125,
+          "mean_entropy": 1.29919,
+          "mean_top1_prob": 0.65038,
+          "mean_kl_to_final": 0.2363,
+          "agree_final_rate": 0.8
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98365,
+          "mean_rel_l2_prev": 0.17073,
+          "mean_banach_ratio": 0.48196,
+          "p50_banach_ratio": 0.45326,
+          "banach_contracting_rate": 0.98542,
+          "mean_entropy": 1.26443,
+          "mean_top1_prob": 0.65759,
+          "mean_kl_to_final": 0.13322,
+          "agree_final_rate": 0.87083
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.9901,
+          "mean_rel_l2_prev": 0.11706,
+          "mean_banach_ratio": 0.68063,
+          "p50_banach_ratio": 0.65555,
+          "banach_contracting_rate": 0.96042,
+          "mean_entropy": 1.26364,
+          "mean_top1_prob": 0.65884,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.64,
+          "core_compute_saving_pct": 7.21,
+          "token_fidelity_vs_final": 0.99583
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.271,
+          "core_compute_saving_pct": 14.58,
+          "token_fidelity_vs_final": 0.9875
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.921,
+          "core_compute_saving_pct": 21.58,
+          "token_fidelity_vs_final": 0.975
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.529,
+          "core_compute_saving_pct": 29.42,
+          "token_fidelity_vs_final": 0.9625
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.842,
+          "core_compute_saving_pct": 43.17,
+          "token_fidelity_vs_final": 0.9125
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.627,
+          "core_compute_saving_pct": 7.46,
+          "token_fidelity_vs_final": 0.98333
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.381,
+          "core_compute_saving_pct": 12.38,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.892,
+          "core_compute_saving_pct": 22.17,
+          "token_fidelity_vs_final": 0.90417
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.098,
+          "core_compute_saving_pct": 38.04,
+          "token_fidelity_vs_final": 0.8375
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.681,
+          "core_compute_saving_pct": 46.38,
+          "token_fidelity_vs_final": 0.77708
+        }
+      ]
+    },
+    "T->F": {
+      "passes": 5,
+      "n_steps": 288,
+      "mean_first_stable_pass": 1.917,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.04529,
+          "mean_top1_prob": 0.72402,
+          "mean_kl_to_final": 0.53688,
+          "agree_final_rate": 0.74306
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94598,
+          "mean_rel_l2_prev": 0.42931,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.07272,
+          "mean_top1_prob": 0.7215,
+          "mean_kl_to_final": 0.47612,
+          "agree_final_rate": 0.77083
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95242,
+          "mean_rel_l2_prev": 0.30713,
+          "mean_banach_ratio": 0.87401,
+          "p50_banach_ratio": 0.84207,
+          "banach_contracting_rate": 0.81597,
+          "mean_entropy": 1.17007,
+          "mean_top1_prob": 0.68695,
+          "mean_kl_to_final": 0.15332,
+          "agree_final_rate": 0.86806
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98407,
+          "mean_rel_l2_prev": 0.16556,
+          "mean_banach_ratio": 0.47063,
+          "p50_banach_ratio": 0.43681,
+          "banach_contracting_rate": 0.98611,
+          "mean_entropy": 1.11685,
+          "mean_top1_prob": 0.70804,
+          "mean_kl_to_final": 0.07035,
+          "agree_final_rate": 0.88542
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99201,
+          "mean_rel_l2_prev": 0.10277,
+          "mean_banach_ratio": 0.63703,
+          "p50_banach_ratio": 0.61622,
+          "banach_contracting_rate": 0.96875,
+          "mean_entropy": 1.13038,
+          "mean_top1_prob": 0.69946,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.663,
+          "core_compute_saving_pct": 6.74,
+          "token_fidelity_vs_final": 0.99653
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.122,
+          "core_compute_saving_pct": 17.57,
+          "token_fidelity_vs_final": 0.99306
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.694,
+          "core_compute_saving_pct": 26.11,
+          "token_fidelity_vs_final": 0.98611
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.236,
+          "core_compute_saving_pct": 35.28,
+          "token_fidelity_vs_final": 0.96528
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.392,
+          "core_compute_saving_pct": 52.15,
+          "token_fidelity_vs_final": 0.92014
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.632,
+          "core_compute_saving_pct": 7.36,
+          "token_fidelity_vs_final": 0.98264
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.337,
+          "core_compute_saving_pct": 13.26,
+          "token_fidelity_vs_final": 0.95486
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.733,
+          "core_compute_saving_pct": 25.35,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.052,
+          "core_compute_saving_pct": 38.96,
+          "token_fidelity_vs_final": 0.85069
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.597,
+          "core_compute_saving_pct": 48.06,
+          "token_fidelity_vs_final": 0.8125
+        }
+      ]
+    },
+    "F->F": {
+      "passes": 5,
+      "n_steps": 576,
+      "mean_first_stable_pass": 1.995,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.17287,
+          "mean_top1_prob": 0.68502,
+          "mean_kl_to_final": 0.55639,
+          "agree_final_rate": 0.70486
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94976,
+          "mean_rel_l2_prev": 0.41553,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.10798,
+          "mean_top1_prob": 0.70331,
+          "mean_kl_to_final": 0.52425,
+          "agree_final_rate": 0.72222
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95692,
+          "mean_rel_l2_prev": 0.29421,
+          "mean_banach_ratio": 0.85252,
+          "p50_banach_ratio": 0.8396,
+          "banach_contracting_rate": 0.88715,
+          "mean_entropy": 1.15093,
+          "mean_top1_prob": 0.69021,
+          "mean_kl_to_final": 0.1317,
+          "agree_final_rate": 0.86806
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98968,
+          "mean_rel_l2_prev": 0.13928,
+          "mean_banach_ratio": 0.43461,
+          "p50_banach_ratio": 0.411,
+          "banach_contracting_rate": 0.99306,
+          "mean_entropy": 1.15364,
+          "mean_top1_prob": 0.6862,
+          "mean_kl_to_final": 0.06067,
+          "agree_final_rate": 0.90625
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99452,
+          "mean_rel_l2_prev": 0.08936,
+          "mean_banach_ratio": 0.63819,
+          "p50_banach_ratio": 0.61445,
+          "banach_contracting_rate": 0.96875,
+          "mean_entropy": 1.14838,
+          "mean_top1_prob": 0.68956,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.649,
+          "core_compute_saving_pct": 7.01,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.215,
+          "core_compute_saving_pct": 15.69,
+          "token_fidelity_vs_final": 0.99653
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.847,
+          "core_compute_saving_pct": 23.06,
+          "token_fidelity_vs_final": 0.98264
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.424,
+          "core_compute_saving_pct": 31.53,
+          "token_fidelity_vs_final": 0.96528
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.542,
+          "core_compute_saving_pct": 49.17,
+          "token_fidelity_vs_final": 0.90278
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.589,
+          "core_compute_saving_pct": 8.23,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.208,
+          "core_compute_saving_pct": 15.83,
+          "token_fidelity_vs_final": 0.94271
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.759,
+          "core_compute_saving_pct": 24.83,
+          "token_fidelity_vs_final": 0.92361
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.88,
+          "core_compute_saving_pct": 42.4,
+          "token_fidelity_vs_final": 0.84375
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.438,
+          "core_compute_saving_pct": 51.25,
+          "token_fidelity_vs_final": 0.78299
+        }
+      ]
+    },
+    "T->T": {
+      "passes": 5,
+      "n_steps": 576,
+      "mean_first_stable_pass": 2.222,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.16944,
+          "mean_top1_prob": 0.68206,
+          "mean_kl_to_final": 0.65886,
+          "agree_final_rate": 0.71875
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94414,
+          "mean_rel_l2_prev": 0.42811,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.14511,
+          "mean_top1_prob": 0.6855,
+          "mean_kl_to_final": 0.65351,
+          "agree_final_rate": 0.69271
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95296,
+          "mean_rel_l2_prev": 0.30436,
+          "mean_banach_ratio": 0.85292,
+          "p50_banach_ratio": 0.8353,
+          "banach_contracting_rate": 0.85764,
+          "mean_entropy": 1.16252,
+          "mean_top1_prob": 0.6828,
+          "mean_kl_to_final": 0.19735,
+          "agree_final_rate": 0.82812
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98654,
+          "mean_rel_l2_prev": 0.15825,
+          "mean_banach_ratio": 0.47369,
+          "p50_banach_ratio": 0.44052,
+          "banach_contracting_rate": 0.98611,
+          "mean_entropy": 1.13274,
+          "mean_top1_prob": 0.68917,
+          "mean_kl_to_final": 0.12417,
+          "agree_final_rate": 0.86458
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99124,
+          "mean_rel_l2_prev": 0.10876,
+          "mean_banach_ratio": 0.67409,
+          "p50_banach_ratio": 0.65234,
+          "banach_contracting_rate": 0.96528,
+          "mean_entropy": 1.13713,
+          "mean_top1_prob": 0.68531,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.623,
+          "core_compute_saving_pct": 7.53,
+          "token_fidelity_vs_final": 0.99826
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.28,
+          "core_compute_saving_pct": 14.41,
+          "token_fidelity_vs_final": 0.99306
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.88,
+          "core_compute_saving_pct": 22.4,
+          "token_fidelity_vs_final": 0.9809
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.398,
+          "core_compute_saving_pct": 32.05,
+          "token_fidelity_vs_final": 0.95486
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.611,
+          "core_compute_saving_pct": 47.78,
+          "token_fidelity_vs_final": 0.92882
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.653,
+          "core_compute_saving_pct": 6.94,
+          "token_fidelity_vs_final": 0.9809
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.337,
+          "core_compute_saving_pct": 13.26,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.835,
+          "core_compute_saving_pct": 23.3,
+          "token_fidelity_vs_final": 0.91146
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.059,
+          "core_compute_saving_pct": 38.82,
+          "token_fidelity_vs_final": 0.81771
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.576,
+          "core_compute_saving_pct": 48.47,
+          "token_fidelity_vs_final": 0.75694
+        }
+      ]
+    }
+  },
+  "per_question": [
+    {
+      "question_id": "mathvista-0241-q1",
+      "p7b_transition_group": "F->T",
+      "source": "PaperQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.531,
+      "p50_first_stable_pass": 2.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.42705,
+          "mean_top1_prob": 0.63021,
+          "mean_kl_to_final": 1.07089,
+          "agree_final_rate": 0.5625
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.91073,
+          "mean_rel_l2_prev": 0.49139,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.13271,
+          "mean_top1_prob": 0.69936,
+          "mean_kl_to_final": 1.29776,
+          "agree_final_rate": 0.59375
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.91816,
+          "mean_rel_l2_prev": 0.37935,
+          "mean_banach_ratio": 0.90976,
+          "p50_banach_ratio": 0.90366,
+          "banach_contracting_rate": 0.79167,
+          "mean_entropy": 1.26976,
+          "mean_top1_prob": 0.66593,
+          "mean_kl_to_final": 0.46415,
+          "agree_final_rate": 0.75
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.97071,
+          "mean_rel_l2_prev": 0.21972,
+          "mean_banach_ratio": 0.53179,
+          "p50_banach_ratio": 0.47612,
+          "banach_contracting_rate": 0.95833,
+          "mean_entropy": 1.2216,
+          "mean_top1_prob": 0.67937,
+          "mean_kl_to_final": 0.23492,
+          "agree_final_rate": 0.79167
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.98401,
+          "mean_rel_l2_prev": 0.1522,
+          "mean_banach_ratio": 0.7037,
+          "p50_banach_ratio": 0.67446,
+          "banach_contracting_rate": 0.95833,
+          "mean_entropy": 1.28923,
+          "mean_top1_prob": 0.65686,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.531,
+          "core_compute_saving_pct": 9.38,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.115,
+          "core_compute_saving_pct": 17.71,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.646,
+          "core_compute_saving_pct": 27.08,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.292,
+          "core_compute_saving_pct": 34.17,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.615,
+          "core_compute_saving_pct": 47.71,
+          "token_fidelity_vs_final": 0.83333
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.74,
+          "core_compute_saving_pct": 5.21,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.646,
+          "core_compute_saving_pct": 7.08,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 4.25,
+          "core_compute_saving_pct": 15.0,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.594,
+          "core_compute_saving_pct": 28.12,
+          "token_fidelity_vs_final": 0.79167
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 3.333,
+          "core_compute_saving_pct": 33.33,
+          "token_fidelity_vs_final": 0.80208
+        }
+      ],
+      "input_tokens": 1271,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0252-q1",
+      "p7b_transition_group": "F->T",
+      "source": "TheoremQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.177,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.22096,
+          "mean_top1_prob": 0.67238,
+          "mean_kl_to_final": 0.60983,
+          "agree_final_rate": 0.64583
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.95037,
+          "mean_rel_l2_prev": 0.43403,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.24569,
+          "mean_top1_prob": 0.65762,
+          "mean_kl_to_final": 0.68748,
+          "agree_final_rate": 0.66667
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95447,
+          "mean_rel_l2_prev": 0.30983,
+          "mean_banach_ratio": 0.88151,
+          "p50_banach_ratio": 0.87249,
+          "banach_contracting_rate": 0.8125,
+          "mean_entropy": 1.22127,
+          "mean_top1_prob": 0.67092,
+          "mean_kl_to_final": 0.12872,
+          "agree_final_rate": 0.84375
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98875,
+          "mean_rel_l2_prev": 0.15591,
+          "mean_banach_ratio": 0.45576,
+          "p50_banach_ratio": 0.4329,
+          "banach_contracting_rate": 1.0,
+          "mean_entropy": 1.22066,
+          "mean_top1_prob": 0.65996,
+          "mean_kl_to_final": 0.09685,
+          "agree_final_rate": 0.875
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99368,
+          "mean_rel_l2_prev": 0.10255,
+          "mean_banach_ratio": 0.68401,
+          "p50_banach_ratio": 0.66342,
+          "banach_contracting_rate": 0.96875,
+          "mean_entropy": 1.18085,
+          "mean_top1_prob": 0.68081,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.625,
+          "core_compute_saving_pct": 7.5,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.281,
+          "core_compute_saving_pct": 14.38,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.958,
+          "core_compute_saving_pct": 20.83,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.656,
+          "core_compute_saving_pct": 26.88,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.823,
+          "core_compute_saving_pct": 43.54,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.625,
+          "core_compute_saving_pct": 7.5,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.333,
+          "core_compute_saving_pct": 13.33,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.958,
+          "core_compute_saving_pct": 20.83,
+          "token_fidelity_vs_final": 0.88542
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.906,
+          "core_compute_saving_pct": 41.87,
+          "token_fidelity_vs_final": 0.78125
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.427,
+          "core_compute_saving_pct": 51.46,
+          "token_fidelity_vs_final": 0.73958
+        }
+      ],
+      "input_tokens": 154,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0519-q1",
+      "p7b_transition_group": "F->T",
+      "source": "IQTest",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.104,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.46605,
+          "mean_top1_prob": 0.60949,
+          "mean_kl_to_final": 0.47787,
+          "agree_final_rate": 0.71875
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.95849,
+          "mean_rel_l2_prev": 0.37687,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.51292,
+          "mean_top1_prob": 0.60067,
+          "mean_kl_to_final": 0.49745,
+          "agree_final_rate": 0.67708
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.96403,
+          "mean_rel_l2_prev": 0.27298,
+          "mean_banach_ratio": 0.85976,
+          "p50_banach_ratio": 0.85553,
+          "banach_contracting_rate": 0.875,
+          "mean_entropy": 1.5248,
+          "mean_top1_prob": 0.5895,
+          "mean_kl_to_final": 0.10401,
+          "agree_final_rate": 0.82292
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.99125,
+          "mean_rel_l2_prev": 0.12971,
+          "mean_banach_ratio": 0.43091,
+          "p50_banach_ratio": 0.4194,
+          "banach_contracting_rate": 1.0,
+          "mean_entropy": 1.49553,
+          "mean_top1_prob": 0.59281,
+          "mean_kl_to_final": 0.05131,
+          "agree_final_rate": 0.92708
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99529,
+          "mean_rel_l2_prev": 0.08301,
+          "mean_banach_ratio": 0.62864,
+          "p50_banach_ratio": 0.60713,
+          "banach_contracting_rate": 0.96875,
+          "mean_entropy": 1.47909,
+          "mean_top1_prob": 0.60087,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.917,
+          "core_compute_saving_pct": 1.67,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.781,
+          "core_compute_saving_pct": 4.37,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 4.458,
+          "core_compute_saving_pct": 10.83,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 4.021,
+          "core_compute_saving_pct": 19.58,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 3.229,
+          "core_compute_saving_pct": 35.42,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.49,
+          "core_compute_saving_pct": 10.21,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.156,
+          "core_compute_saving_pct": 16.87,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.521,
+          "core_compute_saving_pct": 29.58,
+          "token_fidelity_vs_final": 0.875
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.719,
+          "core_compute_saving_pct": 45.63,
+          "token_fidelity_vs_final": 0.85417
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.25,
+          "core_compute_saving_pct": 55.0,
+          "token_fidelity_vs_final": 0.75
+        }
+      ],
+      "input_tokens": 594,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0780-q1",
+      "p7b_transition_group": "F->T",
+      "source": "IQTest",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.229,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.26093,
+          "mean_top1_prob": 0.65062,
+          "mean_kl_to_final": 0.49848,
+          "agree_final_rate": 0.69792
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.93911,
+          "mean_rel_l2_prev": 0.45831,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.16602,
+          "mean_top1_prob": 0.6705,
+          "mean_kl_to_final": 0.5038,
+          "agree_final_rate": 0.76042
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.9435,
+          "mean_rel_l2_prev": 0.32516,
+          "mean_banach_ratio": 0.89485,
+          "p50_banach_ratio": 0.84244,
+          "banach_contracting_rate": 0.82292,
+          "mean_entropy": 1.32905,
+          "mean_top1_prob": 0.62423,
+          "mean_kl_to_final": 0.28348,
+          "agree_final_rate": 0.75
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98305,
+          "mean_rel_l2_prev": 0.17764,
+          "mean_banach_ratio": 0.47328,
+          "p50_banach_ratio": 0.44521,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 1.23769,
+          "mean_top1_prob": 0.66504,
+          "mean_kl_to_final": 0.16099,
+          "agree_final_rate": 0.88542
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.98672,
+          "mean_rel_l2_prev": 0.13053,
+          "mean_banach_ratio": 0.71531,
+          "p50_banach_ratio": 0.65018,
+          "banach_contracting_rate": 0.92708,
+          "mean_entropy": 1.22326,
+          "mean_top1_prob": 0.65542,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.729,
+          "core_compute_saving_pct": 5.42,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.438,
+          "core_compute_saving_pct": 11.25,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.979,
+          "core_compute_saving_pct": 20.42,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.469,
+          "core_compute_saving_pct": 30.63,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.781,
+          "core_compute_saving_pct": 44.38,
+          "token_fidelity_vs_final": 0.90625
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.635,
+          "core_compute_saving_pct": 7.29,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.344,
+          "core_compute_saving_pct": 13.12,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.823,
+          "core_compute_saving_pct": 23.54,
+          "token_fidelity_vs_final": 0.89583
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.156,
+          "core_compute_saving_pct": 36.88,
+          "token_fidelity_vs_final": 0.85417
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.802,
+          "core_compute_saving_pct": 43.96,
+          "token_fidelity_vs_final": 0.80208
+        }
+      ],
+      "input_tokens": 192,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0933-q1",
+      "p7b_transition_group": "F->T",
+      "source": "TabMWP",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.208,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.25417,
+          "mean_top1_prob": 0.68541,
+          "mean_kl_to_final": 0.50339,
+          "agree_final_rate": 0.77083
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94542,
+          "mean_rel_l2_prev": 0.40708,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.05031,
+          "mean_top1_prob": 0.72793,
+          "mean_kl_to_final": 0.5369,
+          "agree_final_rate": 0.71875
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95387,
+          "mean_rel_l2_prev": 0.29687,
+          "mean_banach_ratio": 0.84252,
+          "p50_banach_ratio": 0.82308,
+          "banach_contracting_rate": 0.85417,
+          "mean_entropy": 1.15108,
+          "mean_top1_prob": 0.70133,
+          "mean_kl_to_final": 0.20116,
+          "agree_final_rate": 0.83333
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.9845,
+          "mean_rel_l2_prev": 0.17069,
+          "mean_banach_ratio": 0.51805,
+          "p50_banach_ratio": 0.48079,
+          "banach_contracting_rate": 0.98958,
+          "mean_entropy": 1.14666,
+          "mean_top1_prob": 0.69076,
+          "mean_kl_to_final": 0.12201,
+          "agree_final_rate": 0.875
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99082,
+          "mean_rel_l2_prev": 0.117,
+          "mean_banach_ratio": 0.67149,
+          "p50_banach_ratio": 0.65297,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 1.14579,
+          "mean_top1_prob": 0.70022,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.396,
+          "core_compute_saving_pct": 12.08,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 3.74,
+          "core_compute_saving_pct": 25.21,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.562,
+          "core_compute_saving_pct": 28.75,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.208,
+          "core_compute_saving_pct": 35.83,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.76,
+          "core_compute_saving_pct": 44.79,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.646,
+          "core_compute_saving_pct": 7.08,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.427,
+          "core_compute_saving_pct": 11.46,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.906,
+          "core_compute_saving_pct": 21.88,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.115,
+          "core_compute_saving_pct": 37.71,
+          "token_fidelity_vs_final": 0.90625
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.594,
+          "core_compute_saving_pct": 48.12,
+          "token_fidelity_vs_final": 0.79167
+        }
+      ],
+      "input_tokens": 117,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0037-q1",
+      "p7b_transition_group": "T->F",
+      "source": "FunctionQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 1.958,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.07331,
+          "mean_top1_prob": 0.7209,
+          "mean_kl_to_final": 0.46981,
+          "agree_final_rate": 0.77083
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.95463,
+          "mean_rel_l2_prev": 0.40473,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.2063,
+          "mean_top1_prob": 0.69838,
+          "mean_kl_to_final": 0.41251,
+          "agree_final_rate": 0.75
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.96186,
+          "mean_rel_l2_prev": 0.27767,
+          "mean_banach_ratio": 0.81569,
+          "p50_banach_ratio": 0.81208,
+          "banach_contracting_rate": 0.94792,
+          "mean_entropy": 1.30903,
+          "mean_top1_prob": 0.66626,
+          "mean_kl_to_final": 0.16387,
+          "agree_final_rate": 0.84375
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.99005,
+          "mean_rel_l2_prev": 0.13615,
+          "mean_banach_ratio": 0.43971,
+          "p50_banach_ratio": 0.41582,
+          "banach_contracting_rate": 1.0,
+          "mean_entropy": 1.28951,
+          "mean_top1_prob": 0.67192,
+          "mean_kl_to_final": 0.08121,
+          "agree_final_rate": 0.88542
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99515,
+          "mean_rel_l2_prev": 0.0843,
+          "mean_banach_ratio": 0.63517,
+          "p50_banach_ratio": 0.62265,
+          "banach_contracting_rate": 0.96875,
+          "mean_entropy": 1.26185,
+          "mean_top1_prob": 0.67446,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.688,
+          "core_compute_saving_pct": 6.25,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.385,
+          "core_compute_saving_pct": 12.29,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 4.104,
+          "core_compute_saving_pct": 17.92,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.625,
+          "core_compute_saving_pct": 27.5,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.521,
+          "core_compute_saving_pct": 49.58,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.542,
+          "core_compute_saving_pct": 9.17,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.198,
+          "core_compute_saving_pct": 16.04,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.542,
+          "core_compute_saving_pct": 29.17,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.719,
+          "core_compute_saving_pct": 45.63,
+          "token_fidelity_vs_final": 0.82292
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.375,
+          "core_compute_saving_pct": 52.5,
+          "token_fidelity_vs_final": 0.78125
+        }
+      ],
+      "input_tokens": 186,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0572-q1",
+      "p7b_transition_group": "T->F",
+      "source": "FunctionQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 1.688,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 0.93043,
+          "mean_top1_prob": 0.76436,
+          "mean_kl_to_final": 0.55635,
+          "agree_final_rate": 0.79167
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.93796,
+          "mean_rel_l2_prev": 0.46362,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 0.91158,
+          "mean_top1_prob": 0.76447,
+          "mean_kl_to_final": 0.48262,
+          "agree_final_rate": 0.82292
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.94007,
+          "mean_rel_l2_prev": 0.34045,
+          "mean_banach_ratio": 0.92357,
+          "p50_banach_ratio": 0.89432,
+          "banach_contracting_rate": 0.70833,
+          "mean_entropy": 0.96822,
+          "mean_top1_prob": 0.74427,
+          "mean_kl_to_final": 0.12492,
+          "agree_final_rate": 0.90625
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.97903,
+          "mean_rel_l2_prev": 0.19644,
+          "mean_banach_ratio": 0.49236,
+          "p50_banach_ratio": 0.46106,
+          "banach_contracting_rate": 0.98958,
+          "mean_entropy": 0.92101,
+          "mean_top1_prob": 0.76671,
+          "mean_kl_to_final": 0.06,
+          "agree_final_rate": 0.91667
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.9883,
+          "mean_rel_l2_prev": 0.12336,
+          "mean_banach_ratio": 0.64582,
+          "p50_banach_ratio": 0.62344,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 0.98077,
+          "mean_top1_prob": 0.74218,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.583,
+          "core_compute_saving_pct": 8.33,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 3.74,
+          "core_compute_saving_pct": 25.21,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.271,
+          "core_compute_saving_pct": 34.58,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 2.812,
+          "core_compute_saving_pct": 43.75,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.156,
+          "core_compute_saving_pct": 56.88,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.75,
+          "core_compute_saving_pct": 5.0,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.531,
+          "core_compute_saving_pct": 9.38,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.948,
+          "core_compute_saving_pct": 21.04,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.354,
+          "core_compute_saving_pct": 32.92,
+          "token_fidelity_vs_final": 0.88542
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.792,
+          "core_compute_saving_pct": 44.17,
+          "token_fidelity_vs_final": 0.84375
+        }
+      ],
+      "input_tokens": 142,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0883-q1",
+      "p7b_transition_group": "T->F",
+      "source": "IQTest",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.104,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.13212,
+          "mean_top1_prob": 0.6868,
+          "mean_kl_to_final": 0.58449,
+          "agree_final_rate": 0.66667
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94534,
+          "mean_rel_l2_prev": 0.41958,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.10029,
+          "mean_top1_prob": 0.70164,
+          "mean_kl_to_final": 0.53324,
+          "agree_final_rate": 0.73958
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95533,
+          "mean_rel_l2_prev": 0.30328,
+          "mean_banach_ratio": 0.88278,
+          "p50_banach_ratio": 0.85826,
+          "banach_contracting_rate": 0.79167,
+          "mean_entropy": 1.23297,
+          "mean_top1_prob": 0.65033,
+          "mean_kl_to_final": 0.17117,
+          "agree_final_rate": 0.85417
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98312,
+          "mean_rel_l2_prev": 0.16408,
+          "mean_banach_ratio": 0.47982,
+          "p50_banach_ratio": 0.43173,
+          "banach_contracting_rate": 0.96875,
+          "mean_entropy": 1.14002,
+          "mean_top1_prob": 0.6855,
+          "mean_kl_to_final": 0.06983,
+          "agree_final_rate": 0.85417
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99257,
+          "mean_rel_l2_prev": 0.10066,
+          "mean_banach_ratio": 0.6301,
+          "p50_banach_ratio": 0.59127,
+          "banach_contracting_rate": 0.95833,
+          "mean_entropy": 1.14852,
+          "mean_top1_prob": 0.68173,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.719,
+          "core_compute_saving_pct": 5.63,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.24,
+          "core_compute_saving_pct": 15.21,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.708,
+          "core_compute_saving_pct": 25.83,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.271,
+          "core_compute_saving_pct": 34.58,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.5,
+          "core_compute_saving_pct": 50.0,
+          "token_fidelity_vs_final": 0.90625
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.604,
+          "core_compute_saving_pct": 7.92,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.281,
+          "core_compute_saving_pct": 14.38,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.708,
+          "core_compute_saving_pct": 25.83,
+          "token_fidelity_vs_final": 0.875
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.083,
+          "core_compute_saving_pct": 38.33,
+          "token_fidelity_vs_final": 0.84375
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.625,
+          "core_compute_saving_pct": 47.5,
+          "token_fidelity_vs_final": 0.8125
+        }
+      ],
+      "input_tokens": 192,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0078-q1",
+      "p7b_transition_group": "F->F",
+      "source": "IQTest",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.042,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.22039,
+          "mean_top1_prob": 0.66624,
+          "mean_kl_to_final": 0.51344,
+          "agree_final_rate": 0.70833
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94693,
+          "mean_rel_l2_prev": 0.42378,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.18982,
+          "mean_top1_prob": 0.69069,
+          "mean_kl_to_final": 0.44547,
+          "agree_final_rate": 0.76042
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.9515,
+          "mean_rel_l2_prev": 0.30432,
+          "mean_banach_ratio": 0.88617,
+          "p50_banach_ratio": 0.85513,
+          "banach_contracting_rate": 0.86458,
+          "mean_entropy": 1.23423,
+          "mean_top1_prob": 0.66753,
+          "mean_kl_to_final": 0.13862,
+          "agree_final_rate": 0.85417
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98689,
+          "mean_rel_l2_prev": 0.1507,
+          "mean_banach_ratio": 0.44472,
+          "p50_banach_ratio": 0.41545,
+          "banach_contracting_rate": 0.98958,
+          "mean_entropy": 1.26493,
+          "mean_top1_prob": 0.65242,
+          "mean_kl_to_final": 0.07733,
+          "agree_final_rate": 0.88542
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99306,
+          "mean_rel_l2_prev": 0.09831,
+          "mean_banach_ratio": 0.63098,
+          "p50_banach_ratio": 0.60738,
+          "banach_contracting_rate": 0.96875,
+          "mean_entropy": 1.24501,
+          "mean_top1_prob": 0.65935,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.604,
+          "core_compute_saving_pct": 7.92,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.24,
+          "core_compute_saving_pct": 15.21,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.885,
+          "core_compute_saving_pct": 22.29,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.469,
+          "core_compute_saving_pct": 30.63,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.594,
+          "core_compute_saving_pct": 48.12,
+          "token_fidelity_vs_final": 0.89583
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.573,
+          "core_compute_saving_pct": 8.54,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.167,
+          "core_compute_saving_pct": 16.67,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.729,
+          "core_compute_saving_pct": 25.42,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.948,
+          "core_compute_saving_pct": 41.04,
+          "token_fidelity_vs_final": 0.85417
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.594,
+          "core_compute_saving_pct": 48.12,
+          "token_fidelity_vs_final": 0.80208
+        }
+      ],
+      "input_tokens": 330,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0081-q1",
+      "p7b_transition_group": "F->F",
+      "source": "FunctionQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.031,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.22937,
+          "mean_top1_prob": 0.66244,
+          "mean_kl_to_final": 0.37335,
+          "agree_final_rate": 0.72917
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.95618,
+          "mean_rel_l2_prev": 0.38355,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.17378,
+          "mean_top1_prob": 0.68141,
+          "mean_kl_to_final": 0.3588,
+          "agree_final_rate": 0.72917
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.96446,
+          "mean_rel_l2_prev": 0.27727,
+          "mean_banach_ratio": 0.85969,
+          "p50_banach_ratio": 0.85784,
+          "banach_contracting_rate": 0.88542,
+          "mean_entropy": 1.21495,
+          "mean_top1_prob": 0.66885,
+          "mean_kl_to_final": 0.10323,
+          "agree_final_rate": 0.85417
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.99229,
+          "mean_rel_l2_prev": 0.12923,
+          "mean_banach_ratio": 0.43655,
+          "p50_banach_ratio": 0.41692,
+          "banach_contracting_rate": 0.98958,
+          "mean_entropy": 1.24404,
+          "mean_top1_prob": 0.65625,
+          "mean_kl_to_final": 0.04111,
+          "agree_final_rate": 0.88542
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99576,
+          "mean_rel_l2_prev": 0.08206,
+          "mean_banach_ratio": 0.63818,
+          "p50_banach_ratio": 0.62071,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 1.22742,
+          "mean_top1_prob": 0.66318,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.594,
+          "core_compute_saving_pct": 8.13,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.271,
+          "core_compute_saving_pct": 14.58,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.896,
+          "core_compute_saving_pct": 22.08,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.521,
+          "core_compute_saving_pct": 29.58,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.833,
+          "core_compute_saving_pct": 43.33,
+          "token_fidelity_vs_final": 0.9375
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.51,
+          "core_compute_saving_pct": 9.79,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.208,
+          "core_compute_saving_pct": 15.83,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.708,
+          "core_compute_saving_pct": 25.83,
+          "token_fidelity_vs_final": 0.86458
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.625,
+          "core_compute_saving_pct": 47.5,
+          "token_fidelity_vs_final": 0.8125
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.281,
+          "core_compute_saving_pct": 54.37,
+          "token_fidelity_vs_final": 0.79167
+        }
+      ],
+      "input_tokens": 262,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0084-q1",
+      "p7b_transition_group": "F->F",
+      "source": "TheoremQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.094,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.12444,
+          "mean_top1_prob": 0.68689,
+          "mean_kl_to_final": 0.53659,
+          "agree_final_rate": 0.6875
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94652,
+          "mean_rel_l2_prev": 0.43159,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.09087,
+          "mean_top1_prob": 0.69067,
+          "mean_kl_to_final": 0.63199,
+          "agree_final_rate": 0.6875
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95579,
+          "mean_rel_l2_prev": 0.29667,
+          "mean_banach_ratio": 0.85224,
+          "p50_banach_ratio": 0.83801,
+          "banach_contracting_rate": 0.82292,
+          "mean_entropy": 1.15316,
+          "mean_top1_prob": 0.68302,
+          "mean_kl_to_final": 0.1543,
+          "agree_final_rate": 0.83333
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98974,
+          "mean_rel_l2_prev": 0.13867,
+          "mean_banach_ratio": 0.42401,
+          "p50_banach_ratio": 0.39641,
+          "banach_contracting_rate": 1.0,
+          "mean_entropy": 1.14236,
+          "mean_top1_prob": 0.68112,
+          "mean_kl_to_final": 0.06723,
+          "agree_final_rate": 0.90625
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.9938,
+          "mean_rel_l2_prev": 0.08932,
+          "mean_banach_ratio": 0.6164,
+          "p50_banach_ratio": 0.56224,
+          "banach_contracting_rate": 0.91667,
+          "mean_entropy": 1.12859,
+          "mean_top1_prob": 0.69082,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.729,
+          "core_compute_saving_pct": 5.42,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.198,
+          "core_compute_saving_pct": 16.04,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 4.0,
+          "core_compute_saving_pct": 20.0,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.604,
+          "core_compute_saving_pct": 27.92,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.469,
+          "core_compute_saving_pct": 50.62,
+          "token_fidelity_vs_final": 0.89583
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.51,
+          "core_compute_saving_pct": 9.79,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.229,
+          "core_compute_saving_pct": 15.42,
+          "token_fidelity_vs_final": 0.9375
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.667,
+          "core_compute_saving_pct": 26.67,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.823,
+          "core_compute_saving_pct": 43.54,
+          "token_fidelity_vs_final": 0.80208
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.5,
+          "core_compute_saving_pct": 50.0,
+          "token_fidelity_vs_final": 0.76042
+        }
+      ],
+      "input_tokens": 1023,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0437-q1",
+      "p7b_transition_group": "F->F",
+      "source": "TheoremQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.042,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.20555,
+          "mean_top1_prob": 0.6766,
+          "mean_kl_to_final": 0.74231,
+          "agree_final_rate": 0.65625
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94957,
+          "mean_rel_l2_prev": 0.41553,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.14067,
+          "mean_top1_prob": 0.6917,
+          "mean_kl_to_final": 0.63252,
+          "agree_final_rate": 0.69792
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95649,
+          "mean_rel_l2_prev": 0.29407,
+          "mean_banach_ratio": 0.82821,
+          "p50_banach_ratio": 0.81881,
+          "banach_contracting_rate": 0.94792,
+          "mean_entropy": 1.11942,
+          "mean_top1_prob": 0.70174,
+          "mean_kl_to_final": 0.14273,
+          "agree_final_rate": 0.86458
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.99144,
+          "mean_rel_l2_prev": 0.13134,
+          "mean_banach_ratio": 0.41818,
+          "p50_banach_ratio": 0.40237,
+          "banach_contracting_rate": 1.0,
+          "mean_entropy": 1.15656,
+          "mean_top1_prob": 0.69161,
+          "mean_kl_to_final": 0.05421,
+          "agree_final_rate": 0.90625
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99584,
+          "mean_rel_l2_prev": 0.08512,
+          "mean_banach_ratio": 0.65854,
+          "p50_banach_ratio": 0.65056,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 1.14256,
+          "mean_top1_prob": 0.69654,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.76,
+          "core_compute_saving_pct": 4.79,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.26,
+          "core_compute_saving_pct": 14.79,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.823,
+          "core_compute_saving_pct": 23.54,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.417,
+          "core_compute_saving_pct": 31.67,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.635,
+          "core_compute_saving_pct": 47.29,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.635,
+          "core_compute_saving_pct": 7.29,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.167,
+          "core_compute_saving_pct": 16.67,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.76,
+          "core_compute_saving_pct": 24.79,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.0,
+          "core_compute_saving_pct": 40.0,
+          "token_fidelity_vs_final": 0.86458
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.531,
+          "core_compute_saving_pct": 49.38,
+          "token_fidelity_vs_final": 0.79167
+        }
+      ],
+      "input_tokens": 430,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0461-q1",
+      "p7b_transition_group": "F->F",
+      "source": "TheoremQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 1.833,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.02214,
+          "mean_top1_prob": 0.73431,
+          "mean_kl_to_final": 0.71863,
+          "agree_final_rate": 0.75
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94781,
+          "mean_rel_l2_prev": 0.41662,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 0.83616,
+          "mean_top1_prob": 0.78437,
+          "mean_kl_to_final": 0.61483,
+          "agree_final_rate": 0.73958
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95565,
+          "mean_rel_l2_prev": 0.29561,
+          "mean_banach_ratio": 0.8395,
+          "p50_banach_ratio": 0.83123,
+          "banach_contracting_rate": 0.9375,
+          "mean_entropy": 0.95035,
+          "mean_top1_prob": 0.73819,
+          "mean_kl_to_final": 0.14574,
+          "agree_final_rate": 0.875
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98802,
+          "mean_rel_l2_prev": 0.142,
+          "mean_banach_ratio": 0.4464,
+          "p50_banach_ratio": 0.42047,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 0.9305,
+          "mean_top1_prob": 0.74764,
+          "mean_kl_to_final": 0.0727,
+          "agree_final_rate": 0.95833
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99358,
+          "mean_rel_l2_prev": 0.09404,
+          "mean_banach_ratio": 0.65132,
+          "p50_banach_ratio": 0.63764,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 0.94262,
+          "mean_top1_prob": 0.74211,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.625,
+          "core_compute_saving_pct": 7.5,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.042,
+          "core_compute_saving_pct": 19.17,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.5,
+          "core_compute_saving_pct": 30.0,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 2.917,
+          "core_compute_saving_pct": 41.67,
+          "token_fidelity_vs_final": 0.9375
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 1.948,
+          "core_compute_saving_pct": 61.04,
+          "token_fidelity_vs_final": 0.84375
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.635,
+          "core_compute_saving_pct": 7.29,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.229,
+          "core_compute_saving_pct": 15.42,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.885,
+          "core_compute_saving_pct": 22.29,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.969,
+          "core_compute_saving_pct": 40.62,
+          "token_fidelity_vs_final": 0.88542
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.385,
+          "core_compute_saving_pct": 52.29,
+          "token_fidelity_vs_final": 0.80208
+        }
+      ],
+      "input_tokens": 520,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0721-q1",
+      "p7b_transition_group": "F->F",
+      "source": "FunctionQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 1.927,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.23532,
+          "mean_top1_prob": 0.68361,
+          "mean_kl_to_final": 0.45401,
+          "agree_final_rate": 0.69792
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.95153,
+          "mean_rel_l2_prev": 0.42212,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.21658,
+          "mean_top1_prob": 0.68101,
+          "mean_kl_to_final": 0.4619,
+          "agree_final_rate": 0.71875
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95762,
+          "mean_rel_l2_prev": 0.29732,
+          "mean_banach_ratio": 0.84928,
+          "p50_banach_ratio": 0.8315,
+          "banach_contracting_rate": 0.86458,
+          "mean_entropy": 1.2335,
+          "mean_top1_prob": 0.68191,
+          "mean_kl_to_final": 0.10559,
+          "agree_final_rate": 0.92708
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.9897,
+          "mean_rel_l2_prev": 0.14375,
+          "mean_banach_ratio": 0.43781,
+          "p50_banach_ratio": 0.41734,
+          "banach_contracting_rate": 1.0,
+          "mean_entropy": 1.18344,
+          "mean_top1_prob": 0.68818,
+          "mean_kl_to_final": 0.05146,
+          "agree_final_rate": 0.89583
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.9951,
+          "mean_rel_l2_prev": 0.08731,
+          "mean_banach_ratio": 0.63372,
+          "p50_banach_ratio": 0.61129,
+          "banach_contracting_rate": 0.98958,
+          "mean_entropy": 1.20406,
+          "mean_top1_prob": 0.68536,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.583,
+          "core_compute_saving_pct": 8.33,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.281,
+          "core_compute_saving_pct": 14.38,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.979,
+          "core_compute_saving_pct": 20.42,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.615,
+          "core_compute_saving_pct": 27.71,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.771,
+          "core_compute_saving_pct": 44.58,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.667,
+          "core_compute_saving_pct": 6.67,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.25,
+          "core_compute_saving_pct": 15.0,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.802,
+          "core_compute_saving_pct": 23.96,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.917,
+          "core_compute_saving_pct": 41.67,
+          "token_fidelity_vs_final": 0.84375
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.333,
+          "core_compute_saving_pct": 53.33,
+          "token_fidelity_vs_final": 0.75
+        }
+      ],
+      "input_tokens": 160,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0044-q1",
+      "p7b_transition_group": "T->T",
+      "source": "TabMWP",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.188,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.13654,
+          "mean_top1_prob": 0.6747,
+          "mean_kl_to_final": 0.59524,
+          "agree_final_rate": 0.71875
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.93988,
+          "mean_rel_l2_prev": 0.43085,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 0.91916,
+          "mean_top1_prob": 0.73968,
+          "mean_kl_to_final": 0.6729,
+          "agree_final_rate": 0.69792
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.94884,
+          "mean_rel_l2_prev": 0.31265,
+          "mean_banach_ratio": 0.84831,
+          "p50_banach_ratio": 0.83979,
+          "banach_contracting_rate": 0.88542,
+          "mean_entropy": 1.0258,
+          "mean_top1_prob": 0.70391,
+          "mean_kl_to_final": 0.21977,
+          "agree_final_rate": 0.875
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98283,
+          "mean_rel_l2_prev": 0.17733,
+          "mean_banach_ratio": 0.50593,
+          "p50_banach_ratio": 0.46905,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 1.00695,
+          "mean_top1_prob": 0.70844,
+          "mean_kl_to_final": 0.11126,
+          "agree_final_rate": 0.875
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.98996,
+          "mean_rel_l2_prev": 0.12101,
+          "mean_banach_ratio": 0.66805,
+          "p50_banach_ratio": 0.65181,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 0.98221,
+          "mean_top1_prob": 0.72865,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.531,
+          "core_compute_saving_pct": 9.38,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.167,
+          "core_compute_saving_pct": 16.67,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.802,
+          "core_compute_saving_pct": 23.96,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.177,
+          "core_compute_saving_pct": 36.46,
+          "token_fidelity_vs_final": 0.9375
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.479,
+          "core_compute_saving_pct": 50.42,
+          "token_fidelity_vs_final": 0.9375
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.729,
+          "core_compute_saving_pct": 5.42,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.417,
+          "core_compute_saving_pct": 11.67,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 4.0,
+          "core_compute_saving_pct": 20.0,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.26,
+          "core_compute_saving_pct": 34.79,
+          "token_fidelity_vs_final": 0.86458
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.771,
+          "core_compute_saving_pct": 44.58,
+          "token_fidelity_vs_final": 0.79167
+        }
+      ],
+      "input_tokens": 137,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0088-q1",
+      "p7b_transition_group": "T->T",
+      "source": "GEOS",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.198,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.18729,
+          "mean_top1_prob": 0.68697,
+          "mean_kl_to_final": 0.52177,
+          "agree_final_rate": 0.69792
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.95179,
+          "mean_rel_l2_prev": 0.41216,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.22282,
+          "mean_top1_prob": 0.67581,
+          "mean_kl_to_final": 0.5451,
+          "agree_final_rate": 0.71875
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95708,
+          "mean_rel_l2_prev": 0.29338,
+          "mean_banach_ratio": 0.8483,
+          "p50_banach_ratio": 0.85249,
+          "banach_contracting_rate": 0.91667,
+          "mean_entropy": 1.1696,
+          "mean_top1_prob": 0.69412,
+          "mean_kl_to_final": 0.11104,
+          "agree_final_rate": 0.83333
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.99133,
+          "mean_rel_l2_prev": 0.13576,
+          "mean_banach_ratio": 0.43526,
+          "p50_banach_ratio": 0.42601,
+          "banach_contracting_rate": 1.0,
+          "mean_entropy": 1.13388,
+          "mean_top1_prob": 0.70675,
+          "mean_kl_to_final": 0.05863,
+          "agree_final_rate": 0.875
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99562,
+          "mean_rel_l2_prev": 0.08739,
+          "mean_banach_ratio": 0.64975,
+          "p50_banach_ratio": 0.64979,
+          "banach_contracting_rate": 0.98958,
+          "mean_entropy": 1.14144,
+          "mean_top1_prob": 0.69853,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.646,
+          "core_compute_saving_pct": 7.08,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.323,
+          "core_compute_saving_pct": 13.54,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.812,
+          "core_compute_saving_pct": 23.75,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.333,
+          "core_compute_saving_pct": 33.33,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.573,
+          "core_compute_saving_pct": 48.54,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.688,
+          "core_compute_saving_pct": 6.25,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.198,
+          "core_compute_saving_pct": 16.04,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.729,
+          "core_compute_saving_pct": 25.42,
+          "token_fidelity_vs_final": 0.88542
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.854,
+          "core_compute_saving_pct": 42.92,
+          "token_fidelity_vs_final": 0.83333
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.312,
+          "core_compute_saving_pct": 53.75,
+          "token_fidelity_vs_final": 0.79167
+        }
+      ],
+      "input_tokens": 161,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0098-q1",
+      "p7b_transition_group": "T->T",
+      "source": "IQTest",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.229,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.26181,
+          "mean_top1_prob": 0.6728,
+          "mean_kl_to_final": 0.84128,
+          "agree_final_rate": 0.73958
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94561,
+          "mean_rel_l2_prev": 0.40591,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.33577,
+          "mean_top1_prob": 0.64506,
+          "mean_kl_to_final": 0.80784,
+          "agree_final_rate": 0.72917
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95461,
+          "mean_rel_l2_prev": 0.29285,
+          "mean_banach_ratio": 0.84515,
+          "p50_banach_ratio": 0.81556,
+          "banach_contracting_rate": 0.82292,
+          "mean_entropy": 1.19505,
+          "mean_top1_prob": 0.69034,
+          "mean_kl_to_final": 0.21748,
+          "agree_final_rate": 0.8125
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98779,
+          "mean_rel_l2_prev": 0.14627,
+          "mean_banach_ratio": 0.45654,
+          "p50_banach_ratio": 0.43154,
+          "banach_contracting_rate": 1.0,
+          "mean_entropy": 1.18953,
+          "mean_top1_prob": 0.68334,
+          "mean_kl_to_final": 0.12756,
+          "agree_final_rate": 0.83333
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99132,
+          "mean_rel_l2_prev": 0.10609,
+          "mean_banach_ratio": 0.70915,
+          "p50_banach_ratio": 0.69957,
+          "banach_contracting_rate": 0.94792,
+          "mean_entropy": 1.2018,
+          "mean_top1_prob": 0.67863,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.688,
+          "core_compute_saving_pct": 6.25,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.365,
+          "core_compute_saving_pct": 12.71,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.927,
+          "core_compute_saving_pct": 21.46,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.427,
+          "core_compute_saving_pct": 31.46,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.771,
+          "core_compute_saving_pct": 44.58,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.552,
+          "core_compute_saving_pct": 8.96,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.281,
+          "core_compute_saving_pct": 14.38,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.615,
+          "core_compute_saving_pct": 27.71,
+          "token_fidelity_vs_final": 0.91667
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.031,
+          "core_compute_saving_pct": 39.38,
+          "token_fidelity_vs_final": 0.79167
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.656,
+          "core_compute_saving_pct": 46.88,
+          "token_fidelity_vs_final": 0.79167
+        }
+      ],
+      "input_tokens": 364,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0118-q1",
+      "p7b_transition_group": "T->T",
+      "source": "FunctionQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.323,
+      "p50_first_stable_pass": 2.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.28396,
+          "mean_top1_prob": 0.64963,
+          "mean_kl_to_final": 0.72826,
+          "agree_final_rate": 0.6875
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94584,
+          "mean_rel_l2_prev": 0.43504,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.30919,
+          "mean_top1_prob": 0.63436,
+          "mean_kl_to_final": 0.62274,
+          "agree_final_rate": 0.59375
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.95802,
+          "mean_rel_l2_prev": 0.29486,
+          "mean_banach_ratio": 0.8216,
+          "p50_banach_ratio": 0.81432,
+          "banach_contracting_rate": 0.90625,
+          "mean_entropy": 1.35215,
+          "mean_top1_prob": 0.62563,
+          "mean_kl_to_final": 0.24881,
+          "agree_final_rate": 0.77083
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98812,
+          "mean_rel_l2_prev": 0.1516,
+          "mean_banach_ratio": 0.47167,
+          "p50_banach_ratio": 0.43545,
+          "banach_contracting_rate": 0.96875,
+          "mean_entropy": 1.35285,
+          "mean_top1_prob": 0.62317,
+          "mean_kl_to_final": 0.11284,
+          "agree_final_rate": 0.91667
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99096,
+          "mean_rel_l2_prev": 0.10676,
+          "mean_banach_ratio": 0.67653,
+          "p50_banach_ratio": 0.64502,
+          "banach_contracting_rate": 0.94792,
+          "mean_entropy": 1.34349,
+          "mean_top1_prob": 0.61325,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.812,
+          "core_compute_saving_pct": 3.75,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.542,
+          "core_compute_saving_pct": 9.17,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 4.281,
+          "core_compute_saving_pct": 14.38,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.771,
+          "core_compute_saving_pct": 24.58,
+          "token_fidelity_vs_final": 0.92708
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 3.052,
+          "core_compute_saving_pct": 38.96,
+          "token_fidelity_vs_final": 0.89583
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.656,
+          "core_compute_saving_pct": 6.87,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.302,
+          "core_compute_saving_pct": 13.96,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.854,
+          "core_compute_saving_pct": 22.92,
+          "token_fidelity_vs_final": 0.9375
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 2.896,
+          "core_compute_saving_pct": 42.08,
+          "token_fidelity_vs_final": 0.75
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.396,
+          "core_compute_saving_pct": 52.08,
+          "token_fidelity_vs_final": 0.65625
+        }
+      ],
+      "input_tokens": 184,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0145-q1",
+      "p7b_transition_group": "T->T",
+      "source": "IQTest",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.188,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.0829,
+          "mean_top1_prob": 0.69203,
+          "mean_kl_to_final": 0.52291,
+          "agree_final_rate": 0.73958
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.94301,
+          "mean_rel_l2_prev": 0.4434,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.09803,
+          "mean_top1_prob": 0.69201,
+          "mean_kl_to_final": 0.59462,
+          "agree_final_rate": 0.69792
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.9526,
+          "mean_rel_l2_prev": 0.31565,
+          "mean_banach_ratio": 0.89161,
+          "p50_banach_ratio": 0.87408,
+          "banach_contracting_rate": 0.8125,
+          "mean_entropy": 1.11507,
+          "mean_top1_prob": 0.69699,
+          "mean_kl_to_final": 0.19358,
+          "agree_final_rate": 0.84375
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98574,
+          "mean_rel_l2_prev": 0.16572,
+          "mean_banach_ratio": 0.47362,
+          "p50_banach_ratio": 0.43739,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 1.04097,
+          "mean_top1_prob": 0.71497,
+          "mean_kl_to_final": 0.16805,
+          "agree_final_rate": 0.875
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.99178,
+          "mean_rel_l2_prev": 0.10397,
+          "mean_banach_ratio": 0.63514,
+          "p50_banach_ratio": 0.62229,
+          "banach_contracting_rate": 0.97917,
+          "mean_entropy": 1.06214,
+          "mean_top1_prob": 0.69866,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.604,
+          "core_compute_saving_pct": 7.92,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.271,
+          "core_compute_saving_pct": 14.58,
+          "token_fidelity_vs_final": 1.0
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.833,
+          "core_compute_saving_pct": 23.33,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.385,
+          "core_compute_saving_pct": 32.29,
+          "token_fidelity_vs_final": 0.97917
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.427,
+          "core_compute_saving_pct": 51.46,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.646,
+          "core_compute_saving_pct": 7.08,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.406,
+          "core_compute_saving_pct": 11.88,
+          "token_fidelity_vs_final": 0.9375
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.875,
+          "core_compute_saving_pct": 22.5,
+          "token_fidelity_vs_final": 0.89583
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.125,
+          "core_compute_saving_pct": 37.5,
+          "token_fidelity_vs_final": 0.83333
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.625,
+          "core_compute_saving_pct": 47.5,
+          "token_fidelity_vs_final": 0.72917
+        }
+      ],
+      "input_tokens": 361,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    },
+    {
+      "question_id": "mathvista-0156-q1",
+      "p7b_transition_group": "T->T",
+      "source": "FunctionQA",
+      "passes": 5,
+      "n_steps": 96,
+      "mean_first_stable_pass": 2.208,
+      "p50_first_stable_pass": 1.0,
+      "per_pass": [
+        {
+          "pass": 1,
+          "effective_layers": 24,
+          "mean_cos_sim_prev": null,
+          "mean_rel_l2_prev": null,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 1.06416,
+          "mean_top1_prob": 0.71624,
+          "mean_kl_to_final": 0.74373,
+          "agree_final_rate": 0.72917
+        },
+        {
+          "pass": 2,
+          "effective_layers": 36,
+          "mean_cos_sim_prev": 0.93874,
+          "mean_rel_l2_prev": 0.44128,
+          "mean_banach_ratio": null,
+          "p50_banach_ratio": null,
+          "banach_contracting_rate": null,
+          "mean_entropy": 0.9857,
+          "mean_top1_prob": 0.72605,
+          "mean_kl_to_final": 0.67788,
+          "agree_final_rate": 0.71875
+        },
+        {
+          "pass": 3,
+          "effective_layers": 48,
+          "mean_cos_sim_prev": 0.94663,
+          "mean_rel_l2_prev": 0.31675,
+          "mean_banach_ratio": 0.86251,
+          "p50_banach_ratio": 0.82698,
+          "banach_contracting_rate": 0.80208,
+          "mean_entropy": 1.11742,
+          "mean_top1_prob": 0.68584,
+          "mean_kl_to_final": 0.1934,
+          "agree_final_rate": 0.83333
+        },
+        {
+          "pass": 4,
+          "effective_layers": 60,
+          "mean_cos_sim_prev": 0.98341,
+          "mean_rel_l2_prev": 0.17284,
+          "mean_banach_ratio": 0.4991,
+          "p50_banach_ratio": 0.46289,
+          "banach_contracting_rate": 0.98958,
+          "mean_entropy": 1.07229,
+          "mean_top1_prob": 0.69835,
+          "mean_kl_to_final": 0.16669,
+          "agree_final_rate": 0.8125
+        },
+        {
+          "pass": 5,
+          "effective_layers": 72,
+          "mean_cos_sim_prev": 0.9878,
+          "mean_rel_l2_prev": 0.12734,
+          "mean_banach_ratio": 0.70592,
+          "p50_banach_ratio": 0.65794,
+          "banach_contracting_rate": 0.94792,
+          "mean_entropy": 1.09169,
+          "mean_top1_prob": 0.69412,
+          "mean_kl_to_final": 0.0,
+          "agree_final_rate": 1.0
+        }
+      ],
+      "early_exit_sweep": [
+        {
+          "rule": "entropy<=0.05",
+          "signal": "entropy",
+          "threshold": 0.05,
+          "mean_passes": 4.458,
+          "core_compute_saving_pct": 10.83,
+          "token_fidelity_vs_final": 0.98958
+        },
+        {
+          "rule": "entropy<=0.15",
+          "signal": "entropy",
+          "threshold": 0.15,
+          "mean_passes": 4.01,
+          "core_compute_saving_pct": 19.79,
+          "token_fidelity_vs_final": 0.96875
+        },
+        {
+          "rule": "entropy<=0.30",
+          "signal": "entropy",
+          "threshold": 0.3,
+          "mean_passes": 3.625,
+          "core_compute_saving_pct": 27.5,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "entropy<=0.50",
+          "signal": "entropy",
+          "threshold": 0.5,
+          "mean_passes": 3.292,
+          "core_compute_saving_pct": 34.17,
+          "token_fidelity_vs_final": 0.94792
+        },
+        {
+          "rule": "entropy<=1.00",
+          "signal": "entropy",
+          "threshold": 1.0,
+          "mean_passes": 2.365,
+          "core_compute_saving_pct": 52.71,
+          "token_fidelity_vs_final": 0.90625
+        },
+        {
+          "rule": "cos_sim>=0.995",
+          "signal": "cos_sim",
+          "threshold": 0.995,
+          "mean_passes": 4.646,
+          "core_compute_saving_pct": 7.08,
+          "token_fidelity_vs_final": 0.95833
+        },
+        {
+          "rule": "cos_sim>=0.990",
+          "signal": "cos_sim",
+          "threshold": 0.99,
+          "mean_passes": 4.417,
+          "core_compute_saving_pct": 11.67,
+          "token_fidelity_vs_final": 0.9375
+        },
+        {
+          "rule": "cos_sim>=0.980",
+          "signal": "cos_sim",
+          "threshold": 0.98,
+          "mean_passes": 3.938,
+          "core_compute_saving_pct": 21.25,
+          "token_fidelity_vs_final": 0.875
+        },
+        {
+          "rule": "cos_sim>=0.960",
+          "signal": "cos_sim",
+          "threshold": 0.96,
+          "mean_passes": 3.188,
+          "core_compute_saving_pct": 36.25,
+          "token_fidelity_vs_final": 0.83333
+        },
+        {
+          "rule": "cos_sim>=0.940",
+          "signal": "cos_sim",
+          "threshold": 0.94,
+          "mean_passes": 2.698,
+          "core_compute_saving_pct": 46.04,
+          "token_fidelity_vs_final": 0.78125
+        }
+      ],
+      "input_tokens": 143,
+      "generated_tokens": 96,
+      "probed_steps": 96
+    }
+  ]
+}

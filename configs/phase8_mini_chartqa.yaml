@@ -1,0 +1,16 @@
+model_id: thinkingmachines/Inkling-2-Mini
+model_revision: c9d028302cd0f035fdf8e7e91f089a4ce94d2195
+backend: transformers
+loop_num_passes: 3
+reasoning_effort: medium
+temperature: 0.0
+top_p: 1.0
+repetition_penalty: 1.0
+max_new_tokens: 2048
+stop: []
+image_size: native
+color_mode: RGB
+render_version: chartqa-b605b6e0-native
+concurrency: 4
+seed: 20261125
+image_mode: correct

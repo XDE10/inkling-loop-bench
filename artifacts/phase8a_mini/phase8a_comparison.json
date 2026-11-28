@@ -1,0 +1,1017 @@
+{
+  "mini_model_id": "thinkingmachines/Inkling-2-Mini",
+  "mini_revision": "c9d028302cd0f035fdf8e7e91f089a4ce94d2195",
+  "varloop_model_id": "thinkingmachines/TML-d24-varloop-research",
+  "varloop_revision": "c90921bd5f78df6c8168173b9f8a3a850320c594",
+  "mathvista_mini": {
+    "low_loop3": {
+      "n": 83,
+      "accuracy": 0.8795180722891566,
+      "correct": 73,
+      "wrong_answers": 5,
+      "parse_failures": 1,
+      "truncated": 4,
+      "backend_errors": 0,
+      "outcomes": {
+        "correct": 73,
+        "wrong_answer": 5,
+        "parse_failure": 1,
+        "truncated": 4,
+        "backend_error": 0
+      },
+      "e2e_p50_ms": 24700.727734249085,
+      "e2e_p90_ms": 43570.07084275028,
+      "e2e_mean_ms": 23525.808855180727,
+      "ttft_p50_ms": null,
+      "ttft_p90_ms": null,
+      "ttft_mean_ms": null,
+      "tpot_p50_ms": null,
+      "tpot_p90_ms": null,
+      "tpot_mean_ms": null,
+      "peak_vram_p50_mb": 51893.13330078125,
+      "peak_vram_max_mb": 64822.77880859375,
+      "reasoning_tokens_mean": 399.9759036144578,
+      "reasoning_tokens_p50": 142.0,
+      "reasoning_tokens_p90": 1345.3999999999996,
+      "reasoning_tokens_max": 2046,
+      "answer_tokens_mean": 20.85542168674699,
+      "total_generated_tokens_mean": 427.6265060240964,
+      "visual_tokens_unique": [
+        16,
+        18,
+        20,
+        24,
+        28,
+        30,
+        32,
+        35,
+        36,
+        42,
+        45,
+        48,
+        49,
+        55,
+        60,
+        63,
+        64,
+        66,
+        72,
+        77,
+        80,
+        81,
+        84,
+        88,
+        90,
+        91,
+        96,
+        100,
+        120,
+        121,
+        130,
+        132,
+        140,
+        143,
+        144,
+        182,
+        192,
+        195,
+        240,
+        270,
+        299,
+        336,
+        396,
+        425,
+        528,
+        650,
+        896,
+        900,
+        930,
+        1200,
+        1323,
+        1462,
+        2304,
+        3264
+      ],
+      "effective_layers_unique": [
+        48
+      ],
+      "by_modality": {
+        "geometry": 1.0,
+        "math_visual": 0.8717948717948718
+      },
+      "by_task_type": {
+        "figure_question_answering": 0.7368421052631579,
+        "geometry_problem_solving": 1.0,
+        "math_word_problem": 1.0,
+        "textbook_question_answering": 0.8484848484848485
+      },
+      "by_difficulty": {
+        "real_world_hard": 0.8795180722891566
+      },
+      "by_difficulty_task": {
+        "real_world_hard/figure_question_answering": 0.7368421052631579,
+        "real_world_hard/geometry_problem_solving": 1.0,
+        "real_world_hard/math_word_problem": 1.0,
+        "real_world_hard/textbook_question_answering": 0.8484848484848485
+      },
+      "by_modality_difficulty": {
+        "geometry/real_world_hard": 1.0,
+        "math_visual/real_world_hard": 0.8717948717948718
+      },
+      "by_modality_task": {
+        "geometry/geometry_problem_solving": 1.0,
+        "math_visual/figure_question_answering": 0.7368421052631579,
+        "math_visual/math_word_problem": 1.0,
+        "math_visual/textbook_question_answering": 0.8484848484848485
+      },
+      "by_template": {
+        "mathvista-functionqa": 0.9230769230769231,
+        "mathvista-geos": 1.0,
+        "mathvista-iqtest": 0.6153846153846154,
+        "mathvista-paperqa": 1.0,
+        "mathvista-tabmwp": 1.0,
+        "mathvista-theoremqa": 0.5714285714285714
+      },
+      "accuracy_cluster_bootstrap_95ci": [
+        0.8072289156626506,
+        0.9518072289156626
+      ],
+      "mock": false,
+      "by_source_counts": {
+        "FunctionQA": "24/26",
+        "GEOS": "5/5",
+        "IQTest": "8/13",
+        "PaperQA": "6/6",
+        "TabMWP": "26/26",
+        "TheoremQA": "4/7"
+      }
+    },
+    "medium_loop3": {
+      "n": 83,
+      "accuracy": 0.8433734939759037,
+      "correct": 70,
+      "wrong_answers": 1,
+      "parse_failures": 1,
+      "truncated": 11,
+      "backend_errors": 0,
+      "outcomes": {
+        "correct": 70,
+        "wrong_answer": 1,
+        "parse_failure": 1,
+        "truncated": 11,
+        "backend_error": 0
+      },
+      "e2e_p50_ms": 42715.10319150002,
+      "e2e_p90_ms": 44244.86053374858,
+      "e2e_mean_ms": 29740.953946385565,
+      "ttft_p50_ms": null,
+      "ttft_p90_ms": null,
+      "ttft_mean_ms": null,
+      "tpot_p50_ms": null,
+      "tpot_p90_ms": null,
+      "tpot_mean_ms": null,
+      "peak_vram_p50_mb": 51889.4970703125,
+      "peak_vram_max_mb": 64808.95703125,
+      "reasoning_tokens_mean": 555.0481927710844,
+      "reasoning_tokens_p50": 245.0,
+      "reasoning_tokens_p90": 2046.0,
+      "reasoning_tokens_max": 2046,
+      "answer_tokens_mean": 28.85542168674699,
+      "total_generated_tokens_mean": 590.2409638554217,
+      "visual_tokens_unique": [
+        16,
+        18,
+        20,
+        24,
+        28,
+        30,
+        32,
+        35,
+        36,
+        42,
+        45,
+        48,
+        49,
+        55,
+        60,
+        63,
+        64,
+        66,
+        72,
+        77,
+        80,
+        81,
+        84,
+        88,
+        90,
+        91,
+        96,
+        100,
+        120,
+        121,
+        130,
+        132,
+        140,
+        143,
+        144,
+        182,
+        192,
+        195,
+        240,
+        270,
+        299,
+        336,
+        396,
+        425,
+        528,
+        650,
+        896,
+        900,
+        930,
+        1200,
+        1323,
+        1462,
+        2304,
+        3264
+      ],
+      "effective_layers_unique": [
+        48
+      ],
+      "by_modality": {
+        "geometry": 1.0,
+        "math_visual": 0.8333333333333334
+      },
+      "by_task_type": {
+        "figure_question_answering": 0.6842105263157895,
+        "geometry_problem_solving": 1.0,
+        "math_word_problem": 1.0,
+        "textbook_question_answering": 0.7878787878787878
+      },
+      "by_difficulty": {
+        "real_world_hard": 0.8433734939759037
+      },
+      "by_difficulty_task": {
+        "real_world_hard/figure_question_answering": 0.6842105263157895,
+        "real_world_hard/geometry_problem_solving": 1.0,
+        "real_world_hard/math_word_problem": 1.0,
+        "real_world_hard/textbook_question_answering": 0.7878787878787878
+      },
+      "by_modality_difficulty": {
+        "geometry/real_world_hard": 1.0,
+        "math_visual/real_world_hard": 0.8333333333333334
+      },
+      "by_modality_task": {
+        "geometry/geometry_problem_solving": 1.0,
+        "math_visual/figure_question_answering": 0.6842105263157895,
+        "math_visual/math_word_problem": 1.0,
+        "math_visual/textbook_question_answering": 0.7878787878787878
+      },
+      "by_template": {
+        "mathvista-functionqa": 0.9230769230769231,
+        "mathvista-geos": 1.0,
+        "mathvista-iqtest": 0.5384615384615384,
+        "mathvista-paperqa": 1.0,
+        "mathvista-tabmwp": 1.0,
+        "mathvista-theoremqa": 0.2857142857142857
+      },
+      "accuracy_cluster_bootstrap_95ci": [
+        0.7590361445783133,
+        0.9156626506024096
+      ],
+      "mock": false,
+      "by_source_counts": {
+        "FunctionQA": "24/26",
+        "GEOS": "5/5",
+        "IQTest": "7/13",
+        "PaperQA": "6/6",
+        "TabMWP": "26/26",
+        "TheoremQA": "2/7"
+      }
+    }
+  },
+  "mathvista_varloop_ref": {
+    "low_loop3": {
+      "n": 83,
+      "accuracy": 0.8554216867469879,
+      "correct": 71,
+      "wrong_answers": 11,
+      "parse_failures": 0,
+      "truncated": 1,
+      "backend_errors": 0,
+      "outcomes": {
+        "correct": 71,
+        "wrong_answer": 11,
+        "parse_failure": 0,
+        "truncated": 1,
+        "backend_error": 0
+      },
+      "e2e_p50_ms": 17100.983795000047,
+      "e2e_p90_ms": 105232.63038959993,
+      "e2e_mean_ms": 33738.88347012049,
+      "ttft_p50_ms": 209.19843000001492,
+      "ttft_p90_ms": 307.5417980002383,
+      "ttft_mean_ms": 248.34584569879806,
+      "tpot_p50_ms": 82.30954335882576,
+      "tpot_p90_ms": 82.88852434416592,
+      "tpot_mean_ms": 82.37915897592941,
+      "peak_vram_p50_mb": 50618.431640625,
+      "peak_vram_max_mb": 55396.23193359375,
+      "reasoning_tokens_mean": 364.10843373493975,
+      "reasoning_tokens_p50": 175.0,
+      "reasoning_tokens_p90": 1154.6,
+      "reasoning_tokens_max": 2046,
+      "answer_tokens_mean": 37.144578313253014,
+      "total_generated_tokens_mean": 408.1927710843373,
+      "visual_tokens_unique": [
+        16,
+        18,
+        20,
+        24,
+        28,
+        30,
+        32,
+        35,
+        36,
+        42,
+        45,
+        48,
+        49,
+        55,
+        60,
+        63,
+        64,
+        66,
+        72,
+        77,
+        80,
+        81,
+        84,
+        88,
+        90,
+        91,
+        96,
+        100,
+        120,
+        121,
+        130,
+        132,
+        140,
+        143,
+        144,
+        182,
+        192,
+        195,
+        240,
+        270,
+        299,
+        336,
+        396,
+        425,
+        528,
+        650,
+        896,
+        900,
+        930,
+        1200,
+        1323,
+        1462,
+        2304,
+        3264
+      ],
+      "effective_layers_unique": [
+        48
+      ],
+      "by_modality": {
+        "geometry": 1.0,
+        "math_visual": 0.8461538461538461
+      },
+      "by_task_type": {
+        "figure_question_answering": 0.7894736842105263,
+        "geometry_problem_solving": 1.0,
+        "math_word_problem": 1.0,
+        "textbook_question_answering": 0.7575757575757576
+      },
+      "by_difficulty": {
+        "real_world_hard": 0.8554216867469879
+      },
+      "by_difficulty_task": {
+        "real_world_hard/figure_question_answering": 0.7894736842105263,
+        "real_world_hard/geometry_problem_solving": 1.0,
+        "real_world_hard/math_word_problem": 1.0,
+        "real_world_hard/textbook_question_answering": 0.7575757575757576
+      },
+      "by_modality_difficulty": {
+        "geometry/real_world_hard": 1.0,
+        "math_visual/real_world_hard": 0.8461538461538461
+      },
+      "by_modality_task": {
+        "geometry/geometry_problem_solving": 1.0,
+        "math_visual/figure_question_answering": 0.7894736842105263,
+        "math_visual/math_word_problem": 1.0,
+        "math_visual/textbook_question_answering": 0.7575757575757576
+      },
+      "by_template": {
+        "mathvista-functionqa": 0.8461538461538461,
+        "mathvista-geos": 1.0,
+        "mathvista-iqtest": 0.6923076923076923,
+        "mathvista-paperqa": 1.0,
+        "mathvista-tabmwp": 1.0,
+        "mathvista-theoremqa": 0.42857142857142855
+      },
+      "accuracy_cluster_bootstrap_95ci": [
+        0.7831325301204819,
+        0.927710843373494
+      ],
+      "mock": false
+    },
+    "medium_loop3": {
+      "n": 83,
+      "accuracy": 0.8313253012048193,
+      "correct": 69,
+      "wrong_answers": 6,
+      "parse_failures": 0,
+      "truncated": 8,
+      "backend_errors": 0,
+      "outcomes": {
+        "correct": 69,
+        "wrong_answer": 6,
+        "parse_failure": 0,
+        "truncated": 8,
+        "backend_error": 0
+      },
+      "e2e_p50_ms": 23295.52304200024,
+      "e2e_p90_ms": 154887.7198595991,
+      "e2e_mean_ms": 45139.43061706023,
+      "ttft_p50_ms": 210.38552000027266,
+      "ttft_p90_ms": 307.9320208005809,
+      "ttft_mean_ms": 249.28935924087335,
+      "tpot_p50_ms": 83.19231320070416,
+      "tpot_p90_ms": 83.70771025436173,
+      "tpot_mean_ms": 83.18422094047604,
+      "peak_vram_p50_mb": 50680.61376953125,
+      "peak_vram_max_mb": 55396.23193359375,
+      "reasoning_tokens_mean": 495.2168674698795,
+      "reasoning_tokens_p50": 217.0,
+      "reasoning_tokens_p90": 1801.199999999999,
+      "reasoning_tokens_max": 2046,
+      "answer_tokens_mean": 39.81927710843374,
+      "total_generated_tokens_mean": 541.5903614457832,
+      "visual_tokens_unique": [
+        16,
+        18,
+        20,
+        24,
+        28,
+        30,
+        32,
+        35,
+        36,
+        42,
+        45,
+        48,
+        49,
+        55,
+        60,
+        63,
+        64,
+        66,
+        72,
+        77,
+        80,
+        81,
+        84,
+        88,
+        90,
+        91,
+        96,
+        100,
+        120,
+        121,
+        130,
+        132,
+        140,
+        143,
+        144,
+        182,
+        192,
+        195,
+        240,
+        270,
+        299,
+        336,
+        396,
+        425,
+        528,
+        650,
+        896,
+        900,
+        930,
+        1200,
+        1323,
+        1462,
+        2304,
+        3264
+      ],
+      "effective_layers_unique": [
+        48
+      ],
+      "by_modality": {
+        "geometry": 1.0,
+        "math_visual": 0.8205128205128205
+      },
+      "by_task_type": {
+        "figure_question_answering": 0.7368421052631579,
+        "geometry_problem_solving": 1.0,
+        "math_word_problem": 1.0,
+        "textbook_question_answering": 0.7272727272727273
+      },
+      "by_difficulty": {
+        "real_world_hard": 0.8313253012048193
+      },
+      "by_difficulty_task": {
+        "real_world_hard/figure_question_answering": 0.7368421052631579,
+        "real_world_hard/geometry_problem_solving": 1.0,
+        "real_world_hard/math_word_problem": 1.0,
+        "real_world_hard/textbook_question_answering": 0.7272727272727273
+      },
+      "by_modality_difficulty": {
+        "geometry/real_world_hard": 1.0,
+        "math_visual/real_world_hard": 0.8205128205128205
+      },
+      "by_modality_task": {
+        "geometry/geometry_problem_solving": 1.0,
+        "math_visual/figure_question_answering": 0.7368421052631579,
+        "math_visual/math_word_problem": 1.0,
+        "math_visual/textbook_question_answering": 0.7272727272727273
+      },
+      "by_template": {
+        "mathvista-functionqa": 0.8846153846153846,
+        "mathvista-geos": 1.0,
+        "mathvista-iqtest": 0.6153846153846154,
+        "mathvista-paperqa": 1.0,
+        "mathvista-tabmwp": 1.0,
+        "mathvista-theoremqa": 0.14285714285714285
+      },
+      "accuracy_cluster_bootstrap_95ci": [
+        0.7469879518072289,
+        0.9036144578313253
+      ],
+      "mock": false
+    }
+  },
+  "mathvista_blank_mini": {
+    "n": 83,
+    "accuracy": 0.060240963855421686,
+    "correct": 5,
+    "wrong_answers": 56,
+    "parse_failures": 21,
+    "truncated": 1,
+    "backend_errors": 0,
+    "outcomes": {
+      "correct": 5,
+      "wrong_answer": 56,
+      "parse_failure": 21,
+      "truncated": 1,
+      "backend_error": 0
+    },
+    "e2e_p50_ms": 14232.303244751165,
+    "e2e_p90_ms": 33587.0813822512,
+    "e2e_mean_ms": 17681.53027034942,
+    "ttft_p50_ms": null,
+    "ttft_p90_ms": null,
+    "ttft_mean_ms": null,
+    "tpot_p50_ms": null,
+    "tpot_p90_ms": null,
+    "tpot_mean_ms": null,
+    "peak_vram_p50_mb": 51785.6142578125,
+    "peak_vram_max_mb": 52007.158203125,
+    "reasoning_tokens_mean": 494.1927710843373,
+    "reasoning_tokens_p50": 417.0,
+    "reasoning_tokens_p90": 760.1999999999998,
+    "reasoning_tokens_max": 2046,
+    "answer_tokens_mean": 6.867469879518072,
+    "total_generated_tokens_mean": 508.0,
+    "visual_tokens_unique": [
+      400
+    ],
+    "effective_layers_unique": [
+      48
+    ],
+    "by_modality": {
+      "geometry": 0.2,
+      "math_visual": 0.05128205128205128
+    },
+    "by_task_type": {
+      "figure_question_answering": 0.0,
+      "geometry_problem_solving": 0.2,
+      "math_word_problem": 0.038461538461538464,
+      "textbook_question_answering": 0.09090909090909091
+    },
+    "by_difficulty": {
+      "real_world_hard": 0.060240963855421686
+    },
+    "by_difficulty_task": {
+      "real_world_hard/figure_question_answering": 0.0,
+      "real_world_hard/geometry_problem_solving": 0.2,
+      "real_world_hard/math_word_problem": 0.038461538461538464,
+      "real_world_hard/textbook_question_answering": 0.09090909090909091
+    },
+    "by_modality_difficulty": {
+      "geometry/real_world_hard": 0.2,
+      "math_visual/real_world_hard": 0.05128205128205128
+    },
+    "by_modality_task": {
+      "geometry/geometry_problem_solving": 0.2,
+      "math_visual/figure_question_answering": 0.0,
+      "math_visual/math_word_problem": 0.038461538461538464,
+      "math_visual/textbook_question_answering": 0.09090909090909091
+    },
+    "by_template": {
+      "mathvista-functionqa": 0.07692307692307693,
+      "mathvista-geos": 0.2,
+      "mathvista-iqtest": 0.0,
+      "mathvista-paperqa": 0.0,
+      "mathvista-tabmwp": 0.038461538461538464,
+      "mathvista-theoremqa": 0.14285714285714285
+    },
+    "accuracy_cluster_bootstrap_95ci": [
+      0.012048192771084338,
+      0.10843373493975904
+    ],
+    "mock": false
+  },
+  "mathvista_blank_varloop_ref": {
+    "n": 83,
+    "accuracy": 0.060240963855421686,
+    "correct": 5,
+    "wrong_answers": 76,
+    "parse_failures": 0,
+    "truncated": 2,
+    "backend_errors": 0,
+    "outcomes": {
+      "correct": 5,
+      "wrong_answer": 76,
+      "parse_failure": 0,
+      "truncated": 2,
+      "backend_error": 0
+    },
+    "e2e_p50_ms": 9928.06665199896,
+    "e2e_p90_ms": 18573.958466600016,
+    "e2e_mean_ms": 12985.015292915507,
+    "ttft_p50_ms": 116.94671799887146,
+    "ttft_p90_ms": 120.0986779986124,
+    "ttft_mean_ms": 117.69090091556463,
+    "tpot_p50_ms": 33.58170581666653,
+    "tpot_p90_ms": 33.765022949378704,
+    "tpot_mean_ms": 33.57748465128176,
+    "peak_vram_p50_mb": 50664.1796875,
+    "peak_vram_max_mb": 50747.41455078125,
+    "reasoning_tokens_mean": 373.49397590361446,
+    "reasoning_tokens_p50": 286.0,
+    "reasoning_tokens_p90": 544.2,
+    "reasoning_tokens_max": 2046,
+    "answer_tokens_mean": 3.7710843373493974,
+    "total_generated_tokens_mean": 384.1807228915663,
+    "visual_tokens_unique": [
+      400
+    ],
+    "effective_layers_unique": [
+      24
+    ],
+    "by_modality": {
+      "geometry": 0.4,
+      "math_visual": 0.038461538461538464
+    },
+    "by_task_type": {
+      "figure_question_answering": 0.0,
+      "geometry_problem_solving": 0.4,
+      "math_word_problem": 0.0,
+      "textbook_question_answering": 0.09090909090909091
+    },
+    "by_difficulty": {
+      "real_world_hard": 0.060240963855421686
+    },
+    "by_difficulty_task": {
+      "real_world_hard/figure_question_answering": 0.0,
+      "real_world_hard/geometry_problem_solving": 0.4,
+      "real_world_hard/math_word_problem": 0.0,
+      "real_world_hard/textbook_question_answering": 0.09090909090909091
+    },
+    "by_modality_difficulty": {
+      "geometry/real_world_hard": 0.4,
+      "math_visual/real_world_hard": 0.038461538461538464
+    },
+    "by_modality_task": {
+      "geometry/geometry_problem_solving": 0.4,
+      "math_visual/figure_question_answering": 0.0,
+      "math_visual/math_word_problem": 0.0,
+      "math_visual/textbook_question_answering": 0.09090909090909091
+    },
+    "by_template": {
+      "mathvista-functionqa": 0.11538461538461539,
+      "mathvista-geos": 0.4,
+      "mathvista-iqtest": 0.0,
+      "mathvista-paperqa": 0.0,
+      "mathvista-tabmwp": 0.0,
+      "mathvista-theoremqa": 0.0
+    },
+    "accuracy_cluster_bootstrap_95ci": [
+      0.012048192771084338,
+      0.10843373493975904
+    ],
+    "mock": false
+  },
+  "chartqa_mini": {
+    "n": 80,
+    "accuracy": 0.8625,
+    "correct": 69,
+    "wrong_answers": 11,
+    "parse_failures": 0,
+    "truncated": 0,
+    "backend_errors": 0,
+    "outcomes": {
+      "correct": 69,
+      "wrong_answer": 11,
+      "parse_failure": 0,
+      "truncated": 0,
+      "backend_error": 0
+    },
+    "e2e_p50_ms": 5776.260985874615,
+    "e2e_p90_ms": 13652.691657475068,
+    "e2e_mean_ms": 7752.080781012592,
+    "ttft_p50_ms": null,
+    "ttft_p90_ms": null,
+    "ttft_mean_ms": null,
+    "tpot_p50_ms": null,
+    "tpot_p90_ms": null,
+    "tpot_mean_ms": null,
+    "peak_vram_p50_mb": 51431.14794921875,
+    "peak_vram_max_mb": 51770.51318359375,
+    "reasoning_tokens_mean": 191.7125,
+    "reasoning_tokens_p50": 140.5,
+    "reasoning_tokens_p90": 399.9000000000008,
+    "reasoning_tokens_max": 887,
+    "answer_tokens_mean": 2.2,
+    "total_generated_tokens_mean": 200.9125,
+    "visual_tokens_unique": [
+      50,
+      72,
+      80,
+      88,
+      104,
+      121,
+      280,
+      286,
+      294,
+      320,
+      330,
+      336
+    ],
+    "effective_layers_unique": [
+      48
+    ],
+    "by_modality": {
+      "chart": 0.8625
+    },
+    "by_task_type": {
+      "holdout_human": 0.8625
+    },
+    "by_difficulty": {
+      "real_world": 0.8625
+    },
+    "by_difficulty_task": {
+      "real_world/holdout_human": 0.8625
+    },
+    "by_modality_difficulty": {
+      "chart/real_world": 0.8625
+    },
+    "by_modality_task": {
+      "chart/holdout_human": 0.8625
+    },
+    "by_template": {
+      "chartqa-human-numeric": 0.8625
+    },
+    "accuracy_cluster_bootstrap_95ci": [
+      0.775,
+      0.9375
+    ],
+    "mock": false,
+    "relaxed_accuracy": 0.9,
+    "relaxed_ci95": [
+      0.775,
+      0.9375
+    ],
+    "pct_norm_accuracy": 0.925,
+    "pct_norm_ci95": [
+      0.775,
+      0.9375
+    ]
+  },
+  "chartqa_varloop_ref": {
+    "n": 80,
+    "accuracy": 0.8625,
+    "correct": 69,
+    "wrong_answers": 11,
+    "parse_failures": 0,
+    "truncated": 0,
+    "backend_errors": 0,
+    "outcomes": {
+      "correct": 69,
+      "wrong_answer": 11,
+      "parse_failure": 0,
+      "truncated": 0,
+      "backend_error": 0
+    },
+    "e2e_p50_ms": 12537.795457500124,
+    "e2e_p90_ms": 45910.68338750022,
+    "e2e_mean_ms": 21282.711144087545,
+    "ttft_p50_ms": 222.36428550013443,
+    "ttft_p90_ms": 231.86194799977784,
+    "ttft_mean_ms": 221.80574636252004,
+    "tpot_p50_ms": 82.58727283173859,
+    "tpot_p90_ms": 83.15561935996865,
+    "tpot_mean_ms": 82.61982355921012,
+    "peak_vram_p50_mb": 50655.64013671875,
+    "peak_vram_max_mb": 50799.2724609375,
+    "reasoning_tokens_mean": 247.1875,
+    "reasoning_tokens_p50": 140.5,
+    "reasoning_tokens_p90": 547.9000000000002,
+    "reasoning_tokens_max": 1970,
+    "answer_tokens_mean": 1.9625,
+    "total_generated_tokens_mean": 256.15,
+    "visual_tokens_unique": [
+      50,
+      72,
+      80,
+      88,
+      104,
+      121,
+      280,
+      286,
+      294,
+      320,
+      330,
+      336
+    ],
+    "effective_layers_unique": [
+      48
+    ],
+    "by_modality": {
+      "chart": 0.8625
+    },
+    "by_task_type": {
+      "holdout_human": 0.8625
+    },
+    "by_difficulty": {
+      "real_world": 0.8625
+    },
+    "by_difficulty_task": {
+      "real_world/holdout_human": 0.8625
+    },
+    "by_modality_difficulty": {
+      "chart/real_world": 0.8625
+    },
+    "by_modality_task": {
+      "chart/holdout_human": 0.8625
+    },
+    "by_template": {
+      "chartqa-human-numeric": 0.8625
+    },
+    "accuracy_cluster_bootstrap_95ci": [
+      0.775,
+      0.9375
+    ],
+    "mock": false,
+    "relaxed_accuracy": 0.8875,
+    "relaxed_ci95": [
+      0.775,
+      0.9375
+    ],
+    "pct_norm_accuracy": 0.9125,
+    "pct_norm_ci95": [
+      0.775,
+      0.9375
+    ]
+  },
+  "paired_cluster_bootstrap": {
+    "mathvista_low_mini_minus_varloop3": {
+      "n_questions": 83,
+      "n_clusters": 83,
+      "base_accuracy": 0.8554216867469879,
+      "cand_accuracy": 0.8795180722891566,
+      "diff_accuracy": 0.02409638554216864,
+      "diff_cluster_bootstrap_95ci": [
+        -0.03614457831325302,
+        0.09638554216867468
+      ],
+      "flips": {
+        "n": 83,
+        "T->T": 68,
+        "F->F": 7,
+        "base_F_to_cand_T": 5,
+        "base_T_to_cand_F": 3
+      }
+    },
+    "mathvista_medium_mini_minus_varloop3": {
+      "n_questions": 83,
+      "n_clusters": 83,
+      "base_accuracy": 0.8313253012048193,
+      "cand_accuracy": 0.8433734939759037,
+      "diff_accuracy": 0.012048192771084376,
+      "diff_cluster_bootstrap_95ci": [
+        -0.06024096385542166,
+        0.0843373493975903
+      ],
+      "flips": {
+        "n": 83,
+        "T->T": 65,
+        "F->F": 9,
+        "base_F_to_cand_T": 5,
+        "base_T_to_cand_F": 4
+      }
+    },
+    "mathvista_mini_low_minus_medium": {
+      "n_questions": 83,
+      "n_clusters": 83,
+      "base_accuracy": 0.8433734939759037,
+      "cand_accuracy": 0.8795180722891566,
+      "diff_accuracy": 0.036144578313252906,
+      "diff_cluster_bootstrap_95ci": [
+        -0.012048192771084376,
+        0.08433734939759041
+      ],
+      "flips": {
+        "n": 83,
+        "T->T": 69,
+        "F->F": 9,
+        "base_F_to_cand_T": 4,
+        "base_T_to_cand_F": 1
+      }
+    },
+    "mathvista_mini_low_minus_blank": {
+      "n_questions": 83,
+      "n_clusters": 83,
+      "base_accuracy": 0.060240963855421686,
+      "cand_accuracy": 0.8795180722891566,
+      "diff_accuracy": 0.8192771084337349,
+      "diff_cluster_bootstrap_95ci": [
+        0.7349397590361446,
+        0.9036144578313252
+      ]
+    },
+    "chartqa_medium_strict_mini_minus_varloop3": {
+      "n_questions": 80,
+      "n_clusters": 40,
+      "base_accuracy": 0.8625,
+      "cand_accuracy": 0.8625,
+      "diff_accuracy": 0.0,
+      "diff_cluster_bootstrap_95ci": [
+        -0.03749999999999998,
+        0.03749999999999998
+      ],
+      "flips": {
+        "n": 80,
+        "T->T": 68,
+        "F->F": 10,
+        "base_F_to_cand_T": 1,
+        "base_T_to_cand_F": 1
+      }
+    },
+    "chartqa_medium_relaxed_mini_minus_varloop3": {
+      "n_questions": 80,
+      "n_clusters": 40,
+      "base_accuracy": 0.8875,
+      "cand_accuracy": 0.9,
+      "diff_accuracy": 0.012500000000000067,
+      "diff_cluster_bootstrap_95ci": [
+        -0.025000000000000022,
+        0.0625
+      ],
+      "flips": {
+        "n": 80,
+        "T->T": 70,
+        "F->F": 7,
+        "base_F_to_cand_T": 2,
+        "base_T_to_cand_F": 1
+      }
+    },
+    "chartqa_medium_pctnorm_mini_minus_varloop3": {
+      "n_questions": 80,
+      "n_clusters": 40,
+      "base_accuracy": 0.9125,
+      "cand_accuracy": 0.925,
+      "diff_accuracy": 0.012500000000000067,
+      "diff_cluster_bootstrap_95ci": [
+        -0.025000000000000022,
+        0.0625
+      ],
+      "flips": {
+        "n": 80,
+        "T->T": 72,
+        "F->F": 5,
+        "base_F_to_cand_T": 2,
+        "base_T_to_cand_F": 1
+      }
+    }
+  }
+}
