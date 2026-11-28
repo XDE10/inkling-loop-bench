@@ -1,14 +1,23 @@
-"""Exact lossless Self-Speculative Loop Drafting (`loop=1` draft -> `loop=3` verify).
+"""Self-Speculative Loop Drafting (`loop=draft_passes` -> `loop=target_passes`).
 
 Exploits the weight-tied architecture of `TML-d24-varloop-research`:
-- Zero extra model weights in VRAM (`loads = 1`, dual lightweight KV caches ~60 MB total).
+- Zero extra model weights in VRAM (`loads = 1`, dual lightweight KV caches).
 - Draft phase runs `draft_passes` (default 1, 24L) for `K` autoregressive tokens.
 - Verify phase switches in-place to `target_passes` (default 3, 48L) and validates all
-  `K + 1` positions in a single parallel forward pass, yielding up to `K + 1` exact tokens
+  `K + 1` positions in a single parallel forward pass, yielding up to `K + 1` tokens
   per target forward call under greedy decoding (`temperature = 0.0`).
-- Automatically handles both pure Attention `DynamicCache` (O(1) `crop()`) and hybrid
-  Attention + Conv1d/SSM caches (lightweight recurrent-state snapshot + rollback replay)
-  to guarantee 100% bit-for-bit token equivalence with standard `target_passes` decoding.
+- Supports two rollback backends:
+  1. `native_crop` (preferred on `transformers >= 5.24`): initializes `DynamicCache`
+     with `activate_past_recording()` before prefill and uses native O(1) `crop(-n)`
+     (and `crop(0)` on full acceptance) to roll back Attention + short-conv states
+     without snapshot/replay overhead.
+  2. `snapshot_replay` (fallback for custom/toy caches without `activate_past_recording`):
+     deep-clones recurrent/sliding states and replays accepted prefixes on rejection.
+- Note on BF16 equivalence: parallel `K+1` verification dispatches batched GEMM /
+  `causal_conv1d_fn` while autoregressive decoding dispatches single-token GEMV /
+  `causal_conv1d_update`. Use `compute_first_mismatch_logit_margin()` and a
+  `draft_passes == target_passes` control to distinguish near-tie BF16 numerical drift
+  from cache bugs.
 """
 
 from __future__ import annotations
@@ -35,31 +44,36 @@ def _iter_cache_layers(cache: Any) -> list[Any]:
 
 
 def _has_non_sliceable_state(cache: Any) -> bool:
-    """Detect whether a HF Cache contains recurrent/conv state tensors that cannot be sliced by `crop()`."""
-    import torch
+    """Detect whether a HF Cache contains recurrent/conv or sliding states."""
+    try:
+        import torch
+        tensor_types: tuple[type, ...] = (torch.Tensor,)
+    except ImportError:
+        tensor_types = ()
 
     if cache is None:
         return False
     for attr in ("conv_states", "ssm_states", "recurrent_states"):
         val = getattr(cache, attr, None)
-        if isinstance(val, (list, tuple)) and any(isinstance(x, torch.Tensor) for x in val):
+        if isinstance(val, (list, tuple)) and any(tensor_types and isinstance(x, tensor_types) for x in val):
             return True
-        if isinstance(val, dict) and any(isinstance(x, torch.Tensor) for x in val.values()):
+        if isinstance(val, dict) and any(tensor_types and isinstance(x, tensor_types) for x in val.values()):
             return True
     for lyr in _iter_cache_layers(cache):
-        if getattr(lyr, "is_sliding", False):
+        if getattr(lyr, "is_sliding", False) or getattr(lyr, "sliding_window", None) is not None:
             return True
-        for attr in ("conv_state", "ssm_state", "recurrent_state", "state"):
-            if isinstance(getattr(lyr, attr, None), torch.Tensor):
+        for attr in ("conv_state", "conv_states", "ssm_state", "recurrent_state", "recurrent_states", "state"):
+            val = getattr(lyr, attr, None)
+            if val is not None and ((tensor_types and isinstance(val, tensor_types)) or isinstance(val, (list, dict))):
                 return True
         cls_name = type(lyr).__name__.lower()
-        if any(k in cls_name for k in ("mamba", "conv", "ssm", "recurrent", "linear", "gdn", "deltanet")):
+        if any(k in cls_name for k in ("mamba", "conv", "ssm", "recurrent", "linear", "gdn", "deltanet", "sliding")):
             return True
     return False
 
 
 def _snapshot_cache(cache: Any) -> dict[str, Any]:
-    """Deep-clone lightweight cache tensors so recurrent/conv & sliding states can be rolled back exactly."""
+    """Deep-clone lightweight cache tensors so recurrent/conv & sliding states can be rolled back."""
     try:
         import torch
         tensor_types: tuple[type, ...] = (torch.Tensor,)
@@ -119,8 +133,10 @@ def _crop_attention_kv(cache: Any, max_length: int) -> None:
     if hasattr(cache, "crop") and not _has_non_sliceable_state(cache):
         cache.crop(max_length)
         return
-    # Manual safe slice for hybrid caches whose `crop()` may raise or ignore attention layers
-    import torch
+    try:
+        import torch
+    except ImportError:
+        return
 
     if hasattr(cache, "key_cache") and isinstance(cache.key_cache, list):
         for i in range(len(cache.key_cache)):
@@ -139,22 +155,26 @@ def _crop_attention_kv(cache: Any, max_length: int) -> None:
         cache._seen_tokens = max_length
 
 
-def _cache_seq_len(cache: Any) -> int:
-    if cache is None:
-        return 0
-    if hasattr(cache, "get_seq_length"):
-        try:
-            return int(cache.get_seq_length())
-        except Exception:
-            pass
-    for lyr in _iter_cache_layers(cache):
-        t = getattr(lyr, "keys", None)
-        if t is not None and hasattr(t, "shape"):
-            return int(t.shape[-2])
-    kc = getattr(cache, "key_cache", None)
-    if isinstance(kc, list) and kc and hasattr(kc[0], "shape"):
-        return int(kc[0].shape[-2])
-    return 0
+def _try_create_native_recording_cache(model: Any) -> Any | None:
+    """Create a `transformers` DynamicCache with `activate_past_recording()` enabled if supported."""
+    try:
+        from transformers.cache_utils import DynamicCache
+    except Exception:
+        return None
+    text_cfg = getattr(getattr(model, "config", None), "text_config", None)
+    if text_cfg is None:
+        lang = getattr(getattr(model, "model", None), "language_model", None)
+        text_cfg = getattr(lang, "config", None)
+    if text_cfg is None or not hasattr(text_cfg, "num_hidden_layers"):
+        return None
+    try:
+        cache = DynamicCache(config=text_cfg)
+        if hasattr(cache, "activate_past_recording"):
+            cache.activate_past_recording()
+            return cache
+    except Exception:
+        return None
+    return None
 
 
 def _forward_step(
@@ -163,7 +183,7 @@ def _forward_step(
     past_key_values: Any,
     cached_len: int,
     device: Any,
-    base_attn_mask_len: int,
+    use_cache_kwarg: bool = False,
 ) -> Any:
     import torch
 
@@ -174,15 +194,27 @@ def _forward_step(
     kwargs: dict[str, Any] = {
         "input_ids": input_ids,
         "attention_mask": attn_mask,
-        "past_key_values": past_key_values,
         "use_cache": True,
         "cache_position": cache_position,
     }
+    if use_cache_kwarg:
+        kwargs["cache"] = past_key_values
+    else:
+        kwargs["past_key_values"] = past_key_values
     try:
         return model(**kwargs)
     except TypeError:
         kwargs.pop("cache_position", None)
+        if use_cache_kwarg and "cache" in kwargs:
+            kwargs["past_key_values"] = kwargs.pop("cache")
         return model(**kwargs)
+
+
+def _get_out_cache(out: Any) -> Any:
+    c = getattr(out, "cache", None)
+    if c is not None:
+        return c
+    return getattr(out, "past_key_values", None)
 
 
 def verify_exact_equivalence(spec_ids: list[int], baseline_ids: list[int]) -> dict[str, Any]:
@@ -202,6 +234,60 @@ def verify_exact_equivalence(spec_ids: list[int], baseline_ids: list[int]) -> di
     }
 
 
+def compute_first_mismatch_logit_margin(
+    model: Any,
+    base_inputs: dict[str, Any],
+    baseline_ids: list[int],
+    spec_ids: list[int],
+    mismatch_idx: int,
+    *,
+    target_passes: int = 3,
+) -> dict[str, Any]:
+    """Run one teacher-forced target forward on `prompt + baseline_ids[:mismatch_idx]` to inspect
+    the exact logit margin at `mismatch_idx` (distinguishes near-tie BF16 drift from cache bugs)."""
+    import torch
+
+    device = getattr(model, "device", base_inputs["input_ids"].device)
+    apply_loop_num_passes(model, target_passes)
+    prefix_gen = baseline_ids[:mismatch_idx]
+    if prefix_gen:
+        gen_t = torch.tensor([prefix_gen], dtype=torch.long, device=device)
+        full_ids = torch.cat([base_inputs["input_ids"], gen_t], dim=-1)
+    else:
+        full_ids = base_inputs["input_ids"]
+    attn_mask = torch.ones_like(full_ids)
+    fwd_in = {k: v for k, v in base_inputs.items() if k not in ("input_ids", "attention_mask")}
+    fwd_in["input_ids"] = full_ids
+    fwd_in["attention_mask"] = attn_mask
+
+    with torch.inference_mode():
+        out = model(**fwd_in, use_cache=False)
+        logits = out.logits[0, -1, :].float()
+        top_vals, top_idx = torch.topk(logits, k=5)
+        b_id = int(baseline_ids[mismatch_idx]) if mismatch_idx < len(baseline_ids) else -1
+        s_id = int(spec_ids[mismatch_idx]) if mismatch_idx < len(spec_ids) else -1
+        b_logit = float(logits[b_id].item()) if b_id >= 0 else None
+        s_logit = float(logits[s_id].item()) if s_id >= 0 else None
+        tf_top1 = int(top_idx[0].item())
+        top1_minus_top2 = float((top_vals[0] - top_vals[1]).item())
+        gap_b_s = float(b_logit - s_logit) if (b_logit is not None and s_logit is not None) else None
+        s_rank = int((logits > logits[s_id]).sum().item()) + 1 if s_id >= 0 else None
+        b_rank = int((logits > logits[b_id]).sum().item()) + 1 if b_id >= 0 else None
+
+    return {
+        "mismatch_idx": int(mismatch_idx),
+        "teacher_forced_top1_id": tf_top1,
+        "baseline_id": b_id,
+        "spec_id": s_id,
+        "baseline_rank_in_tf": b_rank,
+        "spec_rank_in_tf": s_rank,
+        "top1_minus_top2_logit": round(top1_minus_top2, 6),
+        "baseline_minus_spec_logit": round(gap_b_s, 6) if gap_b_s is not None else None,
+        "top5_ids": [int(x) for x in top_idx.tolist()],
+        "top5_logits": [round(float(x), 5) for x in top_vals.tolist()],
+    }
+
+
 def speculative_loop_generate(
     model: Any,
     base_inputs: dict[str, Any],
@@ -212,11 +298,9 @@ def speculative_loop_generate(
     draft_k: int = 4,
     max_new_tokens: int = 2048,
     eos_token_id: int | None = None,
+    use_native_crop: bool = True,
 ) -> dict[str, Any]:
-    """Run exact greedy Self-Speculative Loop Drafting (`draft_passes` -> `target_passes`).
-
-    Returns generated token IDs plus granular latency and acceptance-rate telemetry.
-    """
+    """Run greedy Self-Speculative Loop Drafting (`draft_passes` -> `target_passes`)."""
     import torch
 
     if draft_k < 1:
@@ -246,21 +330,36 @@ def speculative_loop_generate(
     t_total_start = time.perf_counter()
 
     with torch.inference_mode():
-        # 1. Dual prefill: target (`loop=target_passes`) yields first exact token t_0;
-        #    draft (`loop=draft_passes`) initializes independent draft KV cache.
+        # Attempt native DynamicCache past-recording for O(1) zero-replay rollback
+        native_target_cache = _try_create_native_recording_cache(model) if use_native_crop else None
+        native_draft_cache = _try_create_native_recording_cache(model) if use_native_crop else None
+        using_native_crop = (native_target_cache is not None) and (native_draft_cache is not None)
+
+        # 1. Dual prefill
         t_pre0 = time.perf_counter()
         apply_loop_num_passes(model, target_passes)
-        out_t = model(**base_inputs, use_cache=True)
-        target_kv = out_t.past_key_values
+        if using_native_crop:
+            out_t = model(**base_inputs, cache=native_target_cache, use_cache=True)
+            target_kv = _get_out_cache(out_t)
+            target_kv.crop(0)
+        else:
+            out_t = model(**base_inputs, use_cache=True)
+            target_kv = _get_out_cache(out_t)
         first_tok = int(out_t.logits[:, -1, :].argmax(dim=-1).item())
 
         apply_loop_num_passes(model, draft_passes)
-        out_d = model(**base_inputs, use_cache=True)
-        draft_kv = out_d.past_key_values
+        if using_native_crop:
+            out_d = model(**base_inputs, cache=native_draft_cache, use_cache=True)
+            draft_kv = _get_out_cache(out_d)
+            draft_kv.crop(0)
+        else:
+            out_d = model(**base_inputs, use_cache=True)
+            draft_kv = _get_out_cache(out_d)
         _sync()
         prefill_ms = (time.perf_counter() - t_pre0) * 1000.0
 
         hybrid_cache = _has_non_sliceable_state(target_kv) or _has_non_sliceable_state(draft_kv)
+        rollback_mode = "native_crop" if using_native_crop else ("snapshot_replay" if hybrid_cache else "kv_crop")
 
         generated: list[int] = [first_tok]
         if first_tok == eos_token_id or max_new_tokens == 1:
@@ -272,6 +371,7 @@ def speculative_loop_generate(
                 "target_passes": target_passes,
                 "draft_k": draft_k,
                 "hybrid_cache_detected": hybrid_cache,
+                "rollback_mode": rollback_mode,
                 "verify_rounds": 0,
                 "total_drafted": 0,
                 "total_accepted": 0,
@@ -281,8 +381,10 @@ def speculative_loop_generate(
                 "mean_tokens_per_verify_round": 1.0,
                 "thinking_drafted": 0,
                 "thinking_accepted": 0,
+                "thinking_acceptance_rate": None,
                 "answer_drafted": 0,
                 "answer_accepted": 0,
+                "answer_acceptance_rate": None,
                 "prefill_ms": round(prefill_ms, 2),
                 "draft_ms": 0.0,
                 "verify_ms": 0.0,
@@ -291,16 +393,10 @@ def speculative_loop_generate(
                 "ms_per_tok": round(e2e_ms, 2),
             }
 
-        # State invariant at start of each round:
-        # - `generated[-1]` sits at sequence index `cached_len` and has NOT been fed into `target_kv`.
-        # - `target_kv` contains exact prefix indices `0 .. cached_len - 1`.
-        # - `draft_kv` contains exact prefix indices `0 .. draft_cached_len - 1`, where
-        #   `draft_cached_len` is either `cached_len` or `cached_len - 1` (after a full-accept bonus round).
         cached_len = prompt_len
         draft_cached_len = prompt_len
-        pending_draft_catchup: list[int] = []  # at most [d_{k-1}] from previous full-accept round
+        pending_draft_catchup: list[int] = []
 
-        # Track semantic mode for stage-wise acceptance rate telemetry
         cur_mode = "other"
         if first_tok == tok_think:
             cur_mode = "thinking"
@@ -326,8 +422,8 @@ def speculative_loop_generate(
                 break
 
             last_tok = generated[-1]
-            target_snap = _snapshot_cache(target_kv) if hybrid_cache else None
-            draft_snap = _snapshot_cache(draft_kv) if hybrid_cache else None
+            target_snap = _snapshot_cache(target_kv) if (not using_native_crop and hybrid_cache) else None
+            draft_snap = _snapshot_cache(draft_kv) if (not using_native_crop and hybrid_cache) else None
             draft_snap_len = draft_cached_len
 
             # --- 2. Draft K tokens with `draft_passes` ---
@@ -340,8 +436,8 @@ def speculative_loop_generate(
 
             first_draft_chunk = pending_draft_catchup + [last_tok]
             d_in = torch.tensor([first_draft_chunk], dtype=torch.long, device=device)
-            d_out = _forward_step(model, d_in, draft_kv, draft_cached_len, device, prompt_len)
-            draft_kv = d_out.past_key_values
+            d_out = _forward_step(model, d_in, draft_kv, draft_cached_len, device, use_cache_kwarg=using_native_crop)
+            draft_kv = _get_out_cache(d_out)
             draft_cached_len += len(first_draft_chunk)
             pending_draft_catchup = []
 
@@ -358,8 +454,8 @@ def speculative_loop_generate(
             if d_tok != eos_token_id:
                 for _ in range(k_cur - 1):
                     d_in = torch.tensor([[d_tok]], dtype=torch.long, device=device)
-                    d_out = _forward_step(model, d_in, draft_kv, draft_cached_len, device, prompt_len)
-                    draft_kv = d_out.past_key_values
+                    d_out = _forward_step(model, d_in, draft_kv, draft_cached_len, device, use_cache_kwarg=using_native_crop)
+                    draft_kv = _get_out_cache(d_out)
                     draft_cached_len += 1
                     d_tok = int(d_out.logits[:, -1, :].argmax(dim=-1).item())
                     draft_tokens.append(d_tok)
@@ -382,8 +478,8 @@ def speculative_loop_generate(
             apply_loop_num_passes(model, target_passes)
             verify_seq = [last_tok] + draft_tokens
             v_in = torch.tensor([verify_seq], dtype=torch.long, device=device)
-            v_out = _forward_step(model, v_in, target_kv, cached_len, device, prompt_len)
-            target_kv = v_out.past_key_values
+            v_out = _forward_step(model, v_in, target_kv, cached_len, device, use_cache_kwarg=using_native_crop)
+            target_kv = _get_out_cache(v_out)
             target_preds = v_out.logits[0].argmax(dim=-1).detach().cpu().tolist()
             _sync()
             verify_ms += (time.perf_counter() - tv0) * 1000.0
@@ -391,7 +487,6 @@ def speculative_loop_generate(
             verify_rounds += 1
             total_drafted += k_actual
 
-            # Count prefix matches against exact greedy target predictions
             n_match = 0
             for j in range(k_actual):
                 if draft_modes[j] == "thinking":
@@ -405,7 +500,6 @@ def speculative_loop_generate(
                     elif draft_modes[j] == "answer":
                         answer_accepted += 1
                 else:
-                    # Remaining drafts after first mismatch are discarded (still counted in drafted)
                     for j2 in range(j + 1, k_actual):
                         if draft_modes[j2] == "thinking":
                             thinking_drafted += 1
@@ -415,7 +509,6 @@ def speculative_loop_generate(
 
             total_accepted += n_match
 
-            # Build exact committed tokens for this round
             committed: list[int] = draft_tokens[:n_match]
             hit_eos = any(t == eos_token_id for t in committed)
             used_bonus = False
@@ -430,7 +523,6 @@ def speculative_loop_generate(
                 if next_exact == eos_token_id:
                     hit_eos = True
 
-            # Update semantic mode across committed tokens
             for t in committed:
                 if t == tok_think:
                     cur_mode = "thinking"
@@ -443,46 +535,50 @@ def speculative_loop_generate(
             if hit_eos or len(generated) >= max_new_tokens:
                 break
 
-            # --- 4. Exact KV / Recurrent-State Rollback & Alignment ---
-            # After committing `[d_0..d_{n_match-1}, next_exact]`, the tokens that MUST be in cache
-            # before the next round (excluding `next_exact`, which becomes next round's `last_tok`)
-            # are `[0 .. cached_len - 1] + [last_tok] + draft_tokens[:n_match]`.
+            # --- 4. Cache Rollback & Alignment ---
             new_cached_len = cached_len + 1 + n_match
             accepted_prefix_to_cache = [last_tok] + draft_tokens[:n_match]
 
             _sync()
             tr0 = time.perf_counter()
-            if not hybrid_cache:
-                # Pure Attention KV: O(1) slice!
+            if using_native_crop:
+                # Native O(1) rollback using transformers >= 5.24 `crop(-n)` + `crop(0)`
+                n_reject_target = k_actual - n_match
+                target_kv.crop(-n_reject_target if n_reject_target > 0 else 0)
+
+                if n_match == k_actual and used_bonus:
+                    draft_kv.crop(0)
+                    pending_draft_catchup = [draft_tokens[-1]]
+                else:
+                    n_reject_draft = draft_cached_len - new_cached_len
+                    draft_kv.crop(-n_reject_draft if n_reject_draft > 0 else 0)
+                    draft_cached_len = new_cached_len
+                    pending_draft_catchup = []
+            elif not hybrid_cache:
                 _crop_attention_kv(target_kv, new_cached_len)
                 if n_match == k_actual and used_bonus:
-                    # `draft_kv` has `cached_len + k_actual`, missing `draft_tokens[-1]`.
                     pending_draft_catchup = [draft_tokens[-1]]
                 else:
                     _crop_attention_kv(draft_kv, new_cached_len)
                     draft_cached_len = new_cached_len
                     pending_draft_catchup = []
             else:
-                # Hybrid Attention + Conv/SSM cache:
-                # If all K drafts matched (`n_match == k_actual`), `target_kv` is ALREADY exact at
-                # `cached_len + 1 + k_actual == new_cached_len` — zero target rollback needed!
                 if n_match < k_actual:
                     _crop_attention_kv(target_kv, cached_len)
                     _restore_recurrent_snapshot(target_kv, target_snap)
                     apply_loop_num_passes(model, target_passes)
                     t_rep = torch.tensor([accepted_prefix_to_cache], dtype=torch.long, device=device)
-                    target_kv = _forward_step(model, t_rep, target_kv, cached_len, device, prompt_len).past_key_values
+                    target_kv = _get_out_cache(_forward_step(model, t_rep, target_kv, cached_len, device))
 
                 if n_match == k_actual and used_bonus:
                     pending_draft_catchup = [draft_tokens[-1]]
                 elif draft_cached_len != new_cached_len:
-                    # Roll draft back to pre-round snapshot and replay exact accepted tokens
                     _crop_attention_kv(draft_kv, draft_snap_len)
                     _restore_recurrent_snapshot(draft_kv, draft_snap)
                     replay_draft = first_draft_chunk[:-1] + accepted_prefix_to_cache
                     apply_loop_num_passes(model, draft_passes)
                     d_rep = torch.tensor([replay_draft], dtype=torch.long, device=device)
-                    draft_kv = _forward_step(model, d_rep, draft_kv, draft_snap_len, device, prompt_len).past_key_values
+                    draft_kv = _get_out_cache(_forward_step(model, d_rep, draft_kv, draft_snap_len, device))
                     draft_cached_len = draft_snap_len + len(replay_draft)
                     pending_draft_catchup = []
             _sync()
@@ -498,6 +594,7 @@ def speculative_loop_generate(
         "target_passes": target_passes,
         "draft_k": draft_k,
         "hybrid_cache_detected": hybrid_cache,
+        "rollback_mode": rollback_mode,
         "verify_rounds": verify_rounds,
         "total_drafted": total_drafted,
         "total_accepted": total_accepted,

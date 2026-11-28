@@ -1,0 +1,176 @@
+{
+  "greedy_512": {
+    "overrides": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "repetition_penalty": 1.0,
+      "max_new_tokens": 512
+    },
+    "run": {
+      "config_id": "76b66b4635cf",
+      "new_rows": 12,
+      "total_questions": 12,
+      "image_mode": "correct"
+    },
+    "summary": {
+      "n": 12,
+      "accuracy": 0.8333333333333334,
+      "correct": 10,
+      "wrong_answers": 0,
+      "parse_failures": 0,
+      "truncated": 2,
+      "backend_errors": 0,
+      "outcomes": {
+        "correct": 10,
+        "wrong_answer": 0,
+        "parse_failure": 0,
+        "truncated": 2,
+        "backend_error": 0
+      },
+      "e2e_p50_ms": 13124.154081499995,
+      "e2e_p90_ms": 42151.75117170005,
+      "ttft_p50_ms": 227.1456425000622,
+      "ttft_p90_ms": 232.91951910001671,
+      "peak_vram_max_mb": 50730.86279296875,
+      "by_modality": {
+        "chart": 1.0,
+        "geometry": 0.6666666666666666
+      },
+      "by_task_type": {
+        "direct": 0.6666666666666666,
+        "multi_step": 1.0
+      },
+      "by_template": {
+        "chart-v1-0": 1.0,
+        "chart-v1-2": 1.0,
+        "chart-v1-5": 1.0,
+        "geometry-v1-1": 1.0,
+        "geometry-v1-3": 0.5,
+        "geometry-v1-5": 0.5
+      },
+      "accuracy_cluster_bootstrap_95ci": [
+        0.6666666666666666,
+        1.0
+      ],
+      "mock": false,
+      "mean_reasoning_tokens": 196.4,
+      "max_reasoning_tokens": 510
+    }
+  },
+  "greedy_2048": {
+    "overrides": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "repetition_penalty": 1.0,
+      "max_new_tokens": 2048
+    },
+    "run": {
+      "config_id": "500de08c2017",
+      "new_rows": 12,
+      "total_questions": 12,
+      "image_mode": "correct"
+    },
+    "summary": {
+      "n": 12,
+      "accuracy": 0.8333333333333334,
+      "correct": 10,
+      "wrong_answers": 2,
+      "parse_failures": 0,
+      "truncated": 0,
+      "backend_errors": 0,
+      "outcomes": {
+        "correct": 10,
+        "wrong_answer": 2,
+        "parse_failure": 0,
+        "truncated": 0,
+        "backend_error": 0
+      },
+      "e2e_p50_ms": 13100.607937999996,
+      "e2e_p90_ms": 53576.11030510007,
+      "ttft_p50_ms": 226.60138750001124,
+      "ttft_p90_ms": 234.15869410001733,
+      "peak_vram_max_mb": 50750.71533203125,
+      "by_modality": {
+        "chart": 1.0,
+        "geometry": 0.6666666666666666
+      },
+      "by_task_type": {
+        "direct": 0.6666666666666666,
+        "multi_step": 1.0
+      },
+      "by_template": {
+        "chart-v1-0": 1.0,
+        "chart-v1-2": 1.0,
+        "chart-v1-5": 1.0,
+        "geometry-v1-1": 1.0,
+        "geometry-v1-3": 0.5,
+        "geometry-v1-5": 0.5
+      },
+      "accuracy_cluster_bootstrap_95ci": [
+        0.6666666666666666,
+        1.0
+      ],
+      "mock": false,
+      "mean_reasoning_tokens": 216.7,
+      "max_reasoning_tokens": 635
+    }
+  },
+  "sampled_t1_2048": {
+    "overrides": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "repetition_penalty": 1.0,
+      "max_new_tokens": 2048
+    },
+    "run": {
+      "config_id": "253b6918ab54",
+      "new_rows": 12,
+      "total_questions": 12,
+      "image_mode": "correct"
+    },
+    "summary": {
+      "n": 12,
+      "accuracy": 0.8333333333333334,
+      "correct": 10,
+      "wrong_answers": 2,
+      "parse_failures": 0,
+      "truncated": 0,
+      "backend_errors": 0,
+      "outcomes": {
+        "correct": 10,
+        "wrong_answer": 2,
+        "parse_failure": 0,
+        "truncated": 0,
+        "backend_error": 0
+      },
+      "e2e_p50_ms": 15999.98936549997,
+      "e2e_p90_ms": 56699.038474200075,
+      "ttft_p50_ms": 226.53960300004883,
+      "ttft_p90_ms": 234.91979000004903,
+      "peak_vram_max_mb": 50764.98681640625,
+      "by_modality": {
+        "chart": 1.0,
+        "geometry": 0.6666666666666666
+      },
+      "by_task_type": {
+        "direct": 0.6666666666666666,
+        "multi_step": 1.0
+      },
+      "by_template": {
+        "chart-v1-0": 1.0,
+        "chart-v1-2": 1.0,
+        "chart-v1-5": 1.0,
+        "geometry-v1-1": 1.0,
+        "geometry-v1-3": 0.5,
+        "geometry-v1-5": 0.5
+      },
+      "accuracy_cluster_bootstrap_95ci": [
+        0.6666666666666666,
+        1.0
+      ],
+      "mock": false,
+      "mean_reasoning_tokens": 237.2,
+      "max_reasoning_tokens": 866
+    }
+  }
+}

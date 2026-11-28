@@ -40,16 +40,18 @@ Per `docs/FINAL_PLAN.md` (Phase 5), the two studies below were executed and repo
 
 *(All `576` runs had `0` parse failures and `0` backend errors; `C / W / T` = Correct / Wrong Answer / Truncated at `max_new_tokens=2048`.)*
 
-### Key Paired `image_id` Cluster Bootstrap Contrasts (`2,000` resamples, `24` clusters)
+### Key Paired `image_id` Cluster Bootstrap & Exact McNemar Contrasts (`2,000` resamples, `24` clusters)
 
-| Axis | Comparison | Point Δ Acc | 95% Cluster Bootstrap CI | Interpretation |
-| :--- | :--- | :---: | :---: | :--- |
-| **Pass Depth @ `low`** | **`low_loop3 − low_loop1`** | **`+8.33%`** | **`[+2.08%, +16.67%]`** | **Statistically significant gain (`CI > 0`)**; eliminates all `4` wrong answers (`0` wrong) & trims CoT `-17.4%` |
-| **Pass Depth @ `low`** | `low_loop5 − low_loop1` | `+6.25%` | `[0.00%, +12.50%]` | Zero truncations (`0/48`) and shortest CoT (`335.5` tok), but `1.53×` slower than `low_loop3` |
-| **Pass Depth @ `none`** | `none_loop3 − none_loop1` | `+6.25%` | `[-4.17%, +18.75%]` | Latent looping compensates for unguided CoT (`+6.3 pp`, halving truncations `4 → 2`) |
-| **Effort @ `loop=3`** | **`low_loop3 − none_loop3`** | **`+8.33%`** | **`[+2.08%, +16.67%]`** | **Statistically significant gain (`CI > 0`)** AND **`-26.7%` faster E2E P50 (`15.50s` vs `21.14s`)** |
-| **Effort @ `loop=3`** | `high_loop3 − none_loop3` | `-4.17%` | `[-10.42%, 0.00%]` | Excessive explicit effort (`high`) inflates CoT (`567.6` tok) & truncations (`4/48`), hurting accuracy |
-| **Effort @ `loop=5`** | **`low_loop5 − none_loop5`** | **`+8.33%`** | **`[+2.08%, +16.67%]`** | **Statistically significant gain (`CI > 0`)** with `-35.4%` fewer CoT tokens (`335.5` vs `519.1`) |
+| Axis | Comparison | Point Δ Acc | 95% Cluster Bootstrap CI | Exact McNemar `p` (`b / c`) | Interpretation & Caveats |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **Pass Depth @ `low`** | `low_loop3 − low_loop1` | `+8.33%` | `[+2.08%, +16.67%]` | **`0.125`** (`0 / 4`, n.s.) | Eliminates all `4` wrong answers & trims CoT `-17.4%`, but **not statistically significant under exact McNemar**, selected from `12` cells, and all `4/4` flips are paired red-`?` target-swap items |
+| **Pass Depth @ `low`** | `low_loop5 − low_loop1` | `+6.25%` | `[0.00%, +12.50%]` | `0.250` (`0 / 3`, n.s.) | Zero truncations (`0/48`) and shortest CoT (`335.5` tok), but `1.53×` slower than `low_loop3` |
+| **Pass Depth @ `none`** | `none_loop3 − none_loop1` | `+6.25%` | `[-4.17%, +18.75%]` | `0.453` (`2 / 5`, n.s.) | Latent looping trends upward when explicit CoT is unguided (`+6.3 pp`, trunc `4 → 2`) |
+| **Effort @ `loop=3`** | `low_loop3 − none_loop3` | `+8.33%` | `[+2.08%, +16.67%]` | **`0.125`** (`0 / 4`, n.s.) | Positive point-estimate gain AND `-26.7%` faster E2E P50 (`15.50s` vs `21.14s`), but non-significant under exact McNemar |
+| **Effort @ `loop=3`** | `high_loop3 − none_loop3` | `-4.17%` | `[-10.42%, 0.00%]` | `0.500` (`2 / 0`, n.s.) | Excessive explicit effort (`high`) inflates CoT (`567.6` tok) & truncations (`4/48`) |
+| **Effort @ `loop=5`** | `low_loop5 − none_loop5` | `+8.33%` | `[+2.08%, +16.67%]` | **`0.125`** (`0 / 4`, n.s.) | Positive point-estimate gain with `-35.4%` fewer CoT tokens (`335.5` vs `519.1`), non-significant under exact McNemar |
+
+> **Statistical Note**: With paired bootstrap resampling on `n=48`, any `4/0` one-sided discordant split produces a 95% percentile CI strictly above `0` (`[+2.08%, +16.67%]`), even though the exact two-sided McNemar test is `p = 2 × 0.5^4 = 0.125` (non-significant, before multiple-testing adjustment across 12 cells). All `effort48` accuracy gains should therefore be interpreted as exploratory signals rather than confirmatory significance.
 
 ### Pareto Frontier & Offline Adaptive Oracle (`effort48`)
 
@@ -81,5 +83,5 @@ Evaluated at locked `reasoning_effort = "medium"`, `temperature = 0.0`, `max_new
 
 ## 4. Scientific Synthesis of Phase 5
 
-1. **Co-Design Law Between Explicit Effort and Latent Looping**: Explicit reasoning effort and latent pass depth are **neither redundant nor monotonically additive**. Rather than pushing explicit effort to `high` (which causes verbose `570+`-token reasoning loops, `2048`-token truncations, and lower accuracy), pairing **concise explicit CoT (`effort="low"`) with moderate latent depth (`loop=3`, `48L`)** yields the global accuracy peak (**`97.9%`**, statistically significant `+8.33 pp` over both `low_loop1` and `none_loop3`) while keeping explicit CoT short (`348.9` tokens) and latency low (`15.50s` P50).
+1. **Co-Design Trade-off Between Explicit Effort and Latent Looping**: Explicit reasoning effort and latent pass depth are **neither redundant nor monotonically additive**. Rather than pushing explicit effort to `high` (which causes verbose `570+`-token reasoning loops, `2048`-token truncations, and lower accuracy), pairing **concise explicit CoT (`effort="low"`) with moderate latent depth (`loop=3`, `48L`)** yields the highest point-estimate accuracy (`97.9%`, `+8.33 pp` over both `low_loop1` and `none_loop3`, exploratory exact McNemar `p=0.125`, with all 4 repairs occurring on paired red-`?` distractors) while keeping explicit CoT short (`348.9` tokens) and latency low (`15.50s` P50).
 2. **External Validity on Native-Resolution Real Charts (`ChartQA-80`)**: The exact same hardware scaling laws replicate out-of-distribution on native-resolution real charts (`TTFT 1.00× → 3.06×`, `TPOT 1.00× → 3.86×`, `Peak VRAM +208.2 MB / +0.41%`). Because real-world chart VQA is dominated by visual extraction and concise 1–2 step arithmetic (`~230` CoT tokens), `loop=1` already matches frontier-level accuracy (`90.0%` relaxed / `92.5%` pct-norm) at **`3.89×` lower latency** than `loop=5`—reinforcing the core thesis of `docs/FINAL_PLAN.md`: **latent looping must be deployed selectively where multi-step reasoning benefits, never unconditionally**.

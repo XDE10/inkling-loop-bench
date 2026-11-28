@@ -1,0 +1,186 @@
+{
+  "audit_model": "google/gemini-4-argon (via OpenCode Go)",
+  "role": "External blind visual QA & frontier reference ONLY (strictly separate from TML-d24-varloop-research pass curve)",
+  "thinking_level": "MEDIUM",
+  "dataset_validation": {
+    "valid": true,
+    "images": 120,
+    "questions": 240,
+    "templates": 24,
+    "modalities": {
+      "chart": 120,
+      "geometry": 120
+    },
+    "difficulties": {
+      "standard": 120,
+      "hard": 120
+    }
+  },
+  "generation_wall_s": 48.0,
+  "api_wall_s": 145.39,
+  "n_images": 120,
+  "n_questions": 240,
+  "blind_agreement_accuracy": 0.975,
+  "blind_agreement_correct": 234,
+  "cluster_bootstrap_95ci": [
+    0.9541666666666667,
+    0.9916666666666667
+  ],
+  "visual_quality_counts": {
+    "clear": 120
+  },
+  "by_modality_difficulty_task": {
+    "chart/hard/direct": 1.0,
+    "chart/hard/multi_step": 1.0,
+    "chart/standard/direct": 1.0,
+    "chart/standard/multi_step": 1.0,
+    "geometry/hard/direct": 1.0,
+    "geometry/hard/multi_step": 0.8,
+    "geometry/standard/direct": 1.0,
+    "geometry/standard/multi_step": 1.0
+  },
+  "by_template": {
+    "chart-v1-0": 1.0,
+    "chart-v1-1": 1.0,
+    "chart-v1-2": 1.0,
+    "chart-v1-3": 1.0,
+    "chart-v1-4": 1.0,
+    "chart-v1-5": 1.0,
+    "chart-v2-0": 1.0,
+    "chart-v2-1": 1.0,
+    "chart-v2-2": 1.0,
+    "chart-v2-3": 1.0,
+    "chart-v2-4": 1.0,
+    "chart-v2-5": 1.0,
+    "geometry-v1-0": 1.0,
+    "geometry-v1-1": 1.0,
+    "geometry-v1-2": 1.0,
+    "geometry-v1-3": 1.0,
+    "geometry-v1-4": 1.0,
+    "geometry-v1-5": 1.0,
+    "geometry-v2-0": 1.0,
+    "geometry-v2-1": 1.0,
+    "geometry-v2-2": 1.0,
+    "geometry-v2-3": 1.0,
+    "geometry-v2-4": 0.5,
+    "geometry-v2-5": 0.9
+  },
+  "cache_and_billing_telemetry": {
+    "local_cache_hits": 0,
+    "network_calls": 30,
+    "prompt_tokens": 359294,
+    "cache_read_tokens": 0,
+    "output_tokens": 11746,
+    "reasoning_tokens": 0,
+    "allowance_usd": 1.6720959999999998,
+    "list_cost_usd": 0.8360479999999999,
+    "per_key_calls": {
+      "key_0": 6,
+      "key_1": 6,
+      "key_2": 6,
+      "key_3": 6,
+      "key_4": 6
+    },
+    "per_key_cache_read_tokens": {
+      "key_0": 0,
+      "key_1": 0,
+      "key_2": 0,
+      "key_3": 0,
+      "key_4": 0
+    },
+    "upstream_cache_hit_ratio": 0.0,
+    "sqlite_cached_entries": 30
+  },
+  "flagged_or_disagreed_items": [
+    {
+      "config_id": "argon-medium",
+      "question_id": "geometry-009-multi_step",
+      "image_id": "geometry-009",
+      "template_id": "geometry-v2-4",
+      "modality": "geometry",
+      "difficulty": "hard",
+      "task_type": "multi_step",
+      "expected": 119.0,
+      "predicted": 111.0,
+      "correct": false,
+      "outcome": "wrong_answer",
+      "visual_quality": "clear",
+      "note": "BDC=30+49=79, DBE=79-43=36, BED=(180-36)/2=72, DEC=180-72=108? Wait: 79+43=122, DBE=58, BED=61, DEC=119? Wait: BDC=79, C=43 -> DBC=58, BED=(180-58)/2=61, DEC=119. Wait: let's re-verify."
+    },
+    {
+      "config_id": "argon-medium",
+      "question_id": "geometry-021-multi_step",
+      "image_id": "geometry-021",
+      "template_id": "geometry-v2-4",
+      "modality": "geometry",
+      "difficulty": "hard",
+      "task_type": "multi_step",
+      "expected": 123.0,
+      "predicted": 117.0,
+      "correct": false,
+      "outcome": "wrong_answer",
+      "visual_quality": "clear",
+      "note": "Angle B=180-45-40=95, DBE=95-29=66, BED=(180-66)/2=57, DEC=180-57=123? Wait: BDC=45+29=74, DBE=74-40=34? No, B=180-85=95, DBE=66, BED=57, DEC=123? Wait: 180-57=123? Let me re-verify."
+    },
+    {
+      "config_id": "argon-medium",
+      "question_id": "geometry-033-multi_step",
+      "image_id": "geometry-033",
+      "template_id": "geometry-v2-4",
+      "modality": "geometry",
+      "difficulty": "hard",
+      "task_type": "multi_step",
+      "expected": 125.0,
+      "predicted": 107.0,
+      "correct": false,
+      "outcome": "wrong_answer",
+      "visual_quality": "clear",
+      "note": "BDC=74, DBE=180-36-74=70, BED=(180-70)/2=55, DEC=180-55=125? Wait: BDC=44+30=74, DBE=70, BED=55, DEC=125? No, B=180-44-36=100, DBE=70, BED=55, DEC=125? Wait: 44 is BAD!"
+    },
+    {
+      "config_id": "argon-medium",
+      "question_id": "geometry-035-multi_step",
+      "image_id": "geometry-035",
+      "template_id": "geometry-v2-5",
+      "modality": "geometry",
+      "difficulty": "hard",
+      "task_type": "multi_step",
+      "expected": 101.0,
+      "predicted": 79.0,
+      "correct": false,
+      "outcome": "wrong_answer",
+      "visual_quality": "clear",
+      "note": "ADC=30, ADE=30+71=101, QED=180-101=79."
+    },
+    {
+      "config_id": "argon-medium",
+      "question_id": "geometry-045-multi_step",
+      "image_id": "geometry-045",
+      "template_id": "geometry-v2-4",
+      "modality": "geometry",
+      "difficulty": "hard",
+      "task_type": "multi_step",
+      "expected": 123.0,
+      "predicted": 103.0,
+      "correct": false,
+      "outcome": "wrong_answer",
+      "visual_quality": "clear",
+      "note": "Angle ABC=180-45-41=94, DBE=94-28=66, BED=(180-66)/2=57, DEC=180-57=123? Wait: 45 is BAD."
+    },
+    {
+      "config_id": "argon-medium",
+      "question_id": "geometry-057-multi_step",
+      "image_id": "geometry-057",
+      "template_id": "geometry-v2-4",
+      "modality": "geometry",
+      "difficulty": "hard",
+      "task_type": "multi_step",
+      "expected": 124.0,
+      "predicted": 107.0,
+      "correct": false,
+      "outcome": "wrong_answer",
+      "visual_quality": "clear",
+      "note": "Angle ABC = 180-45-39 = 96; DBE = 96-28 = 68; BED = 56; DEC = 124. Wait: 180-56=124? Let me recheck."
+    }
+  ]
+}

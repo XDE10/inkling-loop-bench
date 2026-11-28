@@ -157,6 +157,7 @@ def run(config: dict, dataset_dir, output_path, backend=None, progress_callback=
         }
 
     count = 0
+    batch_fallbacks = 0
     total_q = len(questions)
     pending: list[tuple[int, dict]] = [
         (idx, q) for idx, q in enumerate(questions, 1) if (config_id, q["question_id"]) not in done
@@ -178,8 +179,17 @@ def run(config: dict, dataset_dir, output_path, backend=None, progress_callback=
                     count += 1
                     if progress_callback is not None:
                         progress_callback(idx, total_q, row)
-            except Exception:
-                # Graceful single-item fallback if a mixed-resolution batch fails
+            except Exception as batch_exc:
+                # Explicit logged single-item fallback if a mixed-resolution batch fails
+                batch_fallbacks += 1
+                import warnings
+
+                warnings.warn(
+                    f"Batched generation failed for chunk starting at idx={chunk[0][0]} "
+                    f"({batch_exc!r}); falling back to single-item execution.",
+                    RuntimeWarning,
+                    stacklevel=2,
+                )
                 for (idx, q), (q_input, diff) in zip(chunk, prepped):
                     ts = time.perf_counter()
                     try:
@@ -213,4 +223,5 @@ def run(config: dict, dataset_dir, output_path, backend=None, progress_callback=
         "total_questions": total_q,
         "image_mode": image_mode,
         "batch_size": eff_bs,
+        "batch_fallbacks": batch_fallbacks,
     }

@@ -910,7 +910,10 @@
         "F->F": 7,
         "base_F_to_cand_T": 5,
         "base_T_to_cand_F": 3
-      }
+      },
+      "mcnemar_b_base_only": 3,
+      "mcnemar_c_cand_only": 5,
+      "mcnemar_exact_p": 0.7265625
     },
     "mathvista_medium_mini_minus_varloop3": {
       "n_questions": 83,
@@ -928,7 +931,10 @@
         "F->F": 9,
         "base_F_to_cand_T": 5,
         "base_T_to_cand_F": 4
-      }
+      },
+      "mcnemar_b_base_only": 4,
+      "mcnemar_c_cand_only": 5,
+      "mcnemar_exact_p": 1.0
     },
     "mathvista_mini_low_minus_medium": {
       "n_questions": 83,
@@ -946,7 +952,10 @@
         "F->F": 9,
         "base_F_to_cand_T": 4,
         "base_T_to_cand_F": 1
-      }
+      },
+      "mcnemar_b_base_only": 1,
+      "mcnemar_c_cand_only": 4,
+      "mcnemar_exact_p": 0.375
     },
     "mathvista_mini_low_minus_blank": {
       "n_questions": 83,
@@ -975,7 +984,10 @@
         "F->F": 10,
         "base_F_to_cand_T": 1,
         "base_T_to_cand_F": 1
-      }
+      },
+      "mcnemar_b_base_only": 1,
+      "mcnemar_c_cand_only": 1,
+      "mcnemar_exact_p": 1.0
     },
     "chartqa_medium_relaxed_mini_minus_varloop3": {
       "n_questions": 80,
@@ -993,7 +1005,10 @@
         "F->F": 7,
         "base_F_to_cand_T": 2,
         "base_T_to_cand_F": 1
-      }
+      },
+      "mcnemar_b_base_only": 1,
+      "mcnemar_c_cand_only": 2,
+      "mcnemar_exact_p": 1.0
     },
     "chartqa_medium_pctnorm_mini_minus_varloop3": {
       "n_questions": 80,
@@ -1011,7 +1026,10 @@
         "F->F": 5,
         "base_F_to_cand_T": 2,
         "base_T_to_cand_F": 1
-      }
+      },
+      "mcnemar_b_base_only": 1,
+      "mcnemar_c_cand_only": 2,
+      "mcnemar_exact_p": 1.0
     }
   }
 }

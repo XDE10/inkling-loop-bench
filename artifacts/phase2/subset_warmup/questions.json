@@ -1,0 +1,54 @@
+{
+  "schema_version": 2,
+  "seed": 20261123,
+  "image_count": 1,
+  "question_count": 2,
+  "questions": [
+    {
+      "question_id": "chart-000-direct",
+      "image_id": "chart-000",
+      "template_id": "chart-v1-0",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the value for North in the bar chart? Answer with a number in units.",
+      "answer": 90.0,
+      "unit": "units",
+      "image_path": "/content/phase2_out/dataset_smoke48/images/chart-000.png",
+      "metadata": {
+        "seed": 20261123,
+        "subtype": "bar4_grid5",
+        "values": {
+          "North": 90,
+          "South": 40,
+          "East": 25,
+          "West": 80
+        },
+        "target_region": "North",
+        "pixel_sha256": "04c8e8aa29d41f807434c420021c8f133ee6a94a3c858e4ba431835678800a07"
+      }
+    },
+    {
+      "question_id": "chart-000-multi_step",
+      "image_id": "chart-000",
+      "template_id": "chart-v1-0",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "What is the difference between the highest regional value and the lowest regional value? Answer with a number in units.",
+      "answer": 65.0,
+      "unit": "units",
+      "image_path": "/content/phase2_out/dataset_smoke48/images/chart-000.png",
+      "metadata": {
+        "seed": 20261123,
+        "subtype": "bar4_grid5",
+        "values": {
+          "North": 90,
+          "South": 40,
+          "East": 25,
+          "West": 80
+        },
+        "target_region": "North",
+        "pixel_sha256": "04c8e8aa29d41f807434c420021c8f133ee6a94a3c858e4ba431835678800a07"
+      }
+    }
+  ]
+}

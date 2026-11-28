@@ -1,0 +1,221 @@
+{
+  "phase4_n": 240,
+  "flips_loop1_to_loop5": {
+    "True->True": 218,
+    "True->False": 7,
+    "False->True": 11,
+    "False->False": 4
+  },
+  "repaired_loop1_to_loop5_count": 11,
+  "repaired_loop1_to_loop5": [
+    [
+      "chart-019-direct",
+      "chart-v2-3",
+      "truncated",
+      25.0,
+      25.0,
+      2046,
+      291
+    ],
+    [
+      "geometry-005-direct",
+      "geometry-v2-2",
+      "wrong_answer",
+      86.0,
+      139.0,
+      1003,
+      392
+    ],
+    [
+      "geometry-008-direct",
+      "geometry-v1-4",
+      "wrong_answer",
+      70.0,
+      51.0,
+      1035,
+      963
+    ],
+    [
+      "geometry-016-direct",
+      "geometry-v1-2",
+      "wrong_answer",
+      55.0,
+      70.0,
+      171,
+      380
+    ],
+    [
+      "geometry-017-direct",
+      "geometry-v2-2",
+      "wrong_answer",
+      80.0,
+      143.0,
+      1237,
+      653
+    ],
+    [
+      "geometry-029-direct",
+      "geometry-v2-2",
+      "wrong_answer",
+      140.0,
+      137.0,
+      1519,
+      458
+    ],
+    [
+      "geometry-034-direct",
+      "geometry-v1-5",
+      "wrong_answer",
+      40.0,
+      86.0,
+      677,
+      632
+    ],
+    [
+      "geometry-036-direct",
+      "geometry-v1-0",
+      "wrong_answer",
+      54.0,
+      77.0,
+      99,
+      145
+    ],
+    [
+      "geometry-040-direct",
+      "geometry-v1-2",
+      "wrong_answer",
+      59.0,
+      62.0,
+      182,
+      604
+    ],
+    [
+      "geometry-046-direct",
+      "geometry-v1-5",
+      "wrong_answer",
+      46.0,
+      84.0,
+      479,
+      807
+    ],
+    [
+      "geometry-046-multi_step",
+      "geometry-v1-5",
+      "wrong_answer",
+      3.0,
+      41.0,
+      433,
+      723
+    ]
+  ],
+  "regressed_loop1_to_loop5_count": 7,
+  "regressed_loop1_to_loop5": [
+    [
+      "chart-007-multi_step",
+      "chart-v2-3",
+      "wrong_answer",
+      -24.0,
+      -25.0,
+      360,
+      1975
+    ],
+    [
+      "geometry-001-direct",
+      "geometry-v2-0",
+      "wrong_answer",
+      49.0,
+      56.0,
+      1017,
+      1422
+    ],
+    [
+      "geometry-013-direct",
+      "geometry-v2-0",
+      "truncated",
+      63.0,
+      63.0,
+      963,
+      2046
+    ],
+    [
+      "geometry-035-multi_step",
+      "geometry-v2-5",
+      "truncated",
+      90.0,
+      101.0,
+      1591,
+      2007
+    ],
+    [
+      "geometry-044-direct",
+      "geometry-v1-4",
+      "wrong_answer",
+      73.0,
+      45.0,
+      430,
+      886
+    ],
+    [
+      "geometry-045-direct",
+      "geometry-v2-4",
+      "truncated",
+      41.0,
+      41.0,
+      1897,
+      2046
+    ],
+    [
+      "geometry-056-direct",
+      "geometry-v1-4",
+      "wrong_answer",
+      75.0,
+      55.0,
+      1037,
+      770
+    ]
+  ],
+  "always_fail_loop1_and_loop5_count": 4,
+  "always_fail_loop1_and_loop5": [
+    [
+      "geometry-009-direct",
+      "geometry-v2-4",
+      {
+        "1": "truncated",
+        "2": "truncated",
+        "3": "truncated",
+        "5": "truncated"
+      }
+    ],
+    [
+      "geometry-009-multi_step",
+      "geometry-v2-4",
+      {
+        "1": "truncated",
+        "2": "truncated",
+        "3": "wrong_answer",
+        "5": "truncated"
+      }
+    ],
+    [
+      "geometry-025-direct",
+      "geometry-v2-0",
+      {
+        "1": "truncated",
+        "2": "wrong_answer",
+        "3": "correct",
+        "5": "truncated"
+      }
+    ],
+    [
+      "geometry-045-multi_step",
+      "geometry-v2-4",
+      {
+        "1": "truncated",
+        "2": "truncated",
+        "3": "truncated",
+        "5": "wrong_answer"
+      }
+    ]
+  ],
+  "any_pass_correct_count": 237
+}

@@ -161,13 +161,23 @@ def cluster_bootstrap_accuracy_ci(
     return [samples[int(0.025 * (n_boot - 1))], samples[int(0.975 * (n_boot - 1))]]
 
 
+def exact_mcnemar_pvalue(b_base_only: int, c_cand_only: int) -> float:
+    """Exact two-sided McNemar binomial p-value on discordant paired outcomes."""
+    n = int(b_base_only) + int(c_cand_only)
+    if n <= 0:
+        return 1.0
+    k = min(int(b_base_only), int(c_cand_only))
+    tail = sum(math.comb(n, i) for i in range(k + 1)) / (2 ** n)
+    return min(1.0, 2.0 * tail)
+
+
 def paired_cluster_bootstrap_diff_ci(
     rows_base: list[dict],
     rows_cand: list[dict],
     n_boot: int = 2000,
     seed: int = 20261123,
 ) -> dict:
-    """Paired cluster bootstrap CI for (accuracy_cand - accuracy_base) clustered by image_id."""
+    """Paired cluster bootstrap CI + exact McNemar p-value for (accuracy_cand - accuracy_base)."""
     base_by_q = {r["question_id"]: r for r in rows_base}
     cand_by_q = {r["question_id"]: r for r in rows_cand}
     shared_qids = sorted(set(base_by_q) & set(cand_by_q))
@@ -179,6 +189,9 @@ def paired_cluster_bootstrap_diff_ci(
             "cand_accuracy": None,
             "diff_accuracy": None,
             "diff_cluster_bootstrap_95ci": [None, None],
+            "mcnemar_b_base_only": 0,
+            "mcnemar_c_cand_only": 0,
+            "mcnemar_exact_p": 1.0,
         }
 
     clusters_map: dict[str, list[tuple[bool, bool]]] = defaultdict(list)
@@ -194,6 +207,8 @@ def paired_cluster_bootstrap_diff_ci(
     flat_all = [pair for cl in clusters for pair in cl]
     base_acc = sum(b for b, _ in flat_all) / len(flat_all)
     cand_acc = sum(c for _, c in flat_all) / len(flat_all)
+    b_only = sum(1 for b, c in flat_all if b and not c)
+    c_only = sum(1 for b, c in flat_all if (not b) and c)
 
     rng = random.Random(seed)
     diffs = []
@@ -214,6 +229,9 @@ def paired_cluster_bootstrap_diff_ci(
             diffs[int(0.025 * (n_boot - 1))],
             diffs[int(0.975 * (n_boot - 1))],
         ],
+        "mcnemar_b_base_only": b_only,
+        "mcnemar_c_cand_only": c_only,
+        "mcnemar_exact_p": round(exact_mcnemar_pvalue(b_only, c_only), 6),
     }
 
 

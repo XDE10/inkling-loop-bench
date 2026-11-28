@@ -1,0 +1,134 @@
+{
+  "schema_version": 2,
+  "seed": 20261123,
+  "image_count": 2,
+  "question_count": 4,
+  "questions": [
+    {
+      "question_id": "chart-000-direct",
+      "image_id": "chart-000",
+      "template_id": "chart-v1-0",
+      "modality": "chart",
+      "task_type": "direct",
+      "prompt": "What is the value for North in the bar chart? Answer with a number in units.",
+      "answer": 90.0,
+      "unit": "units",
+      "image_path": "/content/phase2_out/dataset_smoke48/images/chart-000.png",
+      "metadata": {
+        "seed": 20261123,
+        "subtype": "bar4_grid5",
+        "values": {
+          "North": 90,
+          "South": 40,
+          "East": 25,
+          "West": 80
+        },
+        "target_region": "North",
+        "pixel_sha256": "04c8e8aa29d41f807434c420021c8f133ee6a94a3c858e4ba431835678800a07"
+      }
+    },
+    {
+      "question_id": "chart-000-multi_step",
+      "image_id": "chart-000",
+      "template_id": "chart-v1-0",
+      "modality": "chart",
+      "task_type": "multi_step",
+      "prompt": "What is the difference between the highest regional value and the lowest regional value? Answer with a number in units.",
+      "answer": 65.0,
+      "unit": "units",
+      "image_path": "/content/phase2_out/dataset_smoke48/images/chart-000.png",
+      "metadata": {
+        "seed": 20261123,
+        "subtype": "bar4_grid5",
+        "values": {
+          "North": 90,
+          "South": 40,
+          "East": 25,
+          "West": 80
+        },
+        "target_region": "North",
+        "pixel_sha256": "04c8e8aa29d41f807434c420021c8f133ee6a94a3c858e4ba431835678800a07"
+      }
+    },
+    {
+      "question_id": "geometry-000-direct",
+      "image_id": "geometry-000",
+      "template_id": "geometry-v1-0",
+      "modality": "geometry",
+      "task_type": "direct",
+      "prompt": "In triangle ABC, what is the marked interior angle at vertex B, in degrees?",
+      "answer": 38.0,
+      "unit": "degrees",
+      "image_path": "/content/phase2_out/dataset_smoke48/images/geometry-000.png",
+      "metadata": {
+        "seed": 20261123,
+        "subtype": "scalene_triangle",
+        "angles": {
+          "A": 48,
+          "B": 38,
+          "C": 94
+        },
+        "known": [
+          "B",
+          "C"
+        ],
+        "target": "A",
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            0.412963895590613,
+            0.45864287061555087
+          ]
+        },
+        "pixel_sha256": "b02fc9422300d51d300d52515b6a19b8ec96a25578aa7ebc8aa9cb9157e16b67"
+      }
+    },
+    {
+      "question_id": "geometry-000-multi_step",
+      "image_id": "geometry-000",
+      "template_id": "geometry-v1-0",
+      "modality": "geometry",
+      "task_type": "multi_step",
+      "prompt": "In triangle ABC, find the interior angle marked '?' at vertex A, in degrees.",
+      "answer": 48.0,
+      "unit": "degrees",
+      "image_path": "/content/phase2_out/dataset_smoke48/images/geometry-000.png",
+      "metadata": {
+        "seed": 20261123,
+        "subtype": "scalene_triangle",
+        "angles": {
+          "A": 48,
+          "B": 38,
+          "C": 94
+        },
+        "known": [
+          "B",
+          "C"
+        ],
+        "target": "A",
+        "vertices": {
+          "A": [
+            0.0,
+            0.0
+          ],
+          "B": [
+            1.0,
+            0.0
+          ],
+          "C": [
+            0.412963895590613,
+            0.45864287061555087
+          ]
+        },
+        "pixel_sha256": "b02fc9422300d51d300d52515b6a19b8ec96a25578aa7ebc8aa9cb9157e16b67"
+      }
+    }
+  ]
+}

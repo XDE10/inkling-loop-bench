@@ -1,0 +1,5 @@
+﻿config,effort,loop_num_passes,effective_layers,n,accuracy,ci95_lo,ci95_hi,relaxed_1pct_acc,correct,wrong,parse_failures,truncated,cot_mean_toks,ttft_p50_ms,tpot_p50_ms,e2e_p50_ms,e2e_mean_ms,peak_vram_max_mb
+low_loop1,low,1,24,83,0.831325,0.746988,0.903614,0.831325,69,7,0,7,488.22,101.76,33.91,9175.96,18242.99,54906.43
+low_loop3,low,3,48,83,0.855422,0.783133,0.927711,0.86747,71,11,0,1,364.11,209.2,82.31,17100.98,33738.88,55396.23
+medium_loop1,medium,1,24,83,0.783133,0.698795,0.86747,0.783133,65,5,0,13,576.4,101.98,34.25,11082.19,21364.13,54906.43
+medium_loop3,medium,3,48,83,0.831325,0.746988,0.903614,0.831325,69,6,0,8,495.22,210.39,83.19,23295.52,45139.43,55396.23

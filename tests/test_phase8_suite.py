@@ -45,12 +45,14 @@ def test_verify_equivalence_and_summarize_trajectories_and_figures(tmp_path: Pat
             "passes": 5,
             "cos_sim_prev": [None, 0.92, 0.97, 0.992, 0.997],
             "rel_l2_prev": [None, 0.35, 0.18, 0.09, 0.04],
-            "banach_contraction_ratio": [None, None, 0.52, 0.50, 0.45],
+            "adjacent_delta_ratio": [None, None, 0.52, 0.50, 0.45],
             "top1_ids": [5, 7, 7, 7, 7],
             "top1_probs": [0.55, 0.80, 0.91, 0.96, 0.98],
             "entropies": [0.95, 0.42, 0.18, 0.09, 0.04],
             "kl_to_final": [0.60, 0.15, 0.05, 0.01, 0.0],
+            "kl_to_loop3": [0.45, 0.10, 0.0, 0.02, 0.04],
             "agree_final": [False, True, True, True, True],
+            "agree_loop3": [False, True, True, True, True],
             "first_stable_pass": 2,
         }
         for _ in range(8)
@@ -58,10 +60,16 @@ def test_verify_equivalence_and_summarize_trajectories_and_figures(tmp_path: Pat
     agg = summarize_token_trajectories(step_metrics, passes=5)
     assert len(agg["per_pass"]) == 5
     assert agg["per_pass"][-1]["agree_final_rate"] == 1.0
-    assert agg["per_pass"][2]["mean_banach_ratio"] == pytest.approx(0.52)
-    assert agg["per_pass"][2]["banach_contracting_rate"] == 1.0
+    assert agg["per_pass"][2]["mean_adjacent_delta_ratio"] == pytest.approx(0.52)
+    assert agg["per_pass"][2]["delta_ratio_lt1_rate"] == 1.0
     assert agg["mean_first_stable_pass"] == 2.0
     assert len(agg["early_exit_sweep"]) >= 5
+    assert len(agg["early_exit_vs_loop3"]) >= 5
+
+    from loopbench.metrics import exact_mcnemar_pvalue
+    assert exact_mcnemar_pvalue(0, 4) == pytest.approx(0.125)
+    assert exact_mcnemar_pvalue(3, 5) == pytest.approx(0.7265625)
+    assert exact_mcnemar_pvalue(7, 11) == pytest.approx(0.480682373046875)
 
     p_mini = tmp_path / "mini.png"
     render_mini_comparison_figure({

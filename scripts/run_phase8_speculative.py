@@ -57,7 +57,7 @@ def render_speculative_figure(payload: dict[str, Any], out_path: Path) -> None:
         ax_sp.set_ylim(0.5, max(sp + [1.4]) * 1.25)
         ax_sp.grid(True, alpha=0.3)
         ax_sp.legend(loc="lower right", fontsize=8.2, frameon=True)
-        ax_sp.set_title("A. Lossless Self-Speculative Speedup (loop=1 → loop=3)", fontweight="bold")
+        ax_sp.set_title("A. Self-Speculative Speedup (loop=1 → loop=3, Eager PyTorch)", fontweight="bold")
 
         xs = np.arange(len(ks))
         w = 0.26
@@ -71,7 +71,7 @@ def render_speculative_figure(payload: dict[str, Any], out_path: Path) -> None:
         ax_acc.legend(loc="upper right", fontsize=8.0, frameon=True)
         ax_acc.set_title("B. Acceptance Rate: Thinking vs Answer Stages", fontweight="bold")
 
-        fig.suptitle("LoopBench Phase 8B: Weight-Shared Self-Speculative Loop Drafting (100% Bit-Exact Greedy)", fontweight="bold", fontsize=11.3)
+        fig.suptitle("LoopBench Phase 8B: Weight-Shared Self-Speculative Loop Drafting (Greedy, Native Rollback)", fontweight="bold", fontsize=11.3)
         fig.tight_layout(rect=(0, 0, 1, 0.93))
         fig.savefig(out_path, metadata={"Software": "LoopBench"})
         plt.close(fig)
