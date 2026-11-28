@@ -2,11 +2,11 @@
 
 **Measuring Accuracy–Latency–Memory Trade-offs of Latent Looping and Explicit Reasoning in Multimodal Inference.**
 
-LoopBench is a reproducible multimodal inference benchmark and evaluation harness built around `thinkingmachines/TML-d24-varloop-research` (`c90921bd5f78df6c8168173b9f8a3a850320c594`) on NVIDIA RTX PRO 6000 Blackwell Server Edition (96 GB). Across **Phases 1–7** (`2,655` real GPU evaluations + `120`-image independent blind multimodal QA + strict out-of-fold online routing + Blackwell CUDA-event GPU systems profiling), it isolates the causal effects of **latent pass depth** (`loop_num_passes ∈ {1, 2, 3, 5}` → `24 / 36 / 48 / 72` verified effective layers) and **explicit reasoning effort** (`none / low / medium / high`) across synthetic charts, Euclidean geometry, real-world `ChartQA-80`, and adversarial hard real-world math (`MathVista-Hard-83`).
+LoopBench is a reproducible multimodal inference benchmark and evaluation harness built around `thinkingmachines/TML-d24-varloop-research` (`c90921bd5f78df6c8168173b9f8a3a850320c594`) and official `thinkingmachines/Inkling-2-Mini` (`c9d028302cd0f035fdf8e7e91f089a4ce94d2195`) on NVIDIA RTX PRO 6000 Blackwell Server Edition (96 GB). Across **Phases 1–8** (`3,000+` real GPU evaluations + `120`-image independent blind multimodal QA + strict out-of-fold online routing + Blackwell CUDA-event systems profiling + self-speculative loop drafting + `1,920`-step cross-pass latent/Banach probes), it isolates the causal effects of **latent pass depth** (`loop_num_passes ∈ {1, 2, 3, 5}` → `24 / 36 / 48 / 72` verified effective layers) and **explicit reasoning effort** (`none / low / medium / high`) across synthetic charts, Euclidean geometry, real-world `ChartQA-80`, and adversarial hard real-world math (`MathVista-Hard-83`).
 
 ---
 
-## Executive Results Summary (Phases 1–7 Completed)
+## Executive Results Summary (Phases 1–8 Completed)
 
 | Phase | Scope & Dataset | Key Result | Report |
 | :---: | --- | --- | --- |
@@ -18,8 +18,9 @@ LoopBench is a reproducible multimodal inference benchmark and evaluation harnes
 | **6** | Offline Router & Cascade Oracles across Phase 4 & 5 traces + Cross-Pass CoT Failure/Repair Audit | `synth-240` Router Oracle reaches **`98.75%` (`+3.33%` `[+1.25%, +5.83%]`)** at **`3.38×` speedup** (`70.4%` GPU-s saved); `effort48` Router reaches **`2.09×`** speedup; exposes 3 CoT flip mechanisms (target-swap repair, pixel-ruler over-calibration, high-effort truncation) | [phase6_oracle_systems.md](reports/phase6_oracle_systems.md) |
 | **7A** | Strict anti-leakage Out-of-Fold Online Routing (`image_id` 5-Fold, LOTO `k=24`, Zero-Shot transfer across `1,856` traces) | Exposes Oracle Gap: post-pass-1 CoT cascades fail on `synth-240` (`93.3%–94.6%`); `PreGen Ridge` hits `96.25% @ 2.24×` speedup in-domain but weight audit reveals reliance on synthetic prompt structure | [phase7a_online_routing.md](reports/phase7a_online_routing.md) |
 | **7B / 7C** | **7B**: Adversarial real-world `MathVista-Hard-83` (`2×2` grid `332` evals + `83` blank-image control). **7C**: Blackwell CUDA-Event breakdown, `bs ∈ {1,2,4,8}` scaling & KV cache ablation | **7B**: `low_loop3` (`85.54%`, trunc `7→1`, CoT `-25.4%`) Pareto-dominates `medium` (`78.31%/83.13%`), though `+2.41%` vs `low_loop1` (`83.13%`) is non-significant; blank control = `6.02%` (`+77.11 pp` visual gain); routing flips vs synthetic (`HardFail` cascade wins, OOF `PreGen` drops to `80.7%`). **7C**: `DynamicCache` grows exactly `+48 KB/tok/pass`; `bs=1→8` scales decode `5.07×–5.76×` (`151.1 / 71.1 tok/s`) within `51.8 GB` VRAM | [phase7b_mathvista_and_7c_systems.md](reports/phase7b_mathvista_and_7c_systems.md) |
+| **8** | **8A**: Official `Inkling-2-Mini` (`48L`, `bs=4`, `329` evals + systems probe). **8B**: Self-speculative `loop=1→3` drafting (`K∈{2,4,6,8}`). **8C**: Cross-pass Banach contraction & early-exit probes (`20` items × `5` passes, `1,920` steps) | **8A**: Official Mini hits **`87.95%`** `MathVista-83 (low)` (`+2.41 pp` vs varloop, `6.02%` blank) & **`90.0% / 92.5%`** `ChartQA-80`, reproducing `low > medium` Pareto dominance. **8B**: High acceptance (**`86.8%`** overall, **`98.8%–99.1%`** answer-stage) but net **`0.931×–0.831×`** in eager PyTorch due to `0.42×` draft cost + `9.5%–14.3%` hybrid `LinearAttention/Conv1d` rollback tax. **8C**: Banach contraction peaks at Pass 4 ($L_4=\mathbf{0.464}$, `98.8%` contracting) after Pass 2→3 phase transition (`-70%` KL); `T->F` is overthinking (`p1_ent=1.045`), not divergence; Logit-Lens entropy early-exit saves **`23.0%`** core compute at **`98.07%`** fidelity | [phase8_mini_speculative_probes.md](reports/phase8_mini_speculative_probes.md) |
 
-> Mock outputs under `artifacts/mock/` are synthetic test fixtures, not model measurements. Compact real GPU evaluation summaries and figures live under `artifacts/phase{2,3,4,5,6,7,7b_mathvista,7c_gpu_systems}/`, while full bulky raw JSONL traces and logs are archived cloud-first to `mydrive:inkling_loop_bench/phase{3,4,5,6,7b,7b_blank,7c}` via `rclone`.
+> Mock outputs under `artifacts/mock/` are synthetic test fixtures, not model measurements. Compact real GPU evaluation summaries and figures live under `artifacts/phase{2,3,4,5,6,7,7b_mathvista,7c_gpu_systems,8a_mini,8b_speculative,8c_probes}/`, while full bulky raw JSONL traces and logs are archived cloud-first to `mydrive:inkling_loop_bench/phase{3,4,5,6,7b,7b_blank,7c,8a,8b,8c}` via `rclone`.
 
 ---
 
@@ -59,9 +60,18 @@ python scripts/run_gemini_crosspass_audit.py --phase4-dir <p4_jsonls> --phase5-d
 python scripts/run_phase7_online_router.py --phase4-dir <p4_jsonls> --phase5-dir <p5_jsonls> --out artifacts/phase7
 python scripts/run_phase7_mathvista.py --config configs/phase7_mathvista.yaml --out artifacts/phase7b_mathvista --efforts low,medium --passes 1,3
 python scripts/run_phase7_gpu_systems.py --config configs/phase7_mathvista.yaml --image <sample_png> --out artifacts/phase7c_gpu_systems
+
+# Phase 8 (Official Inkling-2-Mini cross-model eval + self-speculative drafting + Banach/early-exit probes)
+python scripts/run_phase8_mini_eval.py --batch-size 4 --out artifacts/phase8a_mini
+python scripts/run_phase8_speculative.py --config configs/phase7_mathvista.yaml --out artifacts/phase8b_speculative
+python scripts/run_phase8_probes.py --config configs/phase7_mathvista.yaml --out artifacts/phase8c_probes
 ~~~
 
 ## Key Visual Summary
+
+![Phase 8A Official Inkling-2-Mini vs Research Varloop](artifacts/phase8a_mini/mini_vs_varloop.png)
+
+![Phase 8C Cross-Pass Latent Convergence & Early-Exit](artifacts/phase8c_probes/latent_probes_early_exit.png)
 
 ![Phase 7B MathVista-Hard-83 Pareto & Breakdown](artifacts/phase7b_mathvista/report/pareto_mathvista_hard.png)
 

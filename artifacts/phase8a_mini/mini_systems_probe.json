@@ -1,0 +1,79 @@
+{
+  "model_id": "thinkingmachines/Inkling-2-Mini",
+  "model_revision": "c9d028302cd0f035fdf8e7e91f089a4ce94d2195",
+  "model_load_s": 70.68,
+  "stage_breakdown": [
+    {
+      "loop_num_passes": 3,
+      "effective_layers_expected": 48,
+      "prefill_layers_observed": 48,
+      "decode_layers_per_step": 48.0,
+      "input_tokens": 158,
+      "decode_steps": 32,
+      "prefill_wall_ms": 201.345,
+      "prefill_vision_ms": 6.353,
+      "prefill_prelude_ms": 25.614,
+      "prefill_core_ms": 140.408,
+      "prefill_coda_ms": 21.663,
+      "decode_tpot_wall_ms": 86.561,
+      "decode_prelude_ms": 8.595,
+      "decode_core_ms": 64.418,
+      "decode_coda_ms": 8.519,
+      "decode_overhead_ms": 5.029,
+      "core_share_of_decode_pct": 74.42,
+      "kv_cache_type": "DynamicCache",
+      "kv_cache_prefill_mb": 34.5,
+      "kv_cache_after_decode_mb": 40.5,
+      "kv_cache_delta_per_tok_kb": 192.0,
+      "kv_tensor_count": 328,
+      "peak_vram_mb": 50631.54
+    }
+  ],
+  "batch_throughput": [
+    {
+      "loop_num_passes": 3,
+      "effective_layers": 48,
+      "batch_size": 1,
+      "input_tokens_per_req": 158,
+      "gen_tokens_per_req": 64,
+      "total_gen_tokens": 64,
+      "ttft_ms": 197.42,
+      "tpot_ms": 82.74,
+      "e2e_ms": 5410.16,
+      "agg_decode_tok_per_s": 12.09,
+      "agg_e2e_tok_per_s": 11.83,
+      "peak_vram_mb": 50602.83,
+      "oom": false
+    },
+    {
+      "loop_num_passes": 3,
+      "effective_layers": 48,
+      "batch_size": 4,
+      "input_tokens_per_req": 158,
+      "gen_tokens_per_req": 64,
+      "total_gen_tokens": 256,
+      "ttft_ms": 224.64,
+      "tpot_ms": 83.28,
+      "e2e_ms": 5471.13,
+      "agg_decode_tok_per_s": 48.03,
+      "agg_e2e_tok_per_s": 46.79,
+      "peak_vram_mb": 51123.39,
+      "oom": false
+    },
+    {
+      "loop_num_passes": 3,
+      "effective_layers": 48,
+      "batch_size": 8,
+      "input_tokens_per_req": 158,
+      "gen_tokens_per_req": 64,
+      "total_gen_tokens": 512,
+      "ttft_ms": 289.54,
+      "tpot_ms": 112.98,
+      "e2e_ms": 7407.51,
+      "agg_decode_tok_per_s": 70.81,
+      "agg_e2e_tok_per_s": 69.12,
+      "peak_vram_mb": 51817.51,
+      "oom": false
+    }
+  ]
+}
